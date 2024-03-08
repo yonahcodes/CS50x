@@ -1,5 +1,5 @@
 # Harvard University’s CS50 - 2024
-![This is CS%)](https://github.com/Lazerpy/cs50/blob/main/this_is_cs50.webp)
+![This is CS%)](this_is_cs50.webp)
 ## Welcome to Lazer's CS50 repository
 ### [Academic Honesty](https://cs50.harvard.edu/x/2024/honesty/)
 
