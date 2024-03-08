@@ -1,4 +1,4 @@
-# CS50 Week 1 - C
+# CS50 Section 1 - C
 <!-- this is an invisible comment -->
 Welcome to my personal notes of CS50's very first section!
 
