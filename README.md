@@ -10,4 +10,4 @@ In this repository I will be documenting my progress in Harvard University's int
     - Problem set 0 - [Scratch](https://scratch.mit.edu/projects/973718749)
 
 - [Week 1 - C](https://cs50.harvard.edu/x/2024/weeks/1/)
-    - [Section 1 Notes](cs50_w1_section.md) 
+    - [Section 1 Notes](week1_c/section1.md) 
