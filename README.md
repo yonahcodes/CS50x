@@ -10,3 +10,4 @@ In this repository I will be documenting my progress in Harvard University's int
     - Problem set 0 - Scratch
 
 - [Week 1 - C](https://cs50.harvard.edu/x/2024/weeks/1/)
+    - [Section 1 Notes](/cs50_w1_section.md) 
