@@ -53,17 +53,17 @@
 
 - Be sure to `#include <cs50.h>` atop you programs if you wish to use the bool type.
 
->`string` data type is used for variables that will sotre a serives of characters, which programmers typically call a **string**.
+>`string` data type is used for variables that will store a series of characters, which programmers typically call a **string**.
 
 - Strings include things such as **words**, **sentences**, **paragraphs**, and the like.
 
 - Be sure to `#include <cs50.h>` atop your programs if you wish to use the **string** type.
 
-Later we'll also encouter structures (**structs**) and defined types (**typedefs**) that afford great flexibility in creating data types you need for your programs.
+Later we'll also encounter structures (**structs**) and defined types (**typedefs**) that afford great flexibility in creating data types you need for your programs.
 
 ## Creating a variable
 
-To bring a `variable` into existance, you need to simply **specify the data type** of the variable and **give it a name**.
+To bring a `variable` into existence, you need to simply **specify the data type** of the variable and **give it a name**.
 
 ```c
 int number;
