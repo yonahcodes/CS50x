@@ -15,3 +15,4 @@ In this repository I will be documenting my progress in Harvard University's int
       - [Data Types](week1_c/w1_data_types.md)
       - [Operators](week1_c/w1_operators.md)
       - [Conditional Statements](week1_c/w1_conditional_statements.md)
+      - [Loops](week1_c/w1_loops.md)
