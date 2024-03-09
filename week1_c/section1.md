@@ -82,7 +82,7 @@ Breaking it down:
 
 - `%i` is the placeholder for the value of the variable `calls`
 
-- The value of the *variable* that follows the coma `,` will be stored in the placehoder: 
+- The value of the *variable* that follows the coma `,` will be stored in the placeholder: 
 
 - **printf("calls is %i\n", `calls`);**
 
@@ -129,7 +129,7 @@ int main(void)
 }
 ```
 
-`#include <cs50.h>` give us access to the cs50 library that includes The `get_string` funtion we are using.
+`#include <cs50.h>` give us access to the cs50 library that includes The `get_string` function we are using.
 
 - We declare a variable of type **string** called "name"
 
@@ -139,7 +139,7 @@ int main(void)
 
 -  `printf("Hello, %s\n", name);` function prints "Hello, user-input"
 
-- `%s` is a string type placeholder for the string type variable promted by user
+- `%s` is a string type placeholder for the string type variable prompted by user
 
 ```c
 #include <cs50.h>
@@ -199,7 +199,7 @@ The code above will return "####" by repeatedly executing the loop until `j` is 
 
 - `j++;` Increase value of j by 1
 
-- *The loop then goes back to the top with new value to reasses the condition, and runs the loop over and over until the condition returns false (j = 4).*
+- *The loop then goes back to the top with new value to reassess the condition, and runs the loop over and over until the condition returns false (j = 4).*
 
 - `printf("\n");` Move to a new line
 
