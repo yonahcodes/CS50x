@@ -1,4 +1,4 @@
-# Loops
+# C - Loops
 **Loops** allow your programs to execute lines of code repeatedly, saving you from needing to copy and paste or otherwise repeat lines of code.
 
 **C** provides a few different ways to implement **loops** in your program.
