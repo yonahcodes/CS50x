@@ -13,3 +13,4 @@ In this repository I will be documenting my progress in Harvard University's int
     - Section 1 [Notes](week1_c/section1.md)
     - Shorts:
       - [Data Types](week1_c/w1_data_types.md)
+      - [Operators](week1_c/w1_operators.md)
