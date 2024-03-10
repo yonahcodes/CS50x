@@ -19,6 +19,6 @@ In this repository I will be documenting my progress in Harvard University's int
       - [Command Line](week1_c/w1_command_line.md)
       - [Magic Numbers](week1_c/w1_magic_numbers.md)
     - Problem set 1
-      - [Hello, It's Me]
+      - [Hello, It's Me](week1_c/hello.c)
       - [Mario]
       - [Cash]
