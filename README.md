@@ -10,11 +10,15 @@ In this repository I will be documenting my progress in Harvard University's int
     - Problem set 0 - [Scratch](https://scratch.mit.edu/projects/973718749)
 
 - [Week 1 - C](https://cs50.harvard.edu/x/2024/weeks/1/)
-    - Section 1 [Notes](week1_c/section1.md)
-    - Shorts:
+    - Section 1 - [Notes](week1_c/section1.md)
+    - Shorts
       - [Data Types](week1_c/w1_data_types.md)
       - [Operators](week1_c/w1_operators.md)
       - [Conditional Statements](week1_c/w1_conditional_statements.md)
       - [Loops](week1_c/w1_loops.md)
       - [Command Line](week1_c/w1_command_line.md)
       - [Magic Numbers](week1_c/w1_magic_numbers.md)
+    - Problem set 1
+      - [Hello, It's Me]
+      - [Mario]
+      - [Cash]
