@@ -1,4 +1,4 @@
-# Harvard University’s CS50 - 2024
+# Harvard University’s CS50x - 2024
 ![This is CS%)](this_is_cs50.webp)
 ## Welcome to Lazer's CS50 repository
 ### [Academic Honesty](https://cs50.harvard.edu/x/2024/honesty/)
