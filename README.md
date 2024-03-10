@@ -1,5 +1,5 @@
 # Harvard University’s CS50x - 2024
-![This is CS%)](this_is_cs50.webp)
+![This is CS50](img/this_is_cs50.webp)
 ## Welcome to Lazer's CS50 repository
 ### [Academic Honesty](https://cs50.harvard.edu/x/2024/honesty/)
 
@@ -20,5 +20,5 @@ In this repository I will be documenting my progress in Harvard University's int
       - [Magic Numbers](week1_c/w1_magic_numbers.md)
     - Problem set 1
       - [Hello, It's Me](week1_c/hello.c)
-      - [Mario]
+      - [Mario](week1_c/mario.c)
       - [Cash]
