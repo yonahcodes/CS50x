@@ -16,5 +16,5 @@ In this repository I will be documenting my progress in Harvard University's int
       - [Operators](week1_c/w1_operators.md)
       - [Conditional Statements](week1_c/w1_conditional_statements.md)
       - [Loops](week1_c/w1_loops.md)
-      - [Command Line]
+      - [Command Line](week1_c/w1_command_line.md)
       - [Magic Numbers](week1_c/w1_magic_numbers.md)
