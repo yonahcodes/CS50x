@@ -1,17 +1,17 @@
 # C - Data Types
->`int` data type is used for variables that will store integers.
+### `int` data type is used for variables that will store integers.
 
 - Integers always take up **4 bytes of memory (32 bits).** 
 - This means the range of values they can store is necessarily limited to 32 bits worth of information.
 - Integer range: -2pw31 to 2pw31 (-1) ~ 2 billion
 
->`unsigned int` is a qualifier that can be applied to certain types (including int).
+### `unsigned int` is a qualifier that can be applied to certain types (including int).
 
 - It doubles the positive range of variables of that type, at the cost of disallowing any negative values.
 
 - Integer range: 0 to 2pw32 (-1) ~ 4 billion
 
->`char` data type is used for variable that will store single characters.
+### `char` data type is used for variable that will store single characters.
 - Characters always take up **1 byte of memory (8 bits)**.
 
 - This means the range of values they can store is necessarily limited to 8 bits worth of information.
@@ -22,7 +22,7 @@
 
 - Example: "A" = 65, "a" = 97, "0" = 48
 
->`float` data type is used for variables that will store floating-point values, also known as *real numbers*.
+### `float` data type is used for variables that will store floating-point values, also known as *real numbers*.
 
 - Floating points values always take up **4 bytes of memory (32 bits)**.
 
@@ -31,14 +31,14 @@
 - Example: 3.14159 We need to be able to represent the integer part and the decimal part. 
 - If the integer part is big we will lose precision with the decimal part.
 
->`double` data type is used for variables that will store floating-point values, also known as *real numbers*.
+### `double` data type is used for variables that will store floating-point values, also known as *real numbers*.
 
 - The difference is that doubles are *double precision*.
 - They always take up **8 bytes of memory (64 bits)**.
 
 - With an additional 32 bits of precision relative to a *float*, doubles allow us to specify much more precise real numbers.
 
->`void` is a type, but not a data type.
+### `void` is a type, but not a data type.
 
 - Functions can have a void return type, which just means they don't return a value.
 
@@ -48,12 +48,12 @@
 
 ## CS50 Specific Data Types
 
->`bool` data type is used for variables that will store a *Boolean* value.
+### `bool` data type is used for variables that will store a *Boolean* value.
 - More precisely, they are capable only of storing one of two values: **true** and **false**.
 
 - Be sure to `#include <cs50.h>` atop you programs if you wish to use the bool type.
 
->`string` data type is used for variables that will store a series of characters, which programmers typically call a **string**.
+### `string` data type is used for variables that will store a series of characters, which programmers typically call a **string**.
 
 - Strings include things such as **words**, **sentences**, **paragraphs**, and the like.
 
