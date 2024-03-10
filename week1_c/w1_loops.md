@@ -60,14 +60,14 @@ The process undertaken in a **for loop**:
 - The *counter variable* is incremented `i++` and then the *Boolean expression* is checked again.
 
 ```c
-for (start; expr; increment)
+for (initialization; condition; update)
 {
-
+    // code to repeat
 }
 ```
- - The statement(s) in **start** are executed
- - The **expr** is checked
+ - The statement(s) in **initialization** are executed
+ - The **condition** is checked
     - If *true*, the body of the loop executes
     - If *false*, the body of the loop does not execute
-- The statement(s) in **increment** are executed, and then the **expr** is checked again, etc.
+- The statement(s) in **update** are executed, and then the **condition** is checked again, etc.
 
