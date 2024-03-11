@@ -2,7 +2,7 @@
 #include <cs50.h>
 #include <stdio.h>
 
-// Declaring functions I will be using in the main function
+// Include prototypes of the functions I will be using in the main function
 int calculate_quarters(int cents);
 int calculate_dimes(int cents);
 int calculate_nickels(int cents);
