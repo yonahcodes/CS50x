@@ -22,3 +22,6 @@ In this repository I will be documenting my progress in Harvard University's int
       - [Hello, It's Me](week1_c/hello.c)
       - [Mario](week1_c/mario.c)
       - [Cash](week1_c/cash.c)
+     
+    
+- [Week 2 - Arrays](https://cs50.harvard.edu/x/2024/weeks/2/)
