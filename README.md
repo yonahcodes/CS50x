@@ -30,3 +30,4 @@ In this repository I will be documenting my progress in Harvard University's int
     - Lecture 2 - [Official notes](https://cs50.harvard.edu/x/2024/notes/2/) - [Notes](week2_arrays/lecture2.md)
     - Section 2 - [Notes](week2_arrays/section2.md)
     - Shorts
+      - [Functions](week2_arrays/w2_functions.md)
