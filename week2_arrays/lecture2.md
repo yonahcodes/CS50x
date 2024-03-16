@@ -220,7 +220,7 @@ float average(int length, int array[])
 ```
 A new function called `average` is declared. Notice how the `average` function takes `int array[]`, which means that the compiler passes an *array* to this function.
 
-> Not only can **arrays** ne containers: They can be passed between functions.
+> Not only can **arrays** be containers: They can be passed between functions.
 
 ## Strings
 
@@ -439,7 +439,7 @@ int main(void)
     printf("\n");
 }
 ```
-> This code *iterates* through each value in the string. The program looks at each character. If the character is **lowercase**, if subtracts the value **32** from it to convert it to its **UPPERCASE** equivalent from the **ASCII** chart.
+This code *iterates* through each value in the string. The program looks at each character. If the character is **lowercase**, if subtracts the value **32** from it to convert it to its **UPPERCASE** equivalent from the **ASCII** chart.
 
 ```c
 // Making the for loop more efficient:
@@ -594,9 +594,11 @@ Scrambling a message so that only you and the recipient can receive it.
 - `key` is a special argument (number) passed to the **cipher** along with **plaintext**. 
 - `cipher` is an **algorithm** for encrypting and decrypting data.
 
->**Example**: Plaintext is `HI!` and Key is `13`. The `cipher` will change every letter of the plaintext by another one 13 letters down. `H` becomes `U` and `I` becomes `V`, `!` is unchanged, resulting in the encrypted `UV!`
+#### **Example**:<br>
+Plaintext is `HI!` and Key is `13`. The `cipher` will change every letter of the plaintext by another one 13 letters down. `H` becomes `U` and `I` becomes `V`, `!` is unchanged, resulting in the encrypted `UV!`
 
 ### Decryption: <br>
 Unscrambling a message to its original form. Using the same **key** that was used to encrypt it we can reverse the process.
 
->**Example**: Encrypted message is `UV!` and Key is `-13`. The `cipher` will change back every letter of the encrypted message by another one 13 letters **UP**. `U` becomes `H` and `V` becomes `I`, `!` is unchanged, resulting in the decrypted message `HI!`
+#### **Example**:<br> 
+Encrypted message is `UV!` and Key is `-13`. The `cipher` will change back every letter of the encrypted message by another one 13 letters **UP**. `U` becomes `H` and `V` becomes `I`, `!` is unchanged, resulting in the decrypted message `HI!`
