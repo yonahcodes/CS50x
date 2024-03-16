@@ -31,3 +31,4 @@ In this repository I will be documenting my progress in Harvard University's int
     - Section 2 - [Notes](week2_arrays/section2.md)
     - Shorts
       - [Functions](week2_arrays/w2_functions.md)
+      - [Variables and Scope](week2_arrays/w2_variables_and_scope.md)
