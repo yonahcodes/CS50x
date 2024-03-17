@@ -11,21 +11,21 @@ Once we set up our *breakpoints*, we can run the program with `debug50 ./program
 <br><br>
 
 ### Play/Continue
-The first button, the blue triangle, allows you to **start** or **continue** the execution of the program from the current breakpoint. If there are no breakpoints set, it starts the program from the beginning.
+- The first button, the blue triangle, allows you to **start** or **continue** the execution of the program from the current breakpoint. If there are no breakpoints set, it starts the program from the beginning.
 
 ### Step Over
-This button, the curved arrow, executes the current line of code and **moves to the next line**. If the current line contains a function call, it executes the entire function and stops at the next line after the function call returns.
+- This button, the curved arrow, executes the current line of code and **moves to the next line**. If the current line contains a function call, it executes the entire function and stops at the next line after the function call returns.
 
 ### Step Into
-The **down arrow** button steps into the execution of the current line of code. If the current line contains a function call, it enters the function and stops at the first line of the function.
+- The **down arrow** button steps into the execution of the current line of code. If the current line contains a function call, it enters the function and stops at the first line of the function.
 
 ### Step Out
-The **up arrow** button allows you to step out of the current function. It continues the execution of the program until it exits the current function and stops at the line after the function call 
+- The **up arrow** button allows you to step out of the current function. It continues the execution of the program until it exits the current function and stops at the line after the function call 
 
 ### Restart
-This button restarts the debugging session, resetting the program's state and starting from the beginning.
+- This button restarts the debugging session, resetting the program's state and starting from the beginning.
 
 ### Stop
-This button terminates the debugging session, stopping the execution of the program.
+- This button terminates the debugging session, stopping the execution of the program.<br><br>
 
 > **Sidenote**: In **C** we cannot compare two strings using `==`. In this example: `phrase == password` will not execute. We need to use a function called `strcmp` and give it the two strings as arguments: `strcmp(phrase, password) == 0`.
