@@ -8,6 +8,7 @@ Still, as programmers we will likely be using the **terminal window** frequently
 
 > These commands can be used in any **UNIX-based** system, which includes **macOS**.
 
+<br><br>
 ## Using the Linux Command Line
 
 ### **`ls`**<br>
