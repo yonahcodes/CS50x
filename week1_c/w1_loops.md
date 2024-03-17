@@ -39,6 +39,7 @@ while (boolean-expression)
 
 > **do-while** loops are guaranteed to run at least one time.
 
+<br><br>
 ## For Loops
 
 **For loops** are used to repeat the body of a loop a specified number of times, in this example `10`. 
