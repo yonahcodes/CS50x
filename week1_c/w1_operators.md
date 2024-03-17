@@ -41,8 +41,8 @@ We can use the result of evaluating  a **Boolean** expression in other programmi
 > In C, every non zero value is equivalent to **true**, and zero is **false**.
 
 There is two main types of Boolean expressions: *logical operators* and *relational operators*.
-
-### Logical operators
+<br><br>
+## Logical operators
 Logical **AND** `&&` is true if and only if **both operands** are true, otherwise false.
 
 |x|y|(x && y)|
@@ -69,8 +69,8 @@ Logical **NOT** `!` inverts the value of its operand.
 |:-:|:-:|
 |true|*false*|
 |false|*true*|
-
-### Relational operators
+<br><br>
+## Relational operators
 
 These behave as you would expect them to, and appear syntactically similar to how you may recall them from elementary arithmetic.
 
@@ -85,7 +85,3 @@ C also can test two variables for **equality** and **inequality**.
 - Inequality `x != y`
 
 > Be careful! it's a common mistake to use the assignment operator `=` when you intend to use the equality operator `==`.
-
-
-
-
