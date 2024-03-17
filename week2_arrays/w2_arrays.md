@@ -19,6 +19,7 @@ If an **array** consists of `n` elements, the first element is located at `index
 <br><br>
 
 > *C* is very lenient. It will not prevent you from going **"out of bounds"** of your array. It will result in a **Segmentation fault**; be careful!
+
 <br><br>
 
 ## Array Declarations
@@ -81,6 +82,7 @@ bool battleship[10][10];
 - In the memory though, it's really just a `100-element` **one-dimensional** array.
 - *Multi-dimensional* arrays are great **abstractions** to help visualize game boards or other complex representations.
 <br><br>
+
 
 ## Passing Arrays to Functions
 We can treat individual **elements** of arrays as variables, but we cannot treat entire arrays themselves as variables. In **C**, we **cannot**, for instance, assign one array to another using the assignment operator:
