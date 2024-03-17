@@ -4,7 +4,7 @@ Welcome to my personal notes of CS50's very first section!
 
 The goal of sections is to help us bridge the gap between lectures and problem sets.
 
-In this introductory week, we delve into the fundamentals of the C programming language, covering essential concepts like variables, types, input/output, loops, and functions. Let's demystify the basics of C programming.
+In this introductory week, we delve into the fundamentals of the C programming language, covering essential concepts like variables, types, input/output, loops, and functions. Let's demystify the basics of C programming.<br><br>
 
 ## Variables and Types
 A **variable** is container paired with a symbolic name for some value that can change
@@ -58,12 +58,13 @@ When we run the code, the result is **4 instead of 4.5**. Any decimal result is 
 
 > Integers are whole numbers, they do not store decimal values.
 
+<br><br>
 ## Input and Printing
 ```c
 int calls = get_int("Calls: "); 
 ```
 `get_int("Calls: ");` is a **function call**.
-> `get_int` is a function created by cs50 
+> `get_int` is a function created by cs50.
 
 When the user is prompted to enter a **value**, it is stored in the variable. If user enters "**4**":
 
@@ -85,7 +86,7 @@ Breaking it down:
 - The value of the *variable* that follows the coma `,` will be stored in the placeholder: 
 
 - **printf("calls is %i\n", `calls`);**
-
+<br><br>
 ## Types and format codes
 - int `%i`
 
@@ -113,7 +114,7 @@ Breaking it down:
 - `int` specifies the return type of the "main" function.
 
 - `(void)` This part specifies the parameter list of the main function. "void" means the function does not expect any command-line arguments.
-
+<br><br>
 ## Getting input from user
 
 Using the CS50 library `<cs50.h>`, we can easily obtain user input:
@@ -174,6 +175,7 @@ int main(void)
 In the program above we prompt the user for 3 inputs (name, age, phone number) and we display contact information.
 >We chose **string type** for the phone number to include a variation of entries. 
 
+<br><br>
 ## Functions, Loops and Conditionals
 ### While Loops
 
@@ -295,7 +297,8 @@ This program prompts the user for the height of a pyramid and prints the corresp
 >Before calling a function we need to define it. If it's defined below where it is called, the program will not run. 
 > - We need to include above the call a function prototype (its name, input, and return value) ex: `void print_row(int length);`
 
-### Parameters VS Arguments
+<br><br>
+## Parameters VS Arguments
 
 ```c
 #include <stdio.h>
