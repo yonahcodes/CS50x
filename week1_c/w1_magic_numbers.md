@@ -25,7 +25,7 @@ card deal_cards(deck name)
 ```
 The program above fixes one problem, but introduces another.
 - Even if **globally** declared, if some other function in our suite inadvertently manipulates `deck_size`, it could lead to problems.
-
+<br><br>
 ## Preprocessor Directive or Macro
 
 > **C** provides a **preprocessor directive** (also called a **macro**) for creating symbolic constants.
