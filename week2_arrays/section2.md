@@ -1,7 +1,7 @@
 # CS50 Section 2 - Arrays
 Welcome to my personal notes of CS50's second section! The goal of sections is to help us bridge the gap between lectures and problem sets.
 
-In the previous week, we learned about **C** programming language. This week, we are going to take a deeper look at additional building-blocks that will support our understanding of **C**. We will learn about compiling, arrays, strings and command-line arguments.
+In the previous week, we learned about **C** programming language. This week, we are going to take a deeper look at additional building-blocks that will support our understanding of **C**. We will learn about compiling, arrays, strings and command-line arguments.<br><br>
 
 ## Compilation
 Converting the *source code* written in **C** to *machine code* the computer understands.
@@ -37,6 +37,7 @@ main:
 ```
 > In CS50 we use the pre-programmed `make filename.c` command to compile our code.
 
+<br><br>
 ## Arrays
 
 An **array** is a *data structure* that stores a collection of elements, such as integers or characters, back-to-back in the computer's memory. This optimizes data storage and makes it easier to search, sort and iterate over the data.
@@ -83,6 +84,7 @@ int nights[5] = {7, 8, 6, 7, 8};
 ```
 > In **C** once you have declared the size of an array, it cannot be changed.
 
+<br><br>
 ### Doubling Up
 Let's create an **array** of *integers* in which: 
 - Each integer is `2` times the value of the previous integer. 
@@ -166,6 +168,7 @@ int main(void)
     }
 }
 ```
+<br><br>
 ## Strings
 A **string** is an array, where the elements are characters `char`.
 
@@ -192,7 +195,7 @@ phrase[4] = O
 |:-:|
 |H E L L O|
 |72 69 76 76 79|
-
+<br><br>
 ### Alphabetical
 Let's create a program to check if an array of characters is in alphabetical order.
 - Assume the characters ar all uppercase
@@ -260,7 +263,7 @@ int main(void)
 }
 ```
 Notice that the last `printf` function is outside of the `for loop`. This is done to respect the *scope* and for the program to go through every character of the string.
-
+<br><br>
 ## Command-Line Arguments
 
 We're going to explore the idea of running programs and giving them input not while they run, but before they run, using the **command line**.
@@ -296,8 +299,9 @@ int main(void)
 `main` is the name of the function<br>
 `(void)` means the function takes no arguments.<br>
 To run the program user only types `./mario`
+<br><br>
 
-No let's add arguments to the **main** function:
+Now let's add arguments to the **main** function:
 
 ```c
  int main(int argc, string argv[])
@@ -308,7 +312,7 @@ No let's add arguments to the **main** function:
 ### Let's break down `int main(int argc, string argv[])`,<br>
 `argc` is an argument of type integer and its value is equivalent to the number of arguments the program receives at the command line: `./mario 8` would mean `argc = 2`.<br>
 `argv[]` is an array of strings at the command line. In `./mario 8` it contains `2` strings: The name of the program `./mario` and the input that user gave `8`.
-
+<br><br>
 ### Argv
 
 If we wanted to create a program that reveals what is inside `argv[]`:
@@ -334,7 +338,7 @@ argv[1] is 1
 argv[2] is 2
 argv[3] is 3
 ```
-
+<br><br>
 ### Error
 
 `Segmentation fault (core dumped)` error happens when we look **beyond** the bounds of the array. When checking for values, make sure to index within the range of the array.
