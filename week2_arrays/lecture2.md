@@ -41,7 +41,7 @@ To fix this, we have to provide an additional command line argument `-l` to link
 - **Assembling** involves the compiler converting your *assembly* code into *machine* code.
 
 - **Linking** is where the code from your included **libraries** are converted also into *machine* code and combined with your code. The final executable file is then outputted.
-
+<br><br>
 ## Debugging
 ```c
 #include <stdio.h>
@@ -92,6 +92,7 @@ A better more powerful tool we can use to address bugs is a **debugger**, a soft
 
 > Get into the habit NOW of using the **debugger** instead of `printf`. You can also use `cs50.ai`.
 
+<br><br>
 ## Arrays
 
 Each data type requires a certain amount of system resources:
@@ -222,6 +223,8 @@ A new function called `average` is declared. Notice how the `average` function t
 
 > Not only can **arrays** be containers: They can be passed between functions.
 
+<br><br>
+
 ## Strings
 
 A `string` is simply an array of variables of 
@@ -345,6 +348,7 @@ If we break down how each **char** is stored:
 - `E` words [1] [2] 
 - `!` words [1] [3]  
 - `\0` words [1] [4] 
+<br><br>
 
 ## String Length
 A common programming, and perhaps **C** more specifically, is to discover the length of an array. 
@@ -498,7 +502,7 @@ int main(void)
     printf("\n");
 }
 ```
-
+<br><br>
 ## Command-Line Arguments
 
 `Command-line arguments` are those arguments that are passed to your program at the command line. For example, all those statements we typed after `clang` are considered command line arguments.
@@ -554,6 +558,8 @@ int main(int argc, string argv[])
 ```
 > Notice that this program knows both **`argc`**, the number of command line arguments, and **`argv`** which is an array of the characters passed as arguments at the command line.
 
+<br><br>
+
 ## Exit Status
 
 When a program ends, a special exit code is provided to the computer.<br>
@@ -578,6 +584,8 @@ int main(int argc, string argv[])
 If you fail to provide `./status Name`, you will get an **exit status** of **`1`**. However, if you provide `./status Name`, you will get an exit status of **`0`**.
 
 > If we want to see what the most recently run program exit with, we can type in the **terminal** `echo $?` command.
+
+<br><br>
 
 ## Cryptography
 
