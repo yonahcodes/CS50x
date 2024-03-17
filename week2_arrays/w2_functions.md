@@ -29,7 +29,8 @@ That's part of the contract of using functions. The behavior is typically predic
 ### Why use functions?
 - **Organization**: Functions help us break up a complicated problem into more manageable subparts.
 - **Simplification**: Smaller components tend to be easier to design, implement, and debug.
-- **Reusability**: Functions can be recycled; you only need to write them once, but can use them as often as you need!<br><br>
+- **Reusability**: Functions can be recycled; you only need to write them once, but can use them as often as you need!
+<br><br>
 
 ## Declaring Functions
 
@@ -56,7 +57,8 @@ float mult_two_reals(float x, float y);
 ```
 - `float` The product of two **floating point** numbers (real numbers) is also a floating point number.
 - `mult_two_reals` is a relevant name.
-- `float x, float y` the names of these particular inputs don't seem to be important, we can call them anything simple.<br><br>
+- `float x, float y` the names of these particular inputs don't seem to be important, we can call them anything simple.
+<br><br>
 
 ## Defining Functions
 
@@ -114,6 +116,7 @@ int add_two_ints(int a, int b)
     return a + b;     
 }
 ```
+<br><br>
 ## Calling Functions
 
 To call a function, simply pass it appropriate **arguments** and assign its return value to something of the correct **type**.
@@ -169,6 +172,7 @@ int add_two_ints(int a, int b)
 - Functions can sometimes take no inputs. In that case, we declare the function as having a **void** argument list `int function(void)`.<br>
 
 - Functions sometimes don't have an output. In that case, we declare the function as having a **void** return type `void function()`
+<br><br>
 
 ## Practice Problem
 
