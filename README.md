@@ -33,3 +33,4 @@ In this repository I will be documenting my progress in Harvard University's int
       - [Functions](week2_arrays/w2_functions.md)
       - [Variables and Scope](week2_arrays/w2_variables_and_scope.md)
       - [Debugging](week2_arrays/w2_debugging.md)
+      - [Arrays](week2_arrays/w2_arrays.md)
