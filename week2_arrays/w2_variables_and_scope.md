@@ -40,6 +40,7 @@ void triple(void)
     global *= 3;
 }
 ```
+<br><br>
 ## Local Variables
 
 Local variables in **C** are `passed by value` in function calls. When you pass *local variables* to a function, a copy of the variable's **value** is made and given to the function. This means that changes made to the variable inside the function **do not** affect the original variable outside the function. The function will operate on its own version of the variable and any modifications made to it are confined to the **scope** of the function.
