@@ -25,6 +25,7 @@ else
 ```
 - If the **boolean-expression** evaluates to **true**, all the lines of code between the curly braces will execute in order from top-to-bottom.
 - If the **boolean-expression** evaluates to *false*, all lines of code between the second set of curly braces `else` will execute in order from top-to-bottom.
+<br><br>
 
 In **C** it is possible to create an **if-else** chain. Each branch is mutually exclusive.
 
@@ -68,6 +69,7 @@ else
 ```
 > In the example above only the *third* and *fourth* branches are **mutually exclusive**. the `else` binds to the nearest `if` only.
 
+<br><br>
 ## Switch statement
 C's `switch()` statement is a conditional statement that permits enumeration of discrete cases, instead of relying on **Boolean expressions**.
 
@@ -113,7 +115,7 @@ switch(x)
 }
 ```
 When the user types **4**, the program will print "**Four, Three, Two, One, Blast-off!**".
-
+<br><br>
 ## Ternary Operator
 The **ternary operator** `?:` is mostly a cute trick, but is useful for writing trivially short conditional branches. Be familiar with it, but know that you won't need to write it if you don't want to.
 
@@ -134,15 +136,3 @@ Now let's use `?:` to create a snippet of code that will act identically.
 int x = (expr) ? 5 : 6;
 ```
 If the expression is **true**, assign to `x` the value of `5`, if it's **false**, assign to `x` the value of `6`. 
-
-
-
-
-
-
-
-
-
-
-
-
