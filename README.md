@@ -49,7 +49,7 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Command Line Arguments](week2_arrays/w2_command_line_arguments.md)
 
 - Problem Set 2
-  - [Scrabble]
+  - [Scrabble](week2_arrays/scrabble.c)
   - [Readability]
   - [Caesar]
 <br><br>
