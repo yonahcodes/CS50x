@@ -35,14 +35,29 @@ int main(void)
 // Find score for given string 
 int compute_score(string word)
 {
+    // Initialize score
     int score = 0;
 
+    // Iterate through each character of word
     for (int i = 0, len = strlen(word); i < len; i++)
     {
+        // If character is uppercase
         if (isupper(word[i]))
         {
+            // First iteration word[0]
+            // word[0] holds ASCII value of first char of word
+            // Assume first character is "C", word[0] = 67
+            // [word[0] - 'A'] subtracts ASCII value of 'A' (65) to word[0]
+            // In our example it would be 67 - 65
+            // Resulting value of "2" is then assigned as index to POINT[2]
+            // POINT[2] accesses value or third place in array POINTS[], which is 3
+            // 3 is then assigned as a value to the score
+            // In the next iterations score will update adding new retrieved score values
+            // score = score + POINTS[word[i] - 'A'];
+            // Until it runs through every char of word and returns total score 
             score += POINTS[word[i] - 'A'];
         }
+        // If character is lowercase
         else if (islower(word[i]))
         {
             score += POINTS[word[i] - 'a'];
