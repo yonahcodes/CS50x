@@ -46,3 +46,4 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Variables and Scope](week2_arrays/w2_variables_and_scope.md)
   - [Debugging](week2_arrays/w2_debugging.md)
   - [Arrays](week2_arrays/w2_arrays.md)
+  - [Command Line Arguments](week2_arrays/w2_command_line_arguments.md)
