@@ -43,7 +43,7 @@ This **array** of strings stores, one string per element, the actual text the us
 |argv[2]|cs50|
 |argv[3]|???|
 
-<br><br>
+<br>
 
 - Note that `1024` is stored as a **string** in `argv[1]` not as an integer.
 
