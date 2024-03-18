@@ -32,7 +32,7 @@ int main(void)
     }
 }
 
-// Prompt user for string, find length and convert to uppercase
+// Find score for given string 
 int compute_score(string word)
 {
     int score = 0;
