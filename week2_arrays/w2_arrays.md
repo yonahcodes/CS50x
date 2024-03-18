@@ -10,6 +10,7 @@ Let's analogize the notion of arrays by comparing them to a post office boxes:
 |...each of which can store a certain amount of **data**...|...each of which can hold a certain amount of **mail**...|
 |...all of the same data type such as **int** or **char**...|...all of a similar type such as **letters** or **small packages**...|
 |...and which can be accessed directly by an **index**.|...and which can be accessed directly by a **mailbox number**.|
+
 <br><br>
 
 ## Indexing
