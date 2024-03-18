@@ -47,3 +47,9 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Debugging](week2_arrays/w2_debugging.md)
   - [Arrays](week2_arrays/w2_arrays.md)
   - [Command Line Arguments](week2_arrays/w2_command_line_arguments.md)
+
+- Problem Set 2
+  - [Scrabble]
+  - [Readability]
+  - [Caesar]
+<br><br>
