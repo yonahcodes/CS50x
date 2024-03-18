@@ -195,6 +195,7 @@ phrase[4] = O
 |:-:|
 |H E L L O|
 |72 69 76 76 79|
+
 <br><br>
 ### Alphabetical
 Let's create a program to check if an array of characters is in alphabetical order.
