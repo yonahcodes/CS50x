@@ -25,6 +25,7 @@ This **integer**-type variable will store the **number** of command-line argumen
 |:-|:-:|
 |./greedy|1|
 |./greedy 1024 cs50|3|
+
 <br><br>
 ## `argv` - argument vector
 This **array** of strings stores, one string per element, the actual text the user typed at the command-line.
@@ -41,6 +42,7 @@ This **array** of strings stores, one string per element, the actual text the us
 |argv[1]|1024|
 |argv[2]|cs50|
 |argv[3]|???|
+
 <br><br>
 
 - Note that `1024` is stored as a **string** in `argv[1]` not as an integer.
