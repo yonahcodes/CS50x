@@ -50,6 +50,6 @@ In this repository I will be documenting my progress in Harvard University's int
 
 - Problem Set 2
   - [Scrabble](week2_arrays/scrabble.c)
-  - [Readability]
+  - [Readability](week2_arrays/readability.c)
   - [Caesar]
 <br><br>
