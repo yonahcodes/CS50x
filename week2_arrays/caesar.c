@@ -60,13 +60,13 @@ char rotate(char c, int k)
         // (+ k) to shift "key amount" of indexes
         // (% 26) ensures wrap around after Z
         // If index is 27, % 26 will give 1 (27%26=1) bringing it back to the start
-        // (c += 'A') converts bach alphabetical index to new ASCII value
+        // (+ 'A') converts back alphabetical index to new ASCII value
         c = ((c - 'A' + k) % 26) + 'A';
     }
     else if (islower(c))
     {
         c = ((c - 'a' + k) % 26) + 'a';
     }
-    // Return unchanged is not a letter
+    // Return unchanged if not a letter
     return c;
 }
