@@ -53,3 +53,8 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Readability](week2_arrays/readability.c)
   - [Caesar](week2_arrays/caesar.c)
 <br><br>
+
+
+## [3 - Algorithms](https://cs50.harvard.edu/x/2024/weeks/3/)
+
+- Lecture 3 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/3/)
