@@ -35,6 +35,7 @@ int main(int argc, string argv[])
     return 0;
 }
 
+// Check if key is made of digits
 bool only_digits(string key)
 {
     // Iterate through every char of string
