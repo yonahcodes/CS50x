@@ -1,7 +1,7 @@
 # CS50x Week 2 - Arrays
 ## Compiling
 
-Compilers are programs that convert our *source* code into *machine* code so that they can be read and executed by a computer. **Clang** (short for C language) is compiler for C.
+Compilers are programs that convert our *source* code into *machine* code so that they can be read and executed by a computer. **Clang** (short for C language) is compiler for **C**.
 
 ```c
 #include <stdio.h>
@@ -609,4 +609,4 @@ Plaintext is `HI!` and Key is `13`. The `cipher` will change every letter of the
 Unscrambling a message to its original form. Using the same **key** that was used to encrypt it we can reverse the process.
 
 #### **Example**:<br> 
-Encrypted message is `UV!` and Key is `-13`. The `cipher` will change back every letter of the encrypted message by another one 13 letters **UP**. `U` becomes `H` and `V` becomes `I`, `!` is unchanged, resulting in the decrypted message `HI!`
+Encrypted message is `UV!` and Key is `-13`. The `cipher` will change back every letter of the encrypted message by another one 13 letters **UP**. `U` becomes `H` and `V` becomes `I`, `!` is unchanged, resulting in the decrypted message `HI!`.
