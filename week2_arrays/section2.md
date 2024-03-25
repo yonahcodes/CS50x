@@ -1,4 +1,4 @@
-# CS50 Section 2 - Arrays
+# CS50x Section 2 - Arrays
 ## Compilation
 Converting the *source code* written in **C** to *machine code* the computer understands.
 
