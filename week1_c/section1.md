@@ -1,11 +1,5 @@
 # CS50 Section 1 - C
 <!-- this is an invisible comment -->
-Welcome to my personal notes of CS50's very first section!
-
-The goal of sections is to help us bridge the gap between lectures and problem sets.
-
-In this introductory week, we delve into the fundamentals of the C programming language, covering essential concepts like variables, types, input/output, loops, and functions. Let's demystify the basics of C programming.<br><br>
-
 ## Variables and Types
 A **variable** is container paired with a symbolic name for some value that can change
 
@@ -323,7 +317,3 @@ int main() {
 In this example,  `a` and `b`  are parameters declared in the function `addNumbers`
 
 `5` and `7` are the arguments passed during the function call in `main`.
-
-This concludes my notes of the essential concepts of Section 1. I hope these notes will be useful as you tackle the projects for this week.
-
-In Week 2 we will be learning about **arrays** - understanding how to store and manipulate data efficiently in a computer's memory. Happy coding!
