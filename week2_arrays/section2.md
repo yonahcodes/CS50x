@@ -1,8 +1,4 @@
 # CS50 Section 2 - Arrays
-Welcome to my personal notes of CS50's second section! The goal of sections is to help us bridge the gap between lectures and problem sets.
-
-In the previous week, we learned about **C** programming language. This week, we are going to take a deeper look at additional building-blocks that will support our understanding of **C**. We will learn about compiling, arrays, strings and command-line arguments.<br><br>
-
 ## Compilation
 Converting the *source code* written in **C** to *machine code* the computer understands.
 
@@ -365,7 +361,3 @@ int main(int argc, string argv[])
     int height = atoi(argv[1]);
 }
 ```
-
-This concludes my notes of the essential concepts of Section 2. I hope these notes will be useful as you tackle the projects for this week.
-
-In Week 3 we will be learning about **algorithms**. We'll explore techniques like Linear search and Binary search, along with various sorting methods such as Bubble sort, Selection sort and Merge sort. Additionally we'll delve into asymptotic notation and recursion. Happy coding!
