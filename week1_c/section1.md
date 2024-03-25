@@ -1,4 +1,4 @@
-# CS50 Section 1 - C
+# CS50x Section 1 - C
 <!-- this is an invisible comment -->
 ## Variables and Types
 A **variable** is container paired with a symbolic name for some value that can change
