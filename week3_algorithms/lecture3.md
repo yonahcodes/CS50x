@@ -42,7 +42,7 @@ For i from 0 to n-1
         Return true
 Return false
 ```       
-`Linear Search` is defined as a sequential search algorithm that starts at one end and goes through each element of an array until the desires element is found, otherwise the search continues until the end of the data set.
+`Linear Search` is defined as a sequential search algorithm that starts at one end and goes through each element of an array until the target element is found, otherwise the search continues until the end of the data set.
 <br><br>
 
 ## Binary Search
