@@ -14,6 +14,7 @@ In this repository I will be documenting my progress in Harvard University's int
   - Problem Set 0 - [Scratch](https://scratch.mit.edu/projects/973718749)
 <br><br>
 
+
 ## [1 - C](https://cs50.harvard.edu/x/2024/weeks/1/)
 
 - Lecture 1 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/1/)
@@ -58,4 +59,13 @@ In this repository I will be documenting my progress in Harvard University's int
 ## [3 - Algorithms](https://cs50.harvard.edu/x/2024/weeks/3/)
 
 - Lecture 3 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/3/) - [Notes](week3_algorithms/lecture3.md)
+
 - Section 3 - [Notes](week3_algorithms/section3.md)
+
+- Shorts
+  - [Linear Search]
+  - [Binary Search]
+  - [Bubble Sort]
+  - [Selection Sort]
+  - [Recursion]
+  - [Merge Sort]
