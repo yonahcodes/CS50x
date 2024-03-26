@@ -1,5 +1,5 @@
 # Linear Search
-In **linear search**, the idea of the algorithm is to iterate across the array from left to right, searching for a specified element.
+In **Linear search**, the idea of the algorithm is to iterate across the array from left to right, searching for a specified element.
 
 **Pseudocode**:
 ```
@@ -25,7 +25,7 @@ Repeat, starting at the first element:
 If the `target element` is **NOT** in the array, the **linear search** algorithm will still go through the list one element at a time, until the end of the data set.
 <br><br>
 
-`Worst-case scenario`: We have to look through the entire array of `n` elements, wether because the *target element* is the last element of the array or doesn't exist in the array, resulting in `O(n)`.
+`Worst-case scenario`: We have to look through the entire array of `n` elements, either because the *target element* is the last element of the array or doesn't exist in the array, resulting in `O(n)`.
 <br><br>
 
 `Best-case scenario`: The target element is the **first element** of the array, and so we can stop looking immediately after we start, resulting in `Ω(1)`.
