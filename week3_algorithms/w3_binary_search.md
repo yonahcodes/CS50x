@@ -141,7 +141,7 @@ Repeat until the sub(array) is of size 0;
 > [!CAUTION]
 > Notice that start index[8] is greater than end index[7]. The two ends of our array have CROSSED
 
-This confirms that we have a **(sub)array** of size `0` and we can now guarantee that an element of value `16` does not exist in the array.
+This confirms that we have a **(sub)array** of size `0` and we can now **guarantee** that an element of value `16` does not exist in the array.
 <br><br>
 
 `Worst-case scenario`: We have to divide a list of elements in half repeatedly to find the target element, either because the target element will be found at the end of the last division or doesn't exist in the array at all, resulting in `O(log n)`.
