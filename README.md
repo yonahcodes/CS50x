@@ -63,7 +63,7 @@ In this repository I will be documenting my progress in Harvard University's int
 - Section 3 - [Notes](week3_algorithms/section3.md)
 
 - Shorts
-  - [Linear Search]
+  - [Linear Search](week3_algorithms/w3_linear_search.md)
   - [Binary Search]
   - [Bubble Sort]
   - [Selection Sort]
