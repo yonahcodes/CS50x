@@ -1,11 +1,13 @@
 # CS50x Section 3 - Algorithms
+
 ## Searching
+
 `Linear Search`: Iterative search algorithm that sequentially checks each element in a list until the target value is found or the list is exhausted.
 
 `Binary Search`: Divide-and-conquer algorithm that efficiently locates a target value in a **sorted** list by repeatedly dividing the search interval in half.
 <br><br>
 
-#### What is the *greatest* number of steps this algorithm will *ever* take?
+### What is the *greatest* number of steps this algorithm will *ever* take?
 
 |Linear Search|Binary Search|
 |:-:|:-:|
@@ -17,6 +19,7 @@
 - `log2(N)` logarithm base 2 of the value `N` represents the number of times you need to divide `N` by `2` to get to the target value.
 
 <br><br>
+
 #### What is (approximately!) the greatest number of steps this algorithm will *ever* take?
 
 |Linear Search|Binary Search|
@@ -24,6 +27,7 @@
 |O(N)|O(log2(N))|
 
 <br><br>
+
 #### What is the *fewest* number of steps this algorithm could *ever* take?
 
 |Linear Search|Binary Search|
@@ -31,6 +35,7 @@
 |1|1|
 
 <br><br>
+
 #### What is (approximately!) the *fewest* number of steps this algorithm could *ever* take?
 
 |Linear Search|Binary Search|
@@ -49,6 +54,7 @@
 <br><br>
 
 ## Sorting
+
 `Merge sort`: Divide-and-conquer sorting algorithm that divides the array into smaller parts, sorts them individually, and then merges them back together.
 
 `Selection sort`: Iterative sorting algorithm that repeatedly selects the *smallest* element from the unsorted portion of the array and swaps it with the element at the beginning of the unsorted portion.
@@ -107,7 +113,9 @@ We are given 3 compiled **C** programs named `sort1`, `sort2` and `sort3` each i
 <br>
 
 ## Structs
+
 A **struct** in **C** programming language is a composite data type declaration that defines a physically *grouped list of variables* under one name in a block of memory.
+
 ```c
 typedef struct
 {
@@ -116,10 +124,12 @@ typedef struct
 }
 nom;
 ```
+
 - `nom` is the name of the **struct**.
 - `string name` and `int name` variables are **members** of the structure.
 
-### Example:
+### Example
+
 ```c
 typedef struct
 {
@@ -132,13 +142,16 @@ candidate president;
 president.name = "Samia";
 president.votes = 10;
 ```
+
 We can also create an **array**:
+
 ```c
 candidate candidates[4];
 ```
+
 <br>
 
-#### Now let's create a program that:
+#### Now let's create a program that
 
 1. Defines an array of candidates
 
@@ -198,14 +211,18 @@ int main(void)
     return 0;
 }
 ```
+
 <br><br>
+
 ## Recursion
-Recursion is a technique of making a function call itself. This technique provides a way to break complicated problems down into simple problems which are easier to solve. 
+
+Recursion is a technique of making a function call itself. This technique provides a way to break complicated problems down into simple problems which are easier to solve.
 
 ### Factorial
 
 The product of all positive integers from 1 up to a given number. Factorials are good candidates for using recursion.
-```
+
+```txt
 1! = 1  // 1! is read as "1 Factorial"
 
 2! = 2 * 1 = 2
@@ -214,8 +231,10 @@ The product of all positive integers from 1 up to a given number. Factorials are
 
 4! = 4 * 3 * 2 * 1 = 24
 ```
+
 If we rearrange the operations, we notice a pattern:
-```
+
+```txt
             1! = 1 
 
         2! = 2 * 1
@@ -224,6 +243,7 @@ If we rearrange the operations, we notice a pattern:
 
 4! = 4 * 3 * 2 * 1
 ```
+
 > [!Note]
 > `2! is 2 * 1!`, `3! is 3 * 2!` and `4! is 4 * 3!`
 
@@ -233,7 +253,8 @@ If we rearrange the operations, we notice a pattern:
 
 - `2! is 2 * 1!`, `3! is 3 * 2!` and `4! is 4 * 3!` is the **Call stack**
 
-#### Now let's create a program that calculates the factorial of a number using *recursion*:
+#### Now let's create a program that calculates the factorial of a number using *recursion*
+
 ```c
 #include <cs50.h>
 #include <stdio.h>
@@ -266,6 +287,7 @@ int factorial(int n)
     return n * factorial(n - 1);
 }
 ```
+
 - `factorial(int n)` function takes user input as argument.
 
 - It checks it `n` is equal to 1, which is the **Base case** for the factorial function.
