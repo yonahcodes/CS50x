@@ -1,18 +1,22 @@
 # Binary Search
-In **Binary search**, the idea of the algorithm is to **divide and conquer**, reducing the search area by half each time, trying to find a *target* element. 
+
+In **Binary search**, the idea of the algorithm is to **divide and conquer**, reducing the search area by half each time, trying to find a *target* element.
 
 In order to leverage this power however, our array must first be **sorted**, else we cannot make assumptions about the array's contents.
 
 **Pseudocode**:
-```
+
+```txt
 Repeat until the sub(array) is of size 0;
     Calculate the middle point of the current (sub)array.   
     If the target is at the middle, stop.
     Otherwise, if the target is less than the middle value, repeat, changing the end point to be just to the left of the middle.
     Otherwise, if the target is greater than the middle value, repeat, changing the start point to be just to the right of the middle.
 ```
+
 ## Let's visualize this process
-```
+
+```txt
 | 6 | 7 | 8 | 9 | 10 | 11 | 14 | 15 | 17 | 19 | 22 | 23 | 25 | 28 | 30 | --> Elements
 
 | 0 | 1 | 2 | 3 |  4 |  5 |  6 |  7 |  8 |  9 | 10 | 11 | 12 | 13 | 14 | --> Indexes
@@ -64,7 +68,7 @@ Repeat until the sub(array) is of size 0;
 
 ### Let's try to look for an element that does not exist in the array
 
-```
+```txt
 | 6 | 7 | 8 | 9 | 10 | 11 | 14 | 15 | 17 | 19 | 22 | 23 | 25 | 28 | 30 | --> Elements
 
 | 0 | 1 | 2 | 3 |  4 |  5 |  6 |  7 |  8 |  9 | 10 | 11 | 12 | 13 | 14 | --> Indexes
