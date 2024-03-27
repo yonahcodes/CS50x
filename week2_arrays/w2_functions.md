@@ -6,16 +6,18 @@ So far, we have been writing programs inside of the `main()` function. It has be
 
 **Functions** are "*black box*" modules of code that accomplish a specific task by taking `0+` inputs and generating `1` output.
 
-```
+```txt
 add(3, 6, 7)
 ```
+
 - Function: `add()`
 - Input: `3, 6, 7`
 - Output: `16`
 
-```
+```txt
 mult(4, 5)
 ```
+
 - Function: `mult()`
 - Input: `4, 5`
 - Output: `20`
@@ -26,7 +28,8 @@ In the previous example: `mult(a, b)` could be defined as **"output a * b"** or 
 
 That's part of the contract of using functions. The behavior is typically predictable based on the **name**. That is why most functions have clear names, and are well-documented.
 
-### Why use functions?
+**Why use functions?**
+
 - **Organization**: Functions help us break up a complicated problem into more manageable subparts.
 - **Simplification**: Smaller components tend to be easier to design, implement, and debug.
 - **Reusability**: Functions can be recycled; you only need to write them once, but can use them as often as you need!
@@ -34,13 +37,14 @@ That's part of the contract of using functions. The behavior is typically predic
 
 ## Declaring Functions
 
-The first step in creating a function is to **declare it**. This gives the *compiler* a heads-up that a user-written function appears in the code. 
+The first step in creating a function is to **declare it**. This gives the *compiler* a heads-up that a user-written function appears in the code.
 
 Function declarations should always go atop your code, before the `main()` function.
 
-```
+```txt
 return-type name(argument-list);
 ```
+
 - `return-type` is the kind of variable the function will output.
 - The `name` is what you call the function.
 - The `argument-lists` is the **comma-separated** set of inputs to your function, each of which has a type and a name.
@@ -48,13 +52,15 @@ return-type name(argument-list);
 ```c
 int add_two_ints(int a, int b);
 ```
+
 - `int` The sum of two integers is going to be an integer as well.
 - `add_two_ints()` Given what this function does, it has an appropriate name.
-- `int a, int b` There are two inputs to this function, and we need to name each of them for the purposes of the function. 
+- `int a, int b` There are two inputs to this function, and we need to name each of them for the purposes of the function.
 
 ```c
 float mult_two_reals(float x, float y);
 ```
+
 - `float` The product of two **floating point** numbers (real numbers) is also a floating point number.
 - `mult_two_reals` is a relevant name.
 - `float x, float y` the names of these particular inputs don't seem to be important, we can call them anything simple.
@@ -65,10 +71,13 @@ float mult_two_reals(float x, float y);
 Now that we have declared the function it is time to **define** it. This allows for predictable behavior when the function is *called* with inputs.
 
 Let's define `mult_two_reals()`:
+
 ```c
 float mult_two_reals( float x, float y);
 ```
+
 The beginning of a function *definition* looks **almost** identical to a function *declaration*, with a small change: `;`
+
 ```c
 float mult_two_reals(float x, float y);
 {
@@ -76,11 +85,13 @@ float mult_two_reals(float x, float y);
     return product;
 }
 ```
+
 - Inside the curly braces `{}` is where we define what the function does.
 - We define a *variable* `product` and assign to it the value of `x * y`.
 - We then `return` the variable's value as an output.<br><br>
 
 Another simpler way of achieving the same result is the following:
+
 ```c
 float mult_two_reals(float x, float y)
 {
@@ -93,6 +104,7 @@ Now let's define `add_two_ints()`:
 ```c
 int add_two_ints(int a, int b);
 ```
+
 ```c
 int add_two_ints(int a, int b)
 {
@@ -101,7 +113,9 @@ int add_two_ints(int a, int b)
     return sum;     // give result back 
 }
 ```
+
 Or
+
 ```c
 int add_two_ints(int a, int b)
 {
@@ -109,14 +123,18 @@ int add_two_ints(int a, int b)
     return sum;    
 }
 ```
+
 Or
+
 ```c
 int add_two_ints(int a, int b)
 {
     return a + b;     
 }
 ```
+
 <br><br>
+
 ## Calling Functions
 
 To call a function, simply pass it appropriate **arguments** and assign its return value to something of the correct **type**.
@@ -147,6 +165,7 @@ int add_two_ints(int a, int b)
 ```
 
 Another example prompting user to enter *integers* to be used as **arguments** in the function:
+
 ```c
 #include <cs50.h>
 #include <stdio.h>
@@ -169,6 +188,7 @@ int add_two_ints(int a, int b)
     return sum;
 }
 ```
+
 - Functions can sometimes take no inputs. In that case, we declare the function as having a **void** argument list `int function(void)`.<br>
 
 - Functions sometimes don't have an output. In that case, we declare the function as having a **void** return type `void function()`
@@ -178,8 +198,9 @@ int add_two_ints(int a, int b)
 
 Declare and write a function called `valid_triangle` that takes **three real numbers** representing the lengths of the three sides of a triangle as its arguments, and outputs either **true** or **false**, depending on whether those three lengths are capable of making a triangle.
 
-Rules about triangles: 
-- A triangle may only have sides with **positive** length. 
+Rules about triangles:
+
+- A triangle may only have sides with **positive** length.
 - The sum of the length of any two sides of the triangle must be **greater** than the length of the third side.
 
 ```c
