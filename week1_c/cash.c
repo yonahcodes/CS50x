@@ -19,7 +19,7 @@ int main(void)
     // If Boolean expression in while is true, prompt the user again
     while (cents < 0);
 
-    // Call each function (Biggest first) and substract the value from cents
+    // Call each function (Biggest first) and subtract the value from cents
     int quarters = calculate_quarters(cents);
     cents = cents - (quarters * 25);
 
