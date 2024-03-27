@@ -1,15 +1,20 @@
 # CS50x Section 2 - Arrays
+
 ## Compilation
+
 Converting the *source code* written in **C** to *machine code* the computer understands.
 
-1. Source code 
+1. Source code
+
 ```c
 int main(void)
 {
     printf("Hello");
 }
 ```
+
 2. Assembly code
+
 ```assembly
 main:
 # @main
@@ -19,8 +24,10 @@ main:
 .Ltmp0:
     .cfi_def_cfa_offset 16
 ```
+
 3. Binary
-```
+
+```txt
 01111111010001010100110001000110
 00000010000000010000000100000000
 00000000000000000000000000000000
@@ -31,9 +38,11 @@ main:
 00000000000000000000000000000000
 00000000000000000000000000000000
 ```
+
 > In CS50 we use the pre-programmed `make filename.c` command to compile our code.
 
 <br><br>
+
 ## Arrays
 
 An **array** is a *data structure* that stores a collection of elements, such as integers or characters, back-to-back in the computer's memory. This optimizes data storage and makes it easier to search, sort and iterate over the data.
@@ -47,6 +56,7 @@ night3 = 6
 night4 = 7
 night5 = 8
 ```
+
 |night1|night2|night3|night4|night5|
 |:-:|:-:|:-:|:-:|:-:|
 |7|8|6|7|8|
@@ -64,9 +74,11 @@ nights[3] = 6
 nights[4] = 7
 nights[5] = 8
 ```
+
 Arrays are **"zero-indexed"**, meaning that the first element in the array is located at index zero `[0]`. In other words, when we access elements in an array, we start counting from zero.
 
 In **C** arrays, we need to specify the following:
+
 - Data type `int`
 - Name `nights`
 - Size (How many elements?) `[5]`
@@ -74,16 +86,22 @@ In **C** arrays, we need to specify the following:
 ```c
 int nights[5]
 ```
+
 If we wanted to not only *declare* the array, but also *initialize it* with values:
+
 ```c
 int nights[5] = {7, 8, 6, 7, 8};
 ```
+
 > In **C** once you have declared the size of an array, it cannot be changed.
 
 <br><br>
+
 ### Doubling Up
-Let's create an **array** of *integers* in which: 
-- Each integer is `2` times the value of the previous integer. 
+
+Let's create an **array** of *integers* in which:
+
+- Each integer is `2` times the value of the previous integer.
 - The first element is `1`.
 - Print the array, integer by integer
 
@@ -111,15 +129,19 @@ int main(void)
     }
 }
 ```
+
 This code will return:
-```
+
+```txt
 1
 2
 4
 8
 16
 ```
+
 We can also modify the main function to declare a variable called `size` to make it easier to change:
+
 ```c
 int main(void)
 {
@@ -136,8 +158,10 @@ int main(void)
     }
 }
 ```
+
 This code will return:
-```
+
+```txt
 1
 2
 4
@@ -147,7 +171,9 @@ This code will return:
 64
 128
 ```
+
 We could also prompt the user for the size of the array:
+
 ```c
 int main(void)
 {
@@ -164,8 +190,11 @@ int main(void)
     }
 }
 ```
+
 <br><br>
+
 ## Strings
+
 A **string** is an array, where the elements are characters `char`.
 
 HELLO
@@ -195,8 +224,11 @@ phrase[4] = O
 |72 69 76 76 79|
 
 <br><br>
+
 ### Alphabetical
+
 Let's create a program to check if an array of characters is in alphabetical order.
+
 - Assume the characters ar all uppercase
 
 ```c
@@ -216,7 +248,9 @@ int main(void)
     printf("\n");
 }
 ```
+
 or
+
 ```c
 #include <cs50.h>
 #include <stdio.h>
@@ -234,6 +268,7 @@ int main(void)
     printf("\n");
 }
 ```
+
 - If we input `hello`, we will get `104 101 108 108 111`
 - If we input `HELLO`, we will get `72 69 76 76 79`
 
@@ -261,8 +296,10 @@ int main(void)
     return 0;
 }
 ```
+
 Notice that the last `printf` function is outside of the `for loop`. This is done to respect the *scope* and for the program to go through every character of the string.
 <br><br>
+
 ## Command-Line Arguments
 
 We're going to explore the idea of running programs and giving them input not while they run, but before they run, using the **command line**.
@@ -275,15 +312,20 @@ int main(void)
     int height = get_int("Height: ");
 }
 ```
+
 The terminal would look like this:
-```
+
+```txt
 $ ./mario
 Height: 8
 ```
+
 Now, we are going to transition and allow the user to give input **before** the program runs:
+
+```txt
+./mario 8
 ```
-$ ./mario 8
-```
+
 To allow this, we have to change the code and instead of `(void)`, add **arguments** to our `main` function:
 
 ```c
@@ -294,6 +336,7 @@ int main(void)
 ```
 
 ### Let's breakdown `int main(void)`:<br>
+
 `int` tells us the **exit status code**: If `0`, the program was executed successfully.<br>
 `main` is the name of the function<br>
 `(void)` means the function takes no arguments.<br>
@@ -308,10 +351,13 @@ Now let's add arguments to the **main** function:
 
  }
 ```
+
 ### Let's break down `int main(int argc, string argv[])`,<br>
+
 `argc` is an argument of type integer and its value is equivalent to the number of arguments the program receives at the command line: `./mario 8` would mean `argc = 2`.<br>
 `argv[]` is an array of strings at the command line. In `./mario 8` it contains `2` strings: The name of the program `./mario` and the input that user gave `8`.
 <br><br>
+
 ### Argv
 
 If we wanted to create a program that reveals what is inside `argv[]`:
@@ -330,14 +376,18 @@ int main(int argc, string argv[])
     }
 }
 ```
+
 When we type `./argv 1 2 3`, the program will return:
-```
+
+```txt
 argv[0] is ./argv
 argv[1] is 1
 argv[2] is 2
 argv[3] is 3
 ```
+
 <br><br>
+
 ### Error
 
 `Segmentation fault (core dumped)` error happens when we look **beyond** the bounds of the array. When checking for values, make sure to index within the range of the array.
