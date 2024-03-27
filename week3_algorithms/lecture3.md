@@ -1,47 +1,57 @@
 # CS50x Week 3 - Algorithms
+
 In week zero, we introduced the idea of an **algorithm** as a "black box" that may take an *input* and produce an *output*.
 
 This week, we are going to expand our understanding of algorithms and focus upon the design of algorithms and how to measure their efficiency.
 
-
 ## Linear Search
+
 Last week we introduced the idea of an **array**, data stored in a contiguous manner in the computer's memory.
 
 Let's imagine we have an array of **7** indexes, each index contains an unknown integer.
-```
+
+```txt
 [0] [1] [2] [3] [4] [5] [6]
 ```
+
 We want to know if the number `50` is inside the array. A computer must look at *each index* to be able to see if the number is inside. We call this process of finding such a number, character, string, or other item **searching**.
 
 We can hand our *array* to an **algorithm** that will search through our indexes to see if the number `50` is inside one of them: Returning a *boolean* value of `true` or `false`.
 
-```
+```txt
 array[] -> | algorithm | -> bool
 ```
+
 We can imagine instructions we might provide our algorithm to undertake this task in *pseudocode*:
-```
+
+```txt
 For each index from left to right
     If 50 is inside index
         Return true
 Return false
 ```
+
 > Notice that `Return false` is not indented
-```
+
+```txt
 For each index from left to right
     If 50 is inside index
         Return true
     Else
         Return false
-``` 
+```
+
 In this second **wrong** version, the program will `Return false` after checking the first index **only** and assume the `50` is not there without checking other indexes.
 
 A computer scientist could translate the *pseudocode* as follows:
-```
+
+```txt
 For i from 0 to n-1
     If 50 is in index[i]
         Return true
 Return false
-```       
+```
+
 `Linear Search` is defined as a sequential search algorithm that starts at one end and goes through each element of an array until the target element is found, otherwise the search continues until the end of the data set.
 <br><br>
 
@@ -50,7 +60,8 @@ Return false
 Binary search is another **search algorithm** that could be employed in our task of finding the `50`.
 
 Assuming that the values within the *indexes* have been arranged from `smallest to largest`, the pseudocode for *binary search* would appear as follows:
-```
+
+```txt
 If no indexes left
     Return false
 If 50 is inside the middle index
@@ -60,8 +71,10 @@ Else if 50 < middle index
 Else if 50 > middle index
     Search right half
 ```
+
 Using the nomenclature of code, we can further modify our **algorithm** as follows:
-```
+
+```txt
 If no index[] left
     Return false
 If 50 is inside index[middle]
@@ -71,12 +84,15 @@ Else if 50 < index[middle]
 Else if 50 > index[middle]
     Search index[middle + 1] through index[n - 1]
 ```
+
 `Binary Search` is an efficient algorithm that operates on **sorted arrays**. It works by repeatedly dividing the search interval in **half** beginning with the **middle element** of the array. If the target value matches the middle element, the search concludes successfully. Otherwise, it narrows down the search range by half based on whether the target is **smaller** or **larger** than the middle element. This process is repeated until the target is **found** or the search range is **empty**.
 <br><br>
 
 ## Running Time
+
 ![complexity](../img/cs50Week3Slide010.png)
 In an example of finding the page containing a phone number in a phone book:
+
 - `n` would be checking one page at a time
 - `n/2` would be checking two pages at a time (half the time of `n`)
 - `log2n` would be taking the value of `n` and divide it by `2` again and again until finding the phone number.
@@ -86,14 +102,14 @@ Rather than being ultra-specific about the mathematical efficiency of an algorit
 
 ![big o graphed](../img/cs50Week3Slide042.png)
 
-In the above graph, the *first* algorithm is `O(n)` or `in the order of n`. The *second* is in `O(n)` as well. The *third* is in `O(log n)`. 
+In the above graph, the *first* algorithm is `O(n)` or `in the order of n`. The *second* is in `O(n)` as well. The *third* is in `O(log n)`.
 
-It's the shape of the **curve** that shows the efficiency of an algorithm. 
+It's the shape of the **curve** that shows the efficiency of an algorithm.
 <br><br>
 
-#### Common running times include:
+### Common running times include
 
-- `O(n^2)` **Quadratic** time complexity. Considered the **worst** running time. An example may be `n` people doing `n` things, like shaking everyone's hand `n * n`. 
+- `O(n^2)` **Quadratic** time complexity. Considered the **worst** running time. An example may be `n` people doing `n` things, like shaking everyone's hand `n * n`.
 
 - `O(n log n)` **Log-linear** time complexity. The time taken by the algorithm grows in proportion to `n` multiplied by the `logarithm of n`.
 
@@ -103,7 +119,7 @@ It's the shape of the **curve** that shows the efficiency of an algorithm.
 
 - `O(1)` **Constant** time complexity. Considered the **fastest** running time. The time taken by the algorithm remains constant regardless of `n`. Example would be accessing a specific element in an array.
 
-#### Programmers are interested in both the worst case, or **upper bound**, and the best case, or **lower bound**:
+#### Programmers are interested in both the worst case, or **upper bound**, and the best case, or **lower bound**
 
 - The *Big O* `O` symbol, represents the worst case of an algorithm.
 
@@ -113,7 +129,9 @@ It's the shape of the **curve** that shows the efficiency of an algorithm.
 <br><br>
 
 ## search.c
+
 We can implement **linear search** in **C** as follows:
+
 ```c
 #include <cs50.h>
 #include <stdio.h>
@@ -141,7 +159,9 @@ int main(void)
     return 1;
 }
 ```
+
 Let's now search for a **string** within an array:
+
 ```c
 #include <cs50.h>
 #include <stdio.h>
@@ -164,19 +184,21 @@ int main(void)
     return 1;
 }
 ```
+
 > [!CAUTION]
 > Note that we cannot use same format to compare strings as we did with integers.
 
 Instead we used `if (strcmp(string[], s) == 0)`:
- 
-- `strcmp` is a function available through the `<string.h>` library. 
+
+- `strcmp` is a function available through the `<string.h>` library.
 
 - `strcmp` takes strings as arguments and will return `0` if the strings are the same.
 
 - The strings are compared based on the **ASCII** values of their characters.
 <br><br>
 
-We can combine these ideas of both numbers and strings into a **Phone Book** program: 
+We can combine these ideas of both numbers and strings into a **Phone Book** program:
+
 ```c
 #include <cs50.h>
 #include <stdio.h>
@@ -204,6 +226,7 @@ int main(void)
     return 1;
 }
 ```
+
 > [!TIP]
 > Rule of thumb: If you are not going to do math with a number, store it as a string not an integer. Ex : Phone numbers.
 
@@ -227,6 +250,7 @@ person;
 ```
 
 Now let's see it in action:
+
 ```c
 #include <cs50.h>
 #include <stdio.h>
@@ -265,48 +289,59 @@ int main(void)
     return 1;
 }
 ```
-- We create an array called `people` of type `person` that is a size of `3`. 
 
--  To update the names of the people in our array, we use `people[0].name` to assign a name to `person[0]`.
+- We create an array called `people` of type `person` that is a size of `3`.
+
+- To update the names of the people in our array, we use `people[0].name` to assign a name to `person[0]`.
 
 - To update the numbers to the people in our array, we use `people[1].number` to assign a number to `person[1]`.
 <br><br>
 
 ## Sorting
+
 Sorting refers to the process of arranging a list of values in a specific **order**. The goal of sorting is to make it easier to search, access, and manipulate data efficiently. There are many different **sorting algorithms**.
 <br><br>
-```
+
+```txt
 unsorted -> | Algorithm | -> sorted
 ```
-```
+
+```txt
 7 2 5 4 1 6 0 3 -> | Algorithm | -> 0 1 2 3 4 5 6 7
 ```
 
 ### Selection Sort
 
-**Selection sort** is a simple algorithm that repeatedly selects the **smallest element** from the **unsorted** sublist and *swaps* it with the **leftmost** unsorted element. This process effectively grows the sorted sublist by one element with each iteration. 
+**Selection sort** is a simple algorithm that repeatedly selects the **smallest element** from the **unsorted** sublist and *swaps* it with the **leftmost** unsorted element. This process effectively grows the sorted sublist by one element with each iteration.
 
 The algorithm for selection sort in *pseudocode* is:
-```
+
+```txt
 For i from 0 to n-1
     Find smallest number between numbers[i] and numbers[n-1]
     Swap smallest number with numbers[i]
 ```
+
 Every time we sort one element, the number of steps reduce by one.
+
 - The first time iterating through the list took `n-1` steps.
 - The second time, it took `n-2` steps.
-```
+
+```txt
 (n - 1) + (n - 2) + (n - 3) + ... + 1
 ```
+
 This could be simplified to:
-```
+
+```txt
 n(n - 1)/2
 
 (n^2 - n)/2
 
 n^2/2 - n/2
 ```
-And ultimately *big O* notation `O(n^2)`: 
+
+And ultimately *big O* notation `O(n^2)`:
 
 - The worst-case scenario for **selection sort** occurs when the input list is in reverse order. In each iteration the algorithm needs to find the minimum element from the remaining unsorted sublist, resulting in `nested loops` and `quadratic time complexity`.
 
@@ -319,21 +354,22 @@ And ultimately *big O* notation `O(n^2)`:
 
 **Bubble sort** is a simple sorting algorithm that repeatedly steps through the input list element by element, comparing the current element with the other after it, swapping their values to "**bubble**" larger elements to the end.  
 
-```
+```txt
 Repeat n-1 times
     For i from 0 to n-2
         If numbers[i] and numbers[i+1] out of order
             Swap them
     In no swaps
         Quit        
-```            
+```
+
 > [!Note]
 > `n-2` is used as the limit of the range, it ensures that the loop iterates up to the second-to-last element of the array and the comparisons are made within the the bounds of the array. If `n-1` were used, the loop would attempt to compare the last element with an index beyond the array's bounds.
 
 <br><br>
 As we further sort the array, we know more and more of it becomes sorted, so we only need to look at the pairs of numbers that haven't been sorted yet. Representing this mathematically, where **n** represents the number of cases, it could be said that the **bubble sort** can be analyzed as:
 
-```
+```txt
 (n-1) x (n-1)
 
 n^2 - 1n - 1n + 1
@@ -342,16 +378,19 @@ n^2 - 2n + 1
 
 O(n^2)
 ```
+
 - `n^2` being the most influential factor in determining the efficiency of this algorithm. `Bubble sort`, like **selection sort**, is considered to be of the order `O(n^2)` in the worst case where all values are unsorted, resulting in **quadratic time complexity**.
 
 - In the best case scenario, where all values are sorted, it will only take **one** pass through the list to confirm that it's sorted, resulting in **linear time complexity** and an **Omega notation** of `Ω(n)`.
 
-- **Theta notation** is not directly applicable to **bubble sort**, since the *upper* and *lower* bounds are different. 
+- **Theta notation** is not directly applicable to **bubble sort**, since the *upper* and *lower* bounds are different.
 <br><br>
 
 ## Recursion
+
 **Recursion** is a concept in programming where a function calls itself. We saw this earlier:
-```
+
+```txt
 If no indexes left
     return false
 If number inside middle index
@@ -361,18 +400,21 @@ Else if number < middle index
 Else if number > middle index
     Search right half
 ```
-- Notice that we are calling `search` in smaller and smaller iterations of this problem. 
+
+- Notice that we are calling `search` in smaller and smaller iterations of this problem.
 
 - Each **recursive call** reduces the problem size until it reaches a **base case**, which is a condition that allows the function to stop calling itself and return a result. In our example if would be the line: `If no indexes found -> return false`.
 <br><br>
 
 In week 1 we wanted to create a pyramid structure as follows:
-```
+
+```txt
 #
 ##
 ###
 ####
 ```
+
 ```c
 #include <cs50.h>
 #include <stdio.h>
@@ -397,7 +439,9 @@ void draw(int n)
     }
 }
 ```
+
 To implement this using **recursion**, we can change our code as follows:
+
 ```c
 #include <cs50.h>
 #include <stdio.h>
@@ -428,8 +472,9 @@ void draw(int n)
     printf("\n");
 }
 ```
+
 > [!NOTE]
-> Notice the **base case** will ensure the code does not run forever. 
+> Notice the **base case** will ensure the code does not run forever.
 
 - The line `if(n <= 0)` terminated the recursion because the problem has been solved. Every time `draw` calls itself, it calls itself by `n-1`. At some point, `n-1` will equal `0`, resulting in the `draw` function returning and the program will end.
 <br><br>
@@ -438,7 +483,7 @@ void draw(int n)
 
 **Merge sort** is a very efficient algorithm that follows the divide-and-conquer approach to sort a list of elements. It works by **recursively** dividing the input list into smaller *sublists*, sorting them and **merging** the sublists in a sorted manner. Merge sort is efficient for sorting large datasets, however, it does require additional memory space.
 
-```
+```txt
 If only one number
     Quit
 Else    
@@ -446,52 +491,72 @@ Else
     Sort right half of numbers
     Merge sorted halves
 ```
+
 <br><br>
 Consider the following list of numbers:
-```
+
+```txt
 6341
 ```
 
 1. Merge sort asks, "Is this one number?" The answer is `no`, the algorithm continues.
-```
+
+```txt
 6341
 ```
+
 2. Merge sort will now **split** the numbers down the middle (or as close as it can get) and sort the **left** half of the numbers.
-```
+
+```txt
 63|41
 ```
+
 3. Merge sort would look at the sublist on the left and ask "is this one number?" The answer is `no`, it would then split the numbers on the **left** down the middle.
-```
+
+```txt
 6|3
 ```
+
 4. Merge sort will ask again "is this one number?" The answer is `yes`, it will look at the number on the left and the number on the right. It will put the smaller number first, then the second smallest
-```
+
+```txt
 36
 ```
+
 5. Now, we return where we left off in the pseudocode now that the left side has been sorted.
-```
+
+```txt
 36|41
 ```
+
 6. Merge sort would look at the sublist on the **right** and ask "is this one number?" The answer is `no`, it would then split the numbers on the right down the middle.
-```
+
+```txt
 4|1
 ```
+
 7. Merge sort will ask again "is this one number?" The answer is `yes`, it will look at the number on the left and the number on the right. It will put the smaller number first, then the second smallest
-```
+
+```txt
 14
 ```
-8. Both sublists are now sorted. 
-```
+
+8. Both sublists are now sorted.
+
+```txt
 36|14
 ```
+
 9. Finally, the algorithm will `merge` both sides. It will look at the **first** number on the left and the **first** number on the right. It will put the smaller number first, then the second smallest. The algorithm will repeat this for all numbers.
-```
+
+```txt
 36 | 14
 
 136 | 4 
 
 1346
 ```
+
 10. Merge sort is complete, and the program quits.
 <br><br>
 
