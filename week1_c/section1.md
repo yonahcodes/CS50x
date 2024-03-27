@@ -1,6 +1,7 @@
 # CS50x Section 1 - C
 <!-- this is an invisible comment -->
 ## Variables and Types
+
 A **variable** is container paired with a symbolic name for some value that can change
 
 ```c
@@ -30,9 +31,11 @@ the code above creates an integer names country_code that gets the value 65.
 ```c
 char country_code = 65;
 ```
+
 In this case the binary vale of 01000001 is stored as a `char` (character) equivalent to "A"
 
 We can use **syntactic sugar** to make the code shorter in C :
+
 ```c
 int calls = 4;
 calls = calls + 2;
@@ -40,7 +43,9 @@ calls = calls - 1;
 calls = calls * 2;
 calls = calls / 2;
 ```
+
 When we run the code above, the result is 5.
+
 ```c
 int calls = 4;
 calls += 2;
@@ -48,15 +53,19 @@ calls -= 1;
 calls *= 2;
 calls /= 2;
 ```
+
 When we run the code, the result is **4 instead of 4.5**. Any decimal result is **"Truncated"**, not rounded.
 
 > Integers are whole numbers, they do not store decimal values.
 
 <br><br>
+
 ## Input and Printing
+
 ```c
 int calls = get_int("Calls: "); 
 ```
+
 `get_int("Calls: ");` is a **function call**.
 > `get_int` is a function created by cs50.
 
@@ -77,11 +86,13 @@ Breaking it down:
 
 - `%i` is the placeholder for the value of the variable `calls`
 
-- The value of the *variable* that follows the coma `,` will be stored in the placeholder: 
+- The value of the *variable* that follows the coma `,` will be stored in the placeholder:
 
 - **printf("calls is %i\n", `calls`);**
 <br><br>
+
 ## Types and format codes
+
 - int `%i`
 
 - float `%f`
@@ -101,7 +112,7 @@ int main(void)
 
 Breaking it down:
 
-- `#include <stdio.h>` Includes header file stdio C library 
+- `#include <stdio.h>` Includes header file stdio C library
 
 - the `main` function serves as the entry point of every C program.
 
@@ -109,6 +120,7 @@ Breaking it down:
 
 - `(void)` This part specifies the parameter list of the main function. "void" means the function does not expect any command-line arguments.
 <br><br>
+
 ## Getting input from user
 
 Using the CS50 library `<cs50.h>`, we can easily obtain user input:
@@ -132,7 +144,7 @@ int main(void)
 
 - The function prompts user for his name and stores it in the variable.
 
--  `printf("Hello, %s\n", name);` function prints "Hello, user-input"
+- `printf("Hello, %s\n", name);` function prints "Hello, user-input"
 
 - `%s` is a string type placeholder for the string type variable prompted by user
 
@@ -147,6 +159,7 @@ int main(void)
     printf("Hello, %s %s\n", first_name, last_name);
 }
 ```
+
 > In this program we prompt the user for two inputs that we store in 2 different variables.
 
 `printf("Hello, %s %s\n", first_name, last_name);` Function uses 2 placeholders and after the coma specifies which values should replace the placeholders in the result.
@@ -166,11 +179,14 @@ int main(void)
     printf("Phone: %s\n", phone);
 }
 ```
+
 In the program above we prompt the user for 3 inputs (name, age, phone number) and we display contact information.
->We chose **string type** for the phone number to include a variation of entries. 
+>We chose **string type** for the phone number to include a variation of entries.
 
 <br><br>
+
 ## Functions, Loops and Conditionals
+
 ### While Loops
 
 These **loops** are useful when not sure when the condition will be true.
@@ -200,6 +216,7 @@ The code above will return "####" by repeatedly executing the loop until `j` is 
 - `printf("\n");` Move to a new line
 
 ### For Loops
+
 These next **loops** are useful when wanting to specify how many times we want to iterate.
 
 ```c
@@ -242,13 +259,16 @@ for (int i = 0; i < 4; i++)
     printf("\n");
 }
 ```
+
 The code above will return:
-```
+
+```md
 ####
 ####
 ####
 ####
 ```
+
 We can create a 4 x 4 # grid (superposed 4 lines of 4 #) by nesting the same for loop in the original for loop.
 > Note that we need to make variables different in both loops
 
@@ -258,6 +278,7 @@ int get_int(string prompt)
     // Get int from user
 }
 ```
+
 >`get_int` function is defined by cs50. It prompts user with a string to enter integer value in the example: `int height = get_int("Height: ");`
 
 Defining and using functions is a key aspect of C programming. Here's an example:
@@ -283,15 +304,16 @@ void print_row(int bricks)
     printf("\n");
 }
 ```
+
 This program prompts the user for the height of a pyramid and prints the corresponding rows.
 
 - First loop sets what will be the height or how many rows will the code print using user's input.
 - Second loop `print_row` defines how many `#` will be printed in each line.
 
->Before calling a function we need to define it. If it's defined below where it is called, the program will not run. 
-> - We need to include above the call a function prototype (its name, input, and return value) ex: `void print_row(int length);`
+>Before calling a function we need to define it. If it's defined below where it is called, the program will not run. We need to include above the call a function prototype (its name, input, and return value) ex: `void print_row(int length);`
 
 <br><br>
+
 ## Parameters VS Arguments
 
 ```c
