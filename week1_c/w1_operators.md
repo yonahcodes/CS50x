@@ -1,4 +1,5 @@
 # C - Operators
+
 ## Arithmetic Operators
 
 In order to manipulate and work with variables and values of C, we have a number of **operators** at our disposal.
@@ -42,7 +43,9 @@ We can use the result of evaluating  a **Boolean** expression in other programmi
 
 There is two main types of Boolean expressions: *logical operators* and *relational operators*.
 <br><br>
+
 ## Logical operators
+
 Logical **AND** `&&` is true if and only if **both operands** are true, otherwise false.
 
 |x|y|(x && y)|
@@ -70,6 +73,7 @@ Logical **NOT** `!` inverts the value of its operand.
 |true|*false*|
 |false|*true*|
 <br><br>
+
 ## Relational operators
 
 These behave as you would expect them to, and appear syntactically similar to how you may recall them from elementary arithmetic.
