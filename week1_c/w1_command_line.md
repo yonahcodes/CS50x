@@ -9,6 +9,7 @@ Still, as programmers we will likely be using the **terminal window** frequently
 > These commands can be used in any **UNIX-based** system, which includes **macOS**.
 
 <br><br>
+
 ## Using the Linux Command Line
 
 ### **`ls`**<br>
@@ -18,6 +19,7 @@ Short for "**list**", this command will give you a readout of all the files and 
 ### **`cd`** **\<directory>**<br>
 
 Short for "**change directory**", this command changes current directory to **\<directory>**, which you specify, in your *workspace* or on your *operating system*.
+
 - The shorthand name for the current directory is `.`
 - The shorthand name for the parent directory of the current directory is `..`
 - If we want to know the name of the current directory, we can type `pwd` (present working directory).
@@ -32,7 +34,8 @@ Short for "**make directory**", this command will create a new subdirectory call
 Short for "**copy**", this command will allow us to create a duplicate of the file we specify as **\<source>**, which it will save in the **\<destination>**.
 
 If we wanted to copy entire directories, you'll need to modify the command slightly:
-- `cp -r` **\<source directory>** **\<destination directory>**<br> 
+
+- `cp -r` **\<source directory>** **\<destination directory>**<br>
 The `-r` flag stands for *recursive*, and tells `cp` to dive down into the directory and copy everything inside of it (including any subdirectories it might contain).
 
 ### `rm` **\<file>**<br>
