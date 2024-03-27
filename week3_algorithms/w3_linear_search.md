@@ -1,18 +1,23 @@
 # Linear Search
+
 In **Linear search**, the idea of the algorithm is to iterate across the array from left to right, searching for a specified element.
 
 **Pseudocode**:
-```
+
+```txt
 Repeat, starting at the first element:
     If the first element is the target element, stop.
     Otherwise, move to the next element.
 ```
+
 |Target|
 |:-:|
 |9|
-```
+
+```txt
 | 11 | 23 | 8 | 14 | 30 | 9 | 6 | 17 | 22 | 28 | 25 | 15 | 7 | 10 | 19 |
-``` 
+```
+
 1. Is `11` == 9 ? No
 2. Is `23` == 9 ? No
 3. Is `8` == 9 ? No
