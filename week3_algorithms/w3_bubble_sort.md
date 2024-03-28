@@ -133,6 +133,8 @@ Let's sort the following array to illustrate the process:
 |:-:|
 |**4**|
 
+<br>
+
 > [!NOTE]
 > Largest element `6` is now bubbled all the way to the end of the array and considered `sorted`. It will not be considered in the following passes.
 
@@ -229,6 +231,8 @@ Let's sort the following array to illustrate the process:
 |Swap Counter|
 |:-:|
 |**2**|
+
+<br>
 
 > [!NOTE]
 > Second largest element `5` is now bubbled all the way to the end of the array and considered **sorted**. It will not be considered in the next passes.
