@@ -65,6 +65,6 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Linear Search](week3_algorithms/w3_linear_search.md)
   - [Binary Search](week3_algorithms/w3_binary_search.md)
   - [Bubble Sort](week3_algorithms/w3_bubble_sort.md)
-  - [Selection Sort]
+  - [Selection Sort](week3_algorithms/w3_selection_sort.md)
   - [Recursion]
   - [Merge Sort]
