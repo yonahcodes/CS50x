@@ -318,7 +318,7 @@ Now that we went through the whole array and we didn't have to make any swaps (t
 ```
 <br><br>
 
-`Worst-case-scenario`: The array is in reverse order; we have to "bubble" each of the `n` elements all the way across the array, and since we can only fully bubble **one** element into position per pass, we must to this `n` times, resulting in resulting in `O(n^2)`.
+`Worst-case-scenario`: The array is in reverse order; we have to "bubble" each of the `n` elements all the way across the array, and since we can only fully bubble **one** element into position per pass, we must to this `n` times, resulting in a running time of `O(n^2)`.
 <br><br>
 
-`Best-case-scenario`: The array is already perfectly sorted, and we make no swaps on the first pass, resulting in `Ω(n)`.
+`Best-case-scenario`: The array is already perfectly sorted, and we make no swaps on the first pass, resulting in a running time of `Ω(n)`.

@@ -148,7 +148,7 @@ Repeat until the sub(array) is of size 0;
 This confirms that we have a **(sub)array** of size `0` and we can now **guarantee** that an element of value `16` does not exist in the array.
 <br><br>
 
-`Worst-case scenario`: We have to divide a list of elements in half repeatedly to find the target element, either because the target element will be found at the end of the last division or doesn't exist in the array at all, resulting in `O(log n)`.
+`Worst-case scenario`: We have to divide a list of elements in half repeatedly to find the target element, either because the target element will be found at the end of the last division or doesn't exist in the array at all, resulting in a running time of `O(log n)`.
 <br><br>
 
-`Best-case-scenario`: The target element is at the midpoint of the full array, and so we can stop immediately after we start, resulting in `Ω(1)`.
+`Best-case-scenario`: The target element is at the midpoint of the full array, and so we can stop immediately after we start, resulting in a running time of `Ω(1)`.
