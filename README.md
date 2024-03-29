@@ -67,4 +67,10 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Bubble Sort](week3_algorithms/w3_bubble_sort.md)
   - [Selection Sort](week3_algorithms/w3_selection_sort.md)
   - [Recursion](week3_algorithms/w3_recursion.md)
-  - [Merge Sort]
+  - [Merge Sort](week3_algorithms/w3_merge_sort.md)
+
+- Problem Set 3
+  - [Sort]
+  - [Plurality]
+  - [Runoff]
+  
