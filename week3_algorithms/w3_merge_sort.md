@@ -100,7 +100,7 @@ Single element `1` is now considered `sorted`.
 ```txt
                | *2 | *1 |  
 
-| 5 |----------|  1 |  2 |
+| 5 | ---------- |  1 |  2 |
 ```
 `5` as a *single element* is considered **merged** and **sorted**.
 
