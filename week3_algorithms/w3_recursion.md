@@ -6,7 +6,7 @@ The technique of `recursion` is a very common way to implement such an "elegant"
 
 The definition of a **recursive function** is one that, as part of its execution, **calls itself**.
 
-## Factorial function example
+## Factorial function
 
 The **factorial function** `n!` is defined over all positive integers. 
 
@@ -50,7 +50,7 @@ fact(5) = 5 * fact(4)
 
 <br>
 
-Let's try and implement this function in **C**:
+Let's try and implement a **recursive** version of this function in **C**:
 
 ```c
 int fact(int n)
@@ -91,7 +91,7 @@ int fact(int n)
 
 - It then returns the results back up the **call stack** multiplying the values to compute the final factorial.
 
-<br><br>
+<br>
 
 In general, but not always, recursive functions replace **loops** in `non-recursive functions`:
 
@@ -108,6 +108,8 @@ int fact2(int n)
 }
 ```
 <br>
+
+## Multi-base and Multi-recursive cases
 
 It's also possible to have more than one **base** or **recursive** case, if the program might recurse or terminate in different ways, depending on the input being passed in.
 
