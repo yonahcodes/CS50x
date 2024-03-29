@@ -42,14 +42,14 @@ Let's sort the following array to illustrate the process:
 > Smallest element `1` is now at the beginning of the array and `sorted`. It will not be considered in the following passes.
 
 ```txt
-| *1 |----------| 2 | 5 | 3 | 6 | 4 |
+| *1 | ---------- | 2 | 5 | 3 | 6 | 4 |
 ```
 <br>
 
 **3.** *Repeat*, search the unsorted part of the data to find the **smallest** value.
 
 ```txt
-| 1 |----------| 2 | 5 | 3 | 6 | 4 |
+| 1 | ---------- | 2 | 5 | 3 | 6 | 4 |
 
 | *2 | 5 | 3 | 6 | 4 |
 
@@ -68,7 +68,7 @@ Let's sort the following array to illustrate the process:
 > Smallest element `2` is now `sorted`. It will not be considered in the following passes.
 
 ```txt
-| 1 | *2 |----------| 5 | 3 | 6 | 4 |
+| 1 | *2 | ---------- | 5 | 3 | 6 | 4 |
 ```
 
 <br>
@@ -76,7 +76,7 @@ Let's sort the following array to illustrate the process:
 **5.** *Repeat*, search the unsorted part of the data to find the **smallest** value.
 
 ```txt
-| 1 | 2 |----------| 5 | 3 | 6 | 4 |
+| 1 | 2 | ---------- | 5 | 3 | 6 | 4 |
 
 | 5 | 3* | 6 | 4 |
 
@@ -92,7 +92,7 @@ Let's sort the following array to illustrate the process:
 | *3 | *5 | 6 | 4 |
 ```
 ```txt
-| 1 | 2 |----------| *3 | *5 | 6 | 4 |
+| 1 | 2 | ---------- | *3 | *5 | 6 | 4 |
 ```
 <br>
 
@@ -100,7 +100,7 @@ Let's sort the following array to illustrate the process:
 > Smallest element `3` is now `sorted`. It will not be considered in the following passes.
 
 ```txt
-| 1 | 2 | *3 |----------| 5 | 6 | 4 |
+| 1 | 2 | *3 | ---------- | 5 | 6 | 4 |
 ```
 
 <br>
@@ -108,7 +108,7 @@ Let's sort the following array to illustrate the process:
 **7.** *Repeat*, search the unsorted part of the data to find the **smallest** value.
 
 ```txt
-| 1 | 2 | 3 |----------| 5 | 6 | 4 |
+| 1 | 2 | 3 | ---------- | 5 | 6 | 4 |
 
 | 5 | 6 | *4 |
 
@@ -124,7 +124,7 @@ Let's sort the following array to illustrate the process:
 | *4 | 6 | *5 |
 ```
 ```txt
-| 1 | 2 | 3 |----------| *4 | 6 | *5 |
+| 1 | 2 | 3 | ---------- | *4 | 6 | *5 |
 ```
 <br>
 
@@ -132,7 +132,7 @@ Let's sort the following array to illustrate the process:
 > Smallest element `4` is now `sorted`. It will not be considered in the following passes.
 
 ```txt
-| 1 | 2 | 3 | *4 |----------| 6 | 5 |
+| 1 | 2 | 3 | *4 | ---------- | 6 | 5 |
 ```
 
 <br>
@@ -140,7 +140,7 @@ Let's sort the following array to illustrate the process:
 **9.** *Repeat*, search the unsorted part of the data to find the **smallest** value.
 
 ```txt
-| 1 | 2 | 3 | 4 |----------| 6 | 5 |
+| 1 | 2 | 3 | 4 | ---------- | 6 | 5 |
 
 | 6 | *5 |
 
@@ -157,7 +157,7 @@ Let's sort the following array to illustrate the process:
 | *5 | *6 |
 ```
 ```txt
-| 1 | 2 | 3 | 4 |----------| *5 | 6 |
+| 1 | 2 | 3 | 4 | ---------- | *5 | 6 |
 ```
 <br>
 
@@ -165,7 +165,7 @@ Let's sort the following array to illustrate the process:
 > Smallest element `5` is now `sorted`. It will not be considered in the following passes.
 
 ```txt
-| 1 | 2 | 3 | 4 | 5 |----------| 6 |
+| 1 | 2 | 3 | 4 | 5 | ---------- | 6 |
 ```
 
 <br>
@@ -173,7 +173,7 @@ Let's sort the following array to illustrate the process:
 **11.** *Repeat*, search the unsorted part of the data to find the **smallest** value.
 
 ```txt
-| 1 | 2 | 3 | 4 | 5 |----------| 6 |
+| 1 | 2 | 3 | 4 | 5 | ---------- | 6 |
 
 | 6 |
 ```

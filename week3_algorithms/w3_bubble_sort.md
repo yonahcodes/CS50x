@@ -139,7 +139,7 @@ Let's sort the following array to illustrate the process:
 > Largest element `6` is now bubbled all the way to the end of the array and considered `sorted`. It will not be considered in the following passes.
 
 ```txt
-| 2 | 1 | 3 | 5 | 4 |----------| 6 |
+| 2 | 1 | 3 | 5 | 4 | ---------- | 6 |
 ```
 
 <br>
@@ -159,7 +159,7 @@ Let's sort the following array to illustrate the process:
 **14.** Look at each adjacent pair starting from the left
 
 ```txt
-| *2 | *1 | 3 | 5 | 4 |----------| 6 |
+| *2 | *1 | 3 | 5 | 4 | ---------- | 6 |
 ```
 
 **15.** If two adjacent elements are not in order *swap them* and add `1` to the swap counter
@@ -167,7 +167,7 @@ Let's sort the following array to illustrate the process:
 ```txt
 | 1 | 2 |
 
-| *1 | *2 | 3 | 5 | 4 |----------| 6 |
+| *1 | *2 | 3 | 5 | 4 | ---------- | 6 |
 ```
 
 |Swap Counter|
@@ -179,13 +179,13 @@ Let's sort the following array to illustrate the process:
 **16.** *Repeat*, Look at next adjacent pair to the right
 
 ```txt
-| 1 | *2 | *3 | 5 | 4 |----------| 6 |
+| 1 | *2 | *3 | 5 | 4 | ---------- | 6 |
 ```
 
 **17.** If two adjacent elements are not in order *swap them* and add `1` to the swap counter
 
 ```txt
-| 1 | *2 | *3 | 5 | 4 |----------| 6 |
+| 1 | *2 | *3 | 5 | 4 | ---------- | 6 |
 ```
 > `2` and `3` are in order, swap counter unchanged, we move on to the next pair
 
@@ -198,13 +198,13 @@ Let's sort the following array to illustrate the process:
 **18.** *Repeat*, Look at next adjacent pair to the right
 
 ```txt
-| 1 | 2 | *3 | *5 | 4 |----------| 6 |
+| 1 | 2 | *3 | *5 | 4 | ---------- | 6 |
 ```
 
 **19.** If two adjacent elements are not in order *swap them* and add `1` to the swap counter
 
 ```txt
-| 1 | 2 | *3 | *5 | 4 |----------| 6 |
+| 1 | 2 | *3 | *5 | 4 | ---------- | 6 |
 ```
 > `3` and `5` are in order, swap counter unchanged, we move on to the next pair
 
@@ -217,7 +217,7 @@ Let's sort the following array to illustrate the process:
 **20.** *Repeat*, Look at next adjacent pair to the right
 
 ```txt
-| 1 | 2 | 3 | *5 | *4 |----------| 6 |
+| 1 | 2 | 3 | *5 | *4 | ---------- | 6 |
 ```
 
 **21.** If two adjacent elements are not in order *swap them* and add `1` to the swap counter
@@ -225,7 +225,7 @@ Let's sort the following array to illustrate the process:
 ```txt
 | 4 | 5 |
 
-| 1 | 2 | 3 | *4 | *5 |----------| 6 |
+| 1 | 2 | 3 | *4 | *5 | ---------- | 6 |
 ```
 
 |Swap Counter|
@@ -238,7 +238,7 @@ Let's sort the following array to illustrate the process:
 > Second largest element `5` is now bubbled all the way to the end of the array and considered **sorted**. It will not be considered in the next passes.
 
 ```txt
-| 1 | 2 | 3 | 4 |----------| 5 | 6 |
+| 1 | 2 | 3 | 4 | ---------- | 5 | 6 |
 ```
 <br>
 
@@ -257,13 +257,13 @@ Let's sort the following array to illustrate the process:
 **23.** Look at each adjacent pair starting from the left
 
 ```txt
-| *1 | *2 | 3 | 4 |----------| 5 | 6 |
+| *1 | *2 | 3 | 4 | ---------- | 5 | 6 |
 ```
 
 **24.** If two adjacent elements are not in order *swap them* and add `1` to the swap counter
 
 ```txt
-| *1 | *2 | 3 | 4 |----------| 5 | 6 |
+| *1 | *2 | 3 | 4 | ---------- | 5 | 6 |
 ```
 > `1` and `2` are in order, swap counter unchanged, we move on to the next pair
 
@@ -276,13 +276,13 @@ Let's sort the following array to illustrate the process:
 **25.** *Repeat*, Look at next adjacent pair to the right
 
 ```txt
-| 1 | *2 | *3 | 4 |----------| 5 | 6 |
+| 1 | *2 | *3 | 4 | ---------- | 5 | 6 |
 ```
 
 **26.** If two adjacent elements are not in order *swap them* and add `1` to the swap counter
 
 ```txt
-| 1 | *2 | *3 | 4 |----------| 5 | 6 |
+| 1 | *2 | *3 | 4 | ---------- | 5 | 6 |
 ```
 > `2` and `3` are in order, swap counter unchanged, we move on to the next pair
 
@@ -295,13 +295,13 @@ Let's sort the following array to illustrate the process:
 **27.** *Repeat*, Look at next adjacent pair to the right
 
 ```txt
-| 1 | 2 | *3 | *4 |----------| 5 | 6 |
+| 1 | 2 | *3 | *4 | ---------- | 5 | 6 |
 ```
 
 **26.** If two adjacent elements are not in order *swap them* and add `1` to the swap counter
 
 ```txt
-| 1 | 2 | *3 | *4 |----------| 5 | 6 |
+| 1 | 2 | *3 | *4 | ---------- | 5 | 6 |
 ```
 > `3` and `4` are in order, swap counter unchanged
 

@@ -128,7 +128,7 @@ Now the next step is to **merge** the *left* and *right* parts of the **sub-arra
 - Then place them in a **sorted** way.
 
 ```txt
-| *5 |----------| *1 | 2 |
+| *5 | ---------- | *1 | 2 |
 
 | 1 |
 ```
@@ -137,7 +137,7 @@ Now the next step is to **merge** the *left* and *right* parts of the **sub-arra
 **8.** *Repeat*, **merge** the two halves together
 
 ```txt
-| *5 |----------| *2 |
+| *5 | ---------- | *2 |
 
 | 1 | 2 |
 ```
@@ -233,7 +233,7 @@ Single element `4` is now considered `sorted`.
 ```txt
                | *6 | *4 |  
 
-| 3 |----------|  4 |  6 |
+| 3 | ---------- |  4 |  6 |
 ```
 `3` as a *single element* is considered **merged** and **sorted**.
 
@@ -261,7 +261,7 @@ Now the next step is to **merge** the *left* and *right* parts of the **sub-arra
 - Then place them in a **sorted** way.
 
 ```txt
-| *3 |----------| *4 | 6 |
+| *3 | ---------- | *4 | 6 |
 
 | 3 |
 ```
@@ -306,7 +306,7 @@ Now the next step is to **merge** the `sorted` halves of the **original array**.
 
 - Then place them in a **sorted** way.
 ```txt
-| *1 | 2 | 5 |----------| *3 | 4 | 6 |
+| *1 | 2 | 5 | ---------- | *3 | 4 | 6 |
 
 | 1 |
 ```
@@ -314,7 +314,7 @@ Now the next step is to **merge** the `sorted` halves of the **original array**.
 
 **19.** *Repeat*, **merge** the two halves together
 ```txt
-| *2 | 5 |----------| *3 | 4 | 6 |
+| *2 | 5 | ---------- | *3 | 4 | 6 |
 
 | 1 | 2 |
 ```
@@ -322,7 +322,7 @@ Now the next step is to **merge** the `sorted` halves of the **original array**.
 
 **20.** *Repeat*, **merge** the two halves together
 ```txt
-| *5 |----------| *3 | 4 | 6 |
+| *5 | ---------- | *3 | 4 | 6 |
 
 | 1 | 2 | 3 |
 ```
@@ -330,7 +330,7 @@ Now the next step is to **merge** the `sorted` halves of the **original array**.
 
 **21.** *Repeat*, **merge** the two halves together
 ```txt
-| *5 |----------| *4 | 6 |
+| *5 | ---------- | *4 | 6 |
 
 | 1 | 2 | 3 | 4 |
 ```
@@ -338,7 +338,7 @@ Now the next step is to **merge** the `sorted` halves of the **original array**.
 
 **22.** *Repeat*, **merge** the two halves together
 ```txt
-| *5 |----------| *6 |
+| *5 | ---------- | *6 |
 
 | 1 | 2 | 3 | 4 | 5 |
 ```
