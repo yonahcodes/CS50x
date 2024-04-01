@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: 5.198s to sort reversed50000.txt / 0.587s to sort sorted50000.txt / Slow and Fast, most likely O(n^2), Ω(n)
+
+sort2 uses: Merge Sort
+
+How do you know?: 0.492s to sort reversed50000.txt / 0.428s to sort sorted50000.txt / Fast and Fast, most likely O(n log n), Ω(n log n)
+
+sort3 uses: Selection Sort
+
+How do you know?: 2.481s to sort reversed50000.txt / 2.492s to sort sorted50000.txt / Slow and Slow, most likely O(n^2), Ω(n^2)
