@@ -71,6 +71,6 @@ In this repository I will be documenting my progress in Harvard University's int
 
 - Problem Set 3
   - [Sort](week3_algorithms/sort/answers.txt)
-  - [Plurality]
+  - [Plurality](week3_algorithms/plurality.c)
   - [Runoff]
   
