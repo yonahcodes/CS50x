@@ -70,7 +70,7 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Merge Sort](week3_algorithms/w3_merge_sort.md)
 
 - Problem Set 3
-  - [Sort]
+  - [Sort](week3_algorithms/sort/answers.txt)
   - [Plurality]
   - [Runoff]
   
