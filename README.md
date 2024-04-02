@@ -73,4 +73,8 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Sort](week3_algorithms/sort/answers.txt)
   - [Plurality](week3_algorithms/plurality.c)
   - [Runoff](week3_algorithms/runoff.c)
-  
+  <br><br>
+
+## [4 - Memory](https://cs50.harvard.edu/x/2024/weeks/4/)
+
+- Lecture 4 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/4/)
