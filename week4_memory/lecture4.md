@@ -169,6 +169,4 @@ int main(void)
 50
 ```
 > [!IMPORTANT]
-> There is a difference between the first and second `*p`.
-> `int *p` is syntax for **declaring** a pointer (a variable that will store an address).
-> `*p` on the *printf* line just means `go to location p`. 
+> There is a difference between the first and second `*p`. <br> `int *p` is syntax for **declaring** a pointer (a variable that will store an address). <br> `*p` on the *printf* line just means `go to location p`. 
