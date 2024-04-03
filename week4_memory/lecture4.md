@@ -260,9 +260,9 @@ int main(void)
 ```
 <br>
 
-> Notice that the addresses corresponding to `s` and `s[0]` are the **same**. Remember that `s` points to the **first** character of the string (H).
-
-> Notice also the last digit of the addresses. It shows that the elements are next to each other on the memory, `1 byte` apart.
+> [!NOTE]
+> The addresses corresponding to `s` and `s[0]` are the **same**. Remember that `s` points to the **first** character of the string (H). <br> 
+Notice also the last digit of the addresses. It shows that the elements are next to each other on the memory, `1 byte` apart.
 
 <br>
 
