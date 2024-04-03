@@ -312,4 +312,45 @@ typedef char *string
 
 <br>
 
-Lecture4 minute 48:00
+## Pointer Arithmetic
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    char *s = "HI!";
+    printf("%c", s[0]);
+    printf("%c", s[1]);
+    printf("%c\n", s[2]);
+}
+```
+```txt
+HI!
+```
+The program above prints out the string `HI!` by printing out each `char` back-to-back.
+
+<br><br>
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    char *s = "HI!";
+    printf("%c", *s);
+    printf("%c", *(s + 1));
+    printf("%c\n", *(s + 2));
+}
+```
+```txt
+HI!
+```
+>[!NOTE]
+> Since `*s` points to the 1st *char* of the string, we can determine that `*(s + 1)` is the location of the 2nd *char*, and `*(s + 2)` the 3rd.
+
+<br><br>
+
+## String Comparison
+
+Lecture minute 52:00
