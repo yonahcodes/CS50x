@@ -408,15 +408,24 @@ int main(void)
 > [!IMPORTANT]
 > Using the `==` operator to compare strings will attempt to compare the **memory locations** of the strings instead of the characters.
 
+<br>
+
+|s|t|
+|:-:|:-:|
+|s[0]|s[0]|
+|0x123|0x456|
+
+<br>
+
 - Different *strings* are located in different memory addresses.
 
 - String `s` could be located in address `0x123`, while string `t` might be located in address `0x456`.
 
-- Typing the *HI!* as input to both prompts in the code above will still result in an output of `Different`.
+- Typing the **HI!** as input to both prompts in the code above will still result in an output of `Different`.
 
-<br>
+<br><br>
 
-Using `stcmp`, we can correct our code:
+Using `strcmp` function of the `string.h` library, we can correct our code:
 
 ```c
 #include <cs50.h>
@@ -440,11 +449,11 @@ int main(void)
     }
 }
 ```
-> Notice that `strcmp` can return `0` if the strings are the same.
+> Notice that `strcmp` takes the strings as arguments and can return `0` if the strings are the same.
 
 <br>
 
-We can see that these two strings are located in different addresses using the `%p` placeholder in the print statement:
+We can see that these two strings are located in *different* addresses using the `%p` placeholder in the print statement:
 
 ```c
 #include <cs50.h>
@@ -465,4 +474,273 @@ int main(void)
 0x56211767d6b0
 0x56211767d6f0
 ```
-Lecture 52:00
+
+> [!NOTE]
+> We do not need to use the `&s` or `&t` like in other data types, because we now know that **strings** are already `pointers` and hold the address of the first character of the string. 
+
+<br><br>
+
+## Copying
+
+Let's try and copy one string to another:
+```c
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    string s = get_string("s: ");
+
+    string t = s;
+
+    t[0] = toupper(t[0]);
+
+    printf("%s\n", s);
+    printf("%s\n", t);
+}
+```
+The program above attempts to:
+- Copy string `s` into string `t`.
+- Then Capitalize the first character of string `t`.
+- And print out both strings.
+
+<br>
+
+Theoretically, if we input `hi!` into the prompt, the program should print out:
+```txt
+hi!
+Hi!
+```
+
+But this will not work, because `string t = s` copies the address of `s` to `t`. 
+
+Both strings now hold the **same address** and *point* to the same block in memory `t[0] == s[0]`. The output will be the following:
+
+```txt
+Hi!
+Hi!
+```
+
+<br>
+
+Before we address this bug, we can add a security layer and make sure the string `t` has *at least one character* before attempting to capitalize its first letter. 
+
+This will prevent a `segmentation fault` from happening and our program crashing.
+
+```c
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    // Get a string
+    string s = get_string("s: ");
+
+    // Copy string's address
+    string t = s;
+
+    // Capitalize first letter in string
+    if (strlen(t) > 0)
+    {
+        t[0] = toupper(t[0]);
+    }
+
+    // Print string twice
+    printf("s: %s\n", s);
+    printf("t: %s\n", t);
+}
+```
+- `if (strlen(t) > 0)` This condition checks is the length of the string `t` (number of characters) is greater than `0`.
+
+<br>
+
+### malloc
+
+To be able to make an **authentic copy** of the **string**, we will need to use two new building blocks:
+- `malloc` allows us to allocate a block of a specific size of memory.
+- `free` allows us to tell the compiler to *free up* that block of memory we previously allocated.
+
+```c
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void)
+{
+    // Get string s
+    char *s = get_string("s: ");
+
+    // Allocate memory for another string
+    char *t = malloc(strlen(s) + 1);
+
+    // Copy string into memory, including "\0"
+    for (int i = 0, n = strlen(s); i <= n; i++)
+    {
+            t[i] = s[i];
+    }
+
+    // Capitalize copy
+    if (strlen(t) > 0)
+    {
+        t[0] = toupper(t[0]);
+    }
+
+    // Print strings
+    printf("%s\n", s);
+    printf("%s\n", t);
+}
+```
+<br>
+
+> [!IMPORTANT]
+> We have to ensure that we include the null `\0` character in our copied string. 
+
+<br>
+
+- `malloc(strlen(s) = 1)` creates a block of memory that is the length of the string `s` **plus 1**. This ensures the inclusion of the **null** `\0` character.
+
+- The `for` loop iterates through string `s` indexes and assigns each value to the same locations on string `t`.
+
+- To prevent running a function over and over again, in the **for loop**, we did not call the `strlen(s)` function in the middle of the condition like so `i <= strlen(n)`.
+
+- Instead, we declared `n = strlen(s)` and used the condition `i <= n`. This ensures `strlen` only runs once.
+
+<br><br>
+
+If something goes wrong and we are **out of memory** in the computer, both `malloc` and `get_string` functions return `NULL`. 
+
+We can check for this condition and exit the program early, adding a layer of safety as follows:
+```c
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void)
+{
+    char *s = get_string("s: ");
+
+    // Check for NULL
+    if (t == NULL)
+    {
+        return 1;
+    }
+
+    char *t = malloc(strlen(s) + 1);
+
+    // Check for NULL
+    if (t == NULL)
+    {
+        return 1;
+    }
+
+    for (int i = 0, n = strlen(s); i <= n; i++)
+    {
+            t[i] = s[i];
+    }
+
+    if (strlen(t) > 0)
+    {
+        t[0] = toupper(t[0]);
+    }
+
+    printf("%s\n", s);
+    printf("%s\n", t);
+}
+```
+
+ <br><br>
+
+The `C` language has a **built-in** function to copy strings called `strcpy`. It can replace ouf `for loop` as follows:
+```c
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void)
+{
+    char *s = get_string("s: ");
+    if (t == NULL)
+    {
+        return 1;
+    }
+
+    char *t = malloc(strlen(s) + 1);
+    if (t == NULL)
+    {
+        return 1;
+    }
+
+    // Copy string into memory
+    strcpy(t, s);
+
+    if (strlen(t) > 0)
+    {
+        t[0] = toupper(t[0]);
+    }
+
+    printf("%s\n", s);
+    printf("%s\n", t);
+}
+```
+<br><br>
+
+### free
+
+In **C**, the `free` function is used to **deallocate memory** that was previously allocated using the function `malloc`.
+
+This is crucial to **prevent memory leaks** and efficiently managing memory in **C** programs.
+```c
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void)
+{
+    char *s = get_string("s: ");
+    if (t == NULL)
+    {
+        return 1;
+    }
+
+    char *t = malloc(strlen(s) + 1);
+    if (t == NULL)
+    {
+        return 1;
+    }
+
+    strcpy(t, s);
+
+    if (strlen(t) > 0)
+    {
+        t[0] = toupper(t[0]);
+    }
+
+    printf("%s\n", s);
+    printf("%s\n", t);
+
+    // Free memory allocated to `t`
+    free(t);
+    return 0;
+}
+```
+> [!NOTE]
+> The program execution is complete once the `printf` statements are executed. After that the program terminates, making `t` no longer needed for future operations.<br>
+`t` can now be safely deallocated using the `free` function.
+
+<br><br>
+
+## malloc and Valgrind 
+
+Lecture 01:16:00
