@@ -353,4 +353,116 @@ HI!
 
 ## String Comparison
 
-Lecture minute 52:00
+A string of characters is simply an *array of characters* identified by its first **byte**.
+
+To compare integers, we used the `==` equality operator:
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Get two integers
+    int i = get_int("i: ");
+    int j = get_int("j: ");
+
+    // Compare integers
+    if (i == j)
+    {
+        printf("Same\n");
+    }
+    else
+    {
+        printf("Different\n");
+    }
+}
+```
+
+<br>
+
+However, in the case of **strings**, we cannot compare two strings using the `==` operator:
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Get two strings
+    char *s = get_string("s: ");
+    char *t = get_string("t: ");
+
+    // Compare strings' addresses
+    if (s == t)
+    {
+        printf("Same\n");
+    }
+    else
+    {
+        printf("Different\n");
+    }
+}
+```
+
+> [!IMPORTANT]
+> Using the `==` operator to compare strings will attempt to compare the **memory locations** of the strings instead of the characters.
+
+- Different *strings* are located in different memory addresses.
+
+- String `s` could be located in address `0x123`, while string `t` might be located in address `0x456`.
+
+- Typing the *HI!* as input to both prompts in the code above will still result in an output of `Different`.
+
+<br>
+
+Using `stcmp`, we can correct our code:
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    // Get two strings
+    char *s = get_string("s: ");
+    char *t = get_string("t: ");
+
+    // Compare strings
+    if (strcmp(s, t) == 0)
+    {
+        printf("Same\n");
+    }
+    else
+    {
+        printf("Different\n");
+    }
+}
+```
+> Notice that `strcmp` can return `0` if the strings are the same.
+
+<br>
+
+We can see that these two strings are located in different addresses using the `%p` placeholder in the print statement:
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Get two strings
+    char *s = get_string("s: ");
+    char *t = get_string("t: ");
+
+    // Print strings
+    printf("%p\n", s);
+    printf("%p\n", t);
+}
+```
+```txt
+0x56211767d6b0
+0x56211767d6f0
+```
+Lecture 52:00
