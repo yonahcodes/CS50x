@@ -451,7 +451,7 @@ int main(void)
 ```
 > Notice that `strcmp` takes the strings as arguments and can return `0` if the strings are the same.
 
-<br>
+<br><br>
 
 We can see that these two strings are located in *different* addresses using the `%p` placeholder in the print statement:
 
@@ -513,6 +513,7 @@ Theoretically, if we input `hi!` into the prompt, the program should print out:
 hi!
 Hi!
 ```
+<br>
 
 But this will not work, because `string t = s` copies the address of `s` to `t`. 
 
@@ -523,11 +524,9 @@ Hi!
 Hi!
 ```
 
-<br>
+<br><br>
 
-Before we address this bug, we can add a security layer and make sure the string `t` has *at least one character* before attempting to capitalize its first letter. 
-
-This will prevent a `segmentation fault` from happening and our program crashing.
+Before we address this bug, we can add a security layer and make sure the string `t` has *at least one character* before attempting to capitalize its first letter. This will prevent a `segmentation fault` from happening and our program crashing.
 
 ```c
 #include <cs50.h>
