@@ -786,9 +786,7 @@ If we compile the code and type `valgrind ./file_name`, we will get a **report**
 ==18341==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
 ==18341==    by 0x109151: main (memory.c:6)
 ```
-- This error indicates a `memory leak`.
-
-- In `line 6` we allocated `12 bytes` of memory that were lost. We never used `free` to *deallocate* `x`.
+- This error indicates a `memory leak`. In `line 6` we allocated `12 bytes` of memory that were lost. We never used `free` to *deallocate* `x`.
 
 <br><br>
 
