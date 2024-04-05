@@ -740,6 +740,85 @@ int main(void)
 
 <br><br>
 
-## malloc and Valgrind 
+## Valgrind 
 
-Lecture 01:16:00
+**Valgrind** is a tool that we can use to spot memory-related issues. Specifically if we effectively `free` memory previously allocated in the program with `malloc`.
+
+<br>
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int *x = malloc(3 * sizeof(int));
+    x[1] = 72;
+    x[2] = 73;
+    x[3] = 33;
+}
+```
+- `int *x` Declares the address of an integer.
+
+- `= malloc(3 * sizeof(int));` Assigns to it enough space for an **array** of size **3 integers**.
+
+- `sizeof(int)` Instead of guessing how many **bytes** does an *integer* take in a specific machine, this function will take care of that for us.
+
+- Then proceeds to assign values to the indexes of the **array**.
+
+<br><br>
+
+If we compile the code and type `valgrind ./file_name`, we will get a **report** that will indicate the following **errors**:
+
+```txt
+==18341== Invalid write of size 4
+==18341==    at 0x109170: main (memory.c:9)
+==18341==  Address 0x4bb404c is 0 bytes after a block of size 12 alloc'd
+==18341==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==18341==    by 0x109151: main (memory.c:6)
+```
+- In `line 9` we attempted to assign the value of `33` at the **4th** position of the array, but we only allocated an array of size `3`. We should have started to assign values at the first index `x[0]`.
+
+<br>
+
+```txt
+==18341== 12 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==18341==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==18341==    by 0x109151: main (memory.c:6)
+```
+- This error indicates a `memory leak`.
+
+- In `line 6` we allocated `12 bytes` of memory that were lost. We never used `free` to *deallocate* `x`.
+
+<br><br>
+
+We can fix the program by modifying the code as follows:
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int *x = malloc(3 * sizeof(int));
+    x[0] = 72;
+    x[1] = 73;
+    x[2] = 33;
+    free(x);
+}
+```
+<br>
+
+And if we run `valgrind ./file_name` again:
+```txt
+==27591== HEAP SUMMARY:
+==27591==     in use at exit: 0 bytes in 0 blocks
+==27591==   total heap usage: 1 allocs, 1 frees, 12 bytes allocated
+==27591== 
+==27591== All heap blocks were freed -- no leaks are possible
+```
+
+<br><br>
+
+## Garbage Values
+
+Lecture 1:24:00
