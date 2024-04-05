@@ -819,4 +819,194 @@ And if we run `valgrind ./file_name` again:
 
 ## Garbage Values
 
-Lecture 1:24:00
+**Garbage** values, are values stored in a variable or memory location that has not been **explicitly initialized** or assigned with a **meaningful value**.
+
+When you ask the **compiler** for a *block of memory*, there is no guarantee that this memory will be empty. It's very possible that this memory contains a **garbage value**.
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    int scores[1024];
+
+    for (int i = 0; i < 1024; i++)
+    {
+        printf("%i\n", scores[i]);
+    }
+}
+```
+When we run this code, some of the values (not all 1024) returned below:
+```txt
+0
+1685382482
+4
+2185456
+0
+2189552
+0
+2189552
+0
+14096
+0
+14096
+```
+- In this program we allocated `1024` locations in memory for our array.
+
+- The values in this array have not been initialized.
+
+- When running the program, we notice that it prints some **garbage values** and not just `0s`. 
+
+<br><br>
+
+Let's see another problematic scenario:
+```c
+int main(void)
+{
+    int *x;
+    int *y;
+
+    x = malloc(sizeof(int));
+
+    *x = 42;
+    *y = 13;
+
+    y = x;
+
+    *y = 13
+}
+```
+- In this function, we declared `*x` and `*y` pointers.
+
+- Only allocated memory for `*x`.
+
+- We dereference `*x` to store in it the value`42`.
+
+- But then, attempted to dereference `*y`  to assign to it the value `13`.
+
+- Since we never **initialized** `*y`, it most likely contains a `garbage value`. 
+
+- Attempting to assign `13` to `*y` could lead to a `segmentation fault` or another **unexpected behavior** because we don't know where `*y` points.
+
+- We then assign the value of **x** to **y** with `y = x`. This means that the random memory allocated for `y` (if any) is lost, leading to a **memory leak**.
+
+<br>
+
+The simple solution here that will make this code correct is simply removing line `*y = 13;`. This would make next line `y = x;` valid and `*x` and `*y` point to the **same location**. Assigning value of `13` to `*y` in the last line will change the value stored in the **common** memory location.
+```txt
+1. Pointer and pointee (memory location) are separate - don't forget to set up a pointee.
+
+2. Pointer dereferencing (assign value) to access its pointee.
+
+3. Pointer assignment (=) makes pointers point to the same memory location.
+```
+<br><br>
+
+## Swap
+
+A common need in programming is to **swap** the **values** of two variables. An important step in this process is to **temporarily hold space**.
+
+Let's see this process in action:
+```c
+#include <stdio.h>
+
+void swap(int a, int b);
+
+int main(void)
+{
+    int x = 1;
+    int y = 2;
+
+    printf("x is %i, y is %i\n", x, y);
+    swap(x, y);
+    printf("x is %i, y is %i\n", x, y);
+}
+
+void swap(int a, int b)
+{
+    int tmp = a;
+    a = b;
+    b = tmp;
+}
+```
+- After printing the values of `x` and `y` a first time.
+
+- This program **attempts** to swap the values of `x` and `y` using the swap function.
+
+- `swap()` 
+    1. Assigns the value of `x` in a temporary variable `tmp` to free up space in `x`.
+    2. Assigns the value of `y` to `x`.
+    3. Now that `y` is free, it assigns to it the old value of `x` stored in `tmp`.
+    4. Theoretically achieving to swap `x` and `y`.
+
+<br>
+
+But there is an **issue** here, when we run the program it **fails** to swap the values:
+```txt
+x is 1, y is 2
+x is 1, y is 2
+```
+
+This is an issue of `scope`. Remember that **local variables** are `passed by value` and changes made to them in another function `swap()`, **do not** affect the original variables in the calling function `main()`.
+
+When we used the `swap()` function we swapped **"copies"** of `x` and `y`.
+
+<br><br>
+
+### Memory segments
+
+To illustrate this, let's breakdown how information in stored in the computer's memory:
+
+![stack and heap](../img/cs50Week4Slide163.png)
+
+- `Machine code` At the **lowest level** we have machine code or **instructions** that have been compiled and represent the operations to be performed by the **CPU**.
+
+- `Global variables` Variables that are initialized before the program starts, **outside** of the `main()` function and every other function. These **variables** are accessible from anywhere in the program and stored in **global memory**.
+
+- `Heap` The **heap** is a region of memory used for **dynamic memory allocation**. Memory allocated on the heap using `malloc` persists until it is explicitly deallocated with `free`.
+
+- `Stack` is the region of memory used for **function call** management and **local variable** storage. Each time a function is created, a new `stack frame` is created containing all the information related to the function call (parameters, local variables, return address, etc).
+
+<br>
+
+![frames](../img/cs50Week4Slide167.png)
+
+> [!NOTE]
+> The `main()` function and the `swap()` function have two different **stack frames** in the memory. When passing variables as arguments to a function in `C`, that function receives **copies**. Therefore, modifying theses **copies** inside the function does not affect the **original variables** in the caller's context.
+
+<br>
+
+### Passing by reference
+
+To enable `swap()` to modify the **original variables** passed to it, we need to `pass by reference` using **pointers**. This way, the function can *dereference* the pointers and access the **actual memory location** of the variables.
+```c
+void swap(int *a, int *b)
+{
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+```
+- By adding the `*` operator to the arguments, we make them **pointers** and `swap()` has access to the **addresses** of `x` and `y`and not just a copy of their values. 
+
+- `*a` points to `x` and `*b` points to `y`.
+
+<br>
+
+We also need to add the `&` operator to `x` and `y` in the function call, to ensure that we pass their **addresses** as arguments.
+```c
+swap(&x, &y);
+```
+<br>
+
+Now that `swap()` can access the actual **memory location** of `x` and `y`, the changes it makes are reflected in the `main()` function and the output of the program is the following:
+```txt
+x is 1, y is 2
+x is 2, y is 1
+```
+
+<br><br>
+
+## Overflow
+
+Lecture4 1:46:00
