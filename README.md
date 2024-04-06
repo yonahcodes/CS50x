@@ -77,4 +77,4 @@ In this repository I will be documenting my progress in Harvard University's int
 
 ## [4 - Memory](https://cs50.harvard.edu/x/2024/weeks/4/)
 
-- Lecture 4 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/4/)
+- Lecture 4 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/4/) - [Notes](week4_memory/lecture4.md)
