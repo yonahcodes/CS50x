@@ -266,7 +266,7 @@ Notice also the last digit of the addresses. It shows that the elements are next
 
 <br>
 
-### "String" data type
+### `String` data type
 
 The `string` data type is a `cs50.h` invention to introduce strings in a simplified way.
 ```c
@@ -557,7 +557,7 @@ int main(void)
 
 <br>
 
-### malloc
+### `malloc`
 
 To be able to make an **authentic copy** of the **string**, we will need to use two new building blocks:
 - `malloc` allows us to allocate a block of a specific size of memory.
@@ -693,7 +693,7 @@ int main(void)
 ```
 <br><br>
 
-### free
+### `free`
 
 In **C**, the `free` function is used to **deallocate memory** that was previously allocated using the function `malloc`.
 
@@ -1009,4 +1009,206 @@ x is 2, y is 1
 
 ## Overflow
 
-Lecture4 1:46:00
+`Heap overflow` occurs when a program writes data beyond the memory allocated to it on the heap, touching areas of memory it is not supposed to. Typically happens when we **dynamically allocate** `malloc()` memory but write **more data** than the allocated.
+
+`Stack overflow` is when too many functions are **called**, overflowing the amount of memory available on the stack.<br>
+Each time a function is **called** a new **stack frame** is added to the **call stack**. If a program *recursively* calls a function without **proper termination** condition, it can lead to **stack overflow**. 
+
+<br><br>
+
+## `scanf`
+
+In **CS50** functions like `get_int` and `get_string` have been created to simplify the act of getting **user input**. In **C** we can use the `scanf` built-in function to get user input.
+
+<br>
+
+### `get_int` 
+
+Let's implement the function using raw **C** code:
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    int n;
+    printf("n: ");
+    scanf("%i", &n);
+    printf("n: %i\n", n);
+}
+```
+- `scanf("%i", &n)` stores the user input value of `n` at the location `&n`.
+
+<br>
+
+### `get_string`
+
+Let's try to implement this function using raw **C** code:
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    char *s;
+    printf("s: ");
+    scanf("%s", s);
+    printf("s: %s\n", s);
+}
+```
+> Notice that no `&` is required because strings are already represented using **pointers** to the first character of the string.
+
+<br>
+
+If we succeed in compiling this program, we will get an **error**:
+```txt
+Segmentation fault (core dumped)
+```
+- We declared the *pointer variable* `s` without **initializing** it (allocating memory to it). This means that it does not point to any **valid memory address**. Instead, it contains a `garbage value` (it points to some random memory location which may not be accessible or safe to use). 
+
+<br><br>
+
+To fix this, we can modify the code as follows: 
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    char s[4];
+    printf("s: ");
+    scanf("%s", s);
+    printf("s: %s\n", s);
+}
+```
+- However, we had to **pre-allocate** a certain amount of memory, in this case `s[4]`. This is only a *guess*, because we cannot know what **size** string the user is going to input.
+
+- Declaring the string as `s[4]`, we allocated enough memory to hold **four characters** of `1 byte` each (s[0], s[1], s[2]) including the **null terminator** `\0` (s[3]). Totaling `4 bytes`.
+
+<br>
+
+If the user provides a **longer string** as an input, we will step out of the bounds of the **memory allocated** resulting in an error:
+```txt
+Segmentation fault (core dumped)
+```
+<br>
+
+It is risky to use the `scanf` function in general and especially with **strings**, because it lacks the memory error handling and can lead to **buffer overflows**. CS50's `get_string` function uses `malloc` *recursively* to resize and allocate more data depending on the user input.
+
+<br><br>
+
+## File I/O
+
+**File Input/Output** refers to the operations of reading from and writing to files on a computer's storage system.
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    // Open csv file
+    FILE *file = fopen("phonebook.csv", "a");
+
+    // Get name and number
+    char *name = get_string("Name: ");
+    char *number = get_string("Number: ");
+
+    // Print to file
+    fprintf(file, "%s,%s\n", name, number);
+
+    // Close file
+    fclose(file);
+}
+```
+> Notice that the program uses **pointers** to access the file.
+
+- We can create a file called `phonebook.csv` before running this program. After running, the program will prompt user for a `name` and `number` that it will write in the CSV file.
+
+- `FILE *file` is a **pointer** to the file in memory.
+
+-  `fopen()` function opens the file.
+
+- With `"a"`, we specify that we want to **append** the file.
+
+- `fprintf()` prints to the file two strings (name and number).
+
+- `fclose()` closes the file.
+
+<br><br>
+
+If we want to ensure that `phonebook.csv` exists prior to running the program, we can modify our code as follows:
+```c
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    // Open csv file
+    FILE *file = fopen("phonebook.csv", "a");
+
+    // Check if file exists
+    // Alternative -> if (file == NULL)
+    if (!file)
+    {
+        return 1;
+    }
+
+    // Get name and number
+    char *name = get_string("Name: ");
+    char *number = get_string("Number: ");
+
+    // Print to file
+    fprintf(file, "%s,%s\n", name, number);
+
+    // Close file
+    fclose(file);
+}
+```
+- The `if (!file)` condition protects the program against a `NULL` pointer by invoking `return 1`.
+
+<br><br>
+
+Let's implement our own **copy** program for files:
+```c
+#include <stdio.h>
+#include <stdint.h>
+
+typedef uint8_t BYTE;
+
+int main(int argc, char *argv[])
+{
+    FILE *src = fopen(argv[1], "rb");
+    FILE *dst = fopen(argv[2], "wb");
+
+    BYTE b;
+
+    while (fread(&b, sizeof(b), 1, src) !=0)
+    {
+        fwrite(&b, sizeof(b), 1, dst);
+    }
+
+    fclose(dst);
+    fclose(src);
+}
+```
+- `typedef uint8_t BYTE` means give me an **"unsigned"** (no negative number), **8 bit** value inside a new type called **BYTE**.
+
+- `FILE *src = fopen(argv[1], "rb");` Declare a **pointer** variable called **src** of type **FILE**, and **open** the file specified in the **2nd** command line argument to **read binary**.
+
+- `FILE *dst = fopen(argv[2], "wb");` Declare a second **pointer** variable called **dst** of type **FILE**, and **open** the file specified in the **3rd** command line argument to **write binary**.
+
+- `BYTE b` store **1 byte** declared earlier in a variable called **b**.
+
+- `while(...) !=0` While **fread()** is successful continue.
+
+- `fread(&b, sizeof(b), 1, src` Read bites and store them in address of **b**, of size **1 bite**, **one byte** at a time from the **src** file.
+
+- `fwrite(&b, sizeof(b), 1, dst);` Write bites stored in address of **b**, of size **1 byte**, **one bite** at a time, to **dst** file.
+
+- `fclose` close files **dst** and **src**.
+
+<br>
+
+With this simple but powerful copy program implemented in **C** we can now copy the contents of any binary file to another file byte per byte. 
+
+In the problem sets we will be manipulating **Bitmap Image Files** (BMPs).
