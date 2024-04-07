@@ -99,17 +99,18 @@ void swap(int *a, int *b)
 ```txt
 main    a = 50, b = 10
             ^       ^
-            |       |
-swap    a = 50  b = 10   
+            ^       ^
+swap    a = 50,  b = 10   
 ```
 - This new `swap()` function takes **pointers** to the variables as arguments (the addresses of `a` and `b`).
 
-- It uses **dereference** syntax to access the **actual values** stored in those addresses to make permanent changes.
+- It uses **dereference** syntax to access the **actual values** stored in those **addresses** to make permanent changes.
 
 <br>
 
 > [!NOTE]
-> We also need to add the `&` operator to `a` and `b` in the function call, to ensure that we pass their **addresses** as arguments:
+> We also need to add the `&` **"address of"** operator to `a` and `b` in the function call, to ensure that we pass their **addresses** as arguments:
+
 ```c
 swap(&a, &b);
 ```
@@ -163,6 +164,8 @@ We can use `debug50` to **step into** the **swap** function and analyze its inne
 
 **1.** `void swap(int *a, int *b)`
 
+<br>
+
 ![debug50 variables](../img/swap-debug50.png)
 
 - `temp` holds a **garbage value** of `257`
@@ -175,6 +178,8 @@ We can use `debug50` to **step into** the **swap** function and analyze its inne
 
 **2.** First line `int temp = *a;`
 
+<br>
+
 ![debug50 variables](../img/swap-debug501.png)
 
 - Running this line will set the `temp` variable into the result of **dereferencing** the value of pointer `a` (accessing the value it points to), which is `10`.
@@ -184,6 +189,8 @@ We can use `debug50` to **step into** the **swap** function and analyze its inne
 <br><br>
 
 **3.** Second line `*a = *b;`
+
+<br>
 
 ![debug50 variables](../img/swap-debug502.png)
 
@@ -197,6 +204,8 @@ We can use `debug50` to **step into** the **swap** function and analyze its inne
 
 **4.** Third line `*b = temp;`
 
+<br>
+
 ![debug50 variables](../img/swap-debug503.png)
 
 - When this line runs, it will set the **dereferencing part** of the pointer `b` to the value of `temp` which is `10`.
@@ -205,20 +214,22 @@ We can use `debug50` to **step into** the **swap** function and analyze its inne
 
 <br><br>
 
-**5.** When the `swap()` function is done, the values stored in the **original variables** `a` and `b` are now swapped at a global level:
-
-![debug50 variables](../img/swap-debug504.png)
+**5.** When the `swap()` function is done: 
 
 <br>
 
+![debug50 variables](../img/swap-debug504.png)
+
+- The values stored in the **original variables** `a` and `b` are now swapped at a global level.
+
+<br><br>
+
 The debugging session confirms that the `swap()` function is correctly swapping the values of the variables passed to it **by reference** using **pointers**.
 
- This is reflected in the output produced by the `main()` function, which displays the *updated values* of `a` and `b` after the swap:
+This is reflected in the output produced by the `main()` function, which displays the *updated values* of `a` and `b` after the swap:
 
 ```txt
 a is 10, b is 50
 a is 50, b is 10
 ```
-
-
 
