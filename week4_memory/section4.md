@@ -194,7 +194,7 @@ We can use `debug50` to **step into** the **swap** function and analyze its inne
 
 ![debug50 variables](../img/swap-debug502.png)
 
-- When this line runs, it will follow the pointer `b` (`*b`) to find the value it is storing, which is `50`.
+- When this line runs, it will **dereference** the pointer `b` (`*b`) to find the value it is storing, which is `50`.
 
 - Then it will assign the value `50` to the **dereferenced part** of the pointer `a`, replacing the previous value of `10`.
 
