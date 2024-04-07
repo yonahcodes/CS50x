@@ -98,9 +98,9 @@ void swap(int *a, int *b)
 ```
 ```txt
 main    a = 50, b = 10
-
-             ^       ^
-swap    a =  |  b =  |   
+            ^       ^
+            |       |
+swap    a = 50  b = 10   
 ```
 - This new `swap()` function takes **pointers** to the variables as arguments (the addresses of `a` and `b`).
 
@@ -214,7 +214,7 @@ We can use `debug50` to **step into** the **swap** function and analyze its inne
 The debugging session confirms that the `swap()` function is correctly swapping the values of the variables passed to it **by reference** using **pointers**.
 
  This is reflected in the output produced by the `main()` function, which displays the *updated values* of `a` and `b` after the swap:
- 
+
 ```txt
 a is 10, b is 50
 a is 50, b is 10
