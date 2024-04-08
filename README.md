@@ -83,4 +83,5 @@ In this repository I will be documenting my progress in Harvard University's int
 
 - Shorts
   - [Hexadecimal](week4_memory/w4_hexadecimal.md)
+  - [Pointers](week4_memory/w4_pointers.md)
   
