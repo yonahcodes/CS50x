@@ -232,4 +232,178 @@ This is reflected in the output produced by the `main()` function, which display
 a is 10, b is 50
 a is 50, b is 10
 ```
+<br><br>
 
+## File I/O
+
+**File input/output** refers to the **operations** performed on files by **reading** from them or **writing** to them. It's a fundamental aspect of programming, allowing programs to interact with the external files stored on disk.
+
+<br>
+
+### Opening and Closing Files in **C**
+
+<br>
+
+- `fopen` opens a file for future reading/writing.
+
+- `fclose` closes a file.
+
+<br>
+
+> [!IMPORTANT]
+> Always `fclose` all files you `fopen`. If not done, it could lead to memory leaks, data loss and synchronization issues.
+
+<br><br>
+
+Let's imagine we wanted to **OPEN** a text file called `hi.txt`:
+
+```c
+FILE *f = fopen("hi.txt", "r");
+```
+- `fopen()` function takes **two arguments** (The file name `"hi.txt"` and the **mode string** `"r"` that specifies to open it in **read mode**).
+
+- `FILE *f` **Pointer variable** named `f` of type `FILE` points to the location of this file in memory.
+
+<br>
+
+To **CLOSE** `hi.txt`:
+```c
+fclose(f);
+```
+- To **close** a file, we simply need to give the `fclose()` function the **pointer** to the file as an argument `f`.
+
+<br><br>
+
+### Reading and Writing from Files
+
+<br>
+
+- `fread` reads data from a file into a `buffer`.
+
+- `fwrite` writes data from a `buffer` to a file.
+
+- A `buffer` is a chunk of memory that can temporarily store some data from a file. The reason for using a **buffer** is to avoid **memory overflow**, by accessing small chucks of data at a time in case we have a big file.
+
+<br><br>
+
+To **READ** from a **file**, we should first ask some questions: 
+
+1. **To Where** are we reading (buffer)? 
+2. **What Size** is each *block of data* we want to read? 
+3. **How Many** *blocks of data* we want to read?
+4. **From where** do we want to read (file)?
+
+<br>
+
+Let's imagine we wanted to **read** from `hi.txt`:
+
+```c
+fread(buffer,1,4,f);
+```
+<br>
+
+- `fread()` takes `4` arguments and returns the number of elements successfully read.
+
+- `fread(buffer,...,...,...)` 1st argument is the `buffer`, a **pointer variable** to a memory location we want to **read into** (store file's content).
+
+- `fread(...,size,...,...)` 2nd argument is the `size` of the minimum **units of data** that compose the file (`1 byte` for each `char` in a **text file** or `3 bytes` for each `pixel` in an **image**)
+
+- `fread(...,...,n-units,...)` 3rd argument is to specify how many of those **units of data** we want to read at a time.
+
+- `fread(...,...,...,f)` 4th argument `f` is the **pointer** to the file `hi.txt`.
+
+<br>
+
+> When we **read** data to a **buffer** from a file, the pointer `f` gets updated to point to the next element after the data we read.
+
+<br><br>
+
+### Practice with Reading
+
+<br>
+
+Generally, **files** have a signature of **bytes** at the very beginning that tells us the type of file it is. A `PDF` for example, always begins with a **four-byte** sequence, corresponding to integers `37, 80, 68, 70`.
+
+<br>
+
+Let's create a program called `pdf.c` that opens a file given as a *command-line argument* and determines if it's a `PDF`:
+
+```c
+#include <cs50.h>
+#include <stdint.h>
+#include <stdio.h>
+
+// Declare main function to take command-line arguments
+int main(int argc, string argv[])
+{
+    // Declare 2nd command line argument as filename
+    string filename = argv[1];
+
+    // Open file
+    FILE *f = fopen(filename, "r");
+
+    // Create buffer to read to of type "1 byte"
+    uint8_t buffer[4];
+
+    // Read from file into buffer
+    fread(buffer, 1, 4, f);
+
+    // Iterate through first 4 bytes of file
+    for (int i = 0; i < 4; i++)
+    {
+        // Print the 4 bytes
+        printf("%i\n", buffer[i]);
+    }
+    // Close file
+    fclose(f);
+}
+```
+<br>
+
+When running `./pdf test.pdf` output confirms file is a `PDF`:
+```txt
+37
+80
+68
+70
+```
+
+<br>
+
+When running `./pdf test.jpg` output shows file is **not** a `PDF`:
+```txt
+255
+216
+255
+224
+```
+<br><br>
+
+If we want to print the successful reads that `fread()` function returns, we can modify the code as follows:
+```c
+#include <cs50.h>
+#include <stdint.h>
+#include <stdio.h>
+
+int main(int argc, string argv[])
+{
+    string filename = argv[1];
+    FILE *f = fopen(filename, "r");
+    uint8_t buffer[4];
+    int blocks_read = fread(buffer, 1, 4, f);
+
+    for (int i = 0; i < 4; i++)
+    {
+        printf("%i\n", buffer[i]);
+    }
+    printf("Blocks read: %i\n", blocks_read);
+    fclose(f);
+}
+```
+```txt
+37
+80
+68
+70
+Blocks read: 4
+```
