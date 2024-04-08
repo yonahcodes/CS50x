@@ -407,3 +407,6 @@ int main(int argc, string argv[])
 70
 Blocks read: 4
 ```
+<br>
+
+In the problem set for this week, we will work with the `fwrite(buffer, 1, 4, f);` function, to write data to the **file** (append) from the **buffer**.
