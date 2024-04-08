@@ -85,7 +85,7 @@ To convert a **binary** number to **hexadecimal**, we group `4 binary digits (bi
 ```txt
 0+4+0+0  0+4+2+0  8+0+2+0  0+0+2+0  8+0+2+1  8+0+0+1  0+0+2+1  8+4+0+1
 
-4   6   10  2   11  9   3   13
+4       6       10      2       11      9       3       13
 ```
 <br>
 
