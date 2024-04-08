@@ -54,12 +54,46 @@ Hexadecimal number 0xADC --> (10 * 16^2) + (13 * 16^1) + (12 * 16^0) = 2560 + 20
 ```
 <br><br>
 
+## Converting Binary to Hexadecimal
+
 To convert a **binary** number to **hexadecimal**, we group `4 binary digits (bits)` together right to left. If the number of bits *isn't divisible by 4*, we can **"pad"** the binary number with **leading zeros** to make it a multiple of 4. 
+
+<br>
+
+**1.** Prepare the binary number, if it's not a multiple of 4 bits, add leading zeros: 
 
 ```txt
 01000110101000101011100100111101
+```
+<br>
 
+**2.** Group the the bits into **sets of 4 bits**, starting from the right:
+
+```txt
 0100 0110 1010 0010 1011 1001 0011 1101
+```
+<br>
 
-4   6   A   2   B   9   3   D   --->    0x46A2B93D
+**3.** Assign **weight** to each bit (`0000` = `*8 *4 *2 *1`) and **multiply** each bit by its corresponding weight:
+```
+0400 0420 8020 0020 8021 8001 0021 8401
+```
+<br>
+
+**4.** Calculate **Decimal value** with the sum of the results for each group of 4 bits:
+
+```txt
+0+4+0+0  0+4+2+0  8+0+2+0  0+0+2+0  8+0+2+1  8+0+0+1  0+0+2+1  8+4+0+1
+
+4   6   10  2   11  9   3   13
+```
+<br>
+
+**5.** Determine the corresponding **Hexadecimal digit**:
+
+```txt
+4   6   A   2   B   9   3   D  
+```
+```txt
+0x46A2B93D
 ```
