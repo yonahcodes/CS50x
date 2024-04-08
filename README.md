@@ -80,3 +80,7 @@ In this repository I will be documenting my progress in Harvard University's int
 - Lecture 4 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/4/) - [Notes](week4_memory/lecture4.md)
 
 - Section 4 - [Notes](week4_memory/section4.md)
+
+- Shorts
+  - [Hexadecimal](week4_memory/w4_hexadecimal.md)
+  
