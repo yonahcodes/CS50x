@@ -50,7 +50,7 @@ Let's break down the process of declaring variables and pointers in `C`, explori
 |       |
     k
 ```
-<br>
+<br><br>
 
 - `k = 5;` Assigns the value of `5` to `k`, which is like putting `5` inside that `k` box:
 
@@ -58,7 +58,7 @@ Let's break down the process of declaring variables and pointers in `C`, explori
 |   5   |
      k
 ```
-<br>
+<br><br>
 
 - `int* pk;` Declares a **pointer** to an integer named `pk`, which is like allocating an empty box of **8 bytes** (size of pointer) in memory:
 
@@ -66,7 +66,7 @@ Let's break down the process of declaring variables and pointers in `C`, explori
 |        |
     pk
 ```
-<br>
+<br><br>
 
 - `pk = &k;` Assigns the **address** of `k` to **pointer** `pk`, which is like putting the address of `k` inside the `pk` box:
 
@@ -129,6 +129,7 @@ In **C** we can declare multiple **integer variables** in a *single line* as lon
 ```c
 int x, y, z;
 ```
+<br>
 
 To declare multiple **pointers** in a *single line* we cannot do the following:
 ```c
@@ -177,7 +178,7 @@ We had a pointer `pk` to a variable `k` that holds the value of `5`:
 pk ----------> |   5   |
                    k
 ```
-<br>
+<br><br>
 
 - `*pk = 35` **Dereferences** pointer `pk` and assigns the value of `35`, changing the value stored at the memory location pointed to by `pk`, updating the value of `k`:
 
@@ -185,7 +186,7 @@ pk ----------> |   5   |
 pk ----------> |   35   |
                     k
 ```
-<br>
+<br><br>
 
 - `int m;` Declares a new **integer variable** called `m`, which is like allocating a new empty box of **4 bytes** (integer size) in memory:
 
@@ -193,7 +194,7 @@ pk ----------> |   35   |
 |       |
     m
 ```
-<br>
+<br><br>
 
 - `m = 4;` Assigns the value of `4` to `m`, which is like putting `4` inside that `m` box:
 
@@ -201,7 +202,7 @@ pk ----------> |   35   |
 |   4   |
      m
 ```
-<br>
+<br><br>
 
 - `pk = &m;` Assigns the **address** of `m` to **pointer** `pk`, which is like **redirecting** `pk` to point to now `m` instead of pointing to `k`:
 ```txt
