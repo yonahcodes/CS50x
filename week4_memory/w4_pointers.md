@@ -42,6 +42,13 @@ string surname = "Lloyd";
 
 Let's break down the process of declaring variables and pointers in `C`, exploring how they are allocated in memory:
 
+```c
+int k;
+k = 5;
+int* pk;
+pk = &k;
+```
+
 <br>
 
 - `int k;` Declares an **integer variable** called `k`, which is like allocating an empty box of **4 bytes** (integer size) in memory:
@@ -170,6 +177,18 @@ Now that we understand what pointers are, we can better understand how data type
 
 ### Let's go back to our example about how variables and pointers are allocated in memory:
 
+<br>
+
+```c
+int k;
+k = 5;
+int* pk;
+pk = &k;
+
+int m;
+m = 4;
+pk = &m;
+```
 <br>
 
 We had a pointer `pk` to a variable `k` that holds the value of `5`:
