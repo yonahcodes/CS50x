@@ -85,4 +85,5 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Hexadecimal](week4_memory/w4_hexadecimal.md)
   - [Pointers](week4_memory/w4_pointers.md)
   - [Defining Custom Types](week4_memory/w4_defining_custom_types.md)
+  - [Dynamic Memory Allocation](week4_memory/w4_dynamic_memory_allocation.md)
   
