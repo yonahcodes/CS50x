@@ -104,11 +104,14 @@ Let's analyze a few lines of code to visualize the process of managing dynamical
 int m;
 int* a;
 int* b = malloc(sizeof(int));
+
 a = &m;
 a = b;
 m = 10;
 *b = m + 2;
+
 free(b)
+
 *a = 11;
 ```
 
