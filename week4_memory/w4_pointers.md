@@ -185,6 +185,7 @@ k = 5;
 int* pk;
 pk = &k;
 
+*pk = 35;
 int m;
 m = 4;
 pk = &m;
