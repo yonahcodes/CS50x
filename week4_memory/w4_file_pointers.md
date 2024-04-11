@@ -49,6 +49,6 @@ FILE* ptr3 = fopen("file3.txt", "a");
 
 <br><br>
 
->[!NOTE]
-> **Writing** to a file involves starting from scratch. `"r"` mode will **remove all existing content** in the file before adding the new data. If the file does not exist, a *new one* is created.<br>
+>[!CAUTION]
+> **Writing** to a file involves starting from scratch. `"r"` mode will **remove all existing content** in the file before adding the new data. If the file does not exist, a *new one* is created.<br><br>
 **Appending** to a file means **adding new data** to the **end of the file**. `"a"` mode will place the **file pointer** at the end of the file, ensuring that any new data does not overwrite the existing content but adds to it.
