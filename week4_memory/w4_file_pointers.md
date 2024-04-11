@@ -19,7 +19,7 @@ fopen()  -  fclose()  -  fgetc()  -  fputc()  -  fread()  -  fwrite()
 ```
 <br>
 
-### `fopen()`
+## `fopen()`
 
 **Opens** a file for future reading/writing and **returns a file pointer** to it. It's important to check the return value for `NULL`. Attempting to **dereference** a pointer whose value is **NULL** can lead to a **Segmentation fault**.
 
@@ -57,7 +57,7 @@ FILE* ptr3 = fopen("file3.txt", "a");
 
 <br><br>
 
-### `fclose()`
+## `fclose()`
 
 **Closes** a file that was previously opened and **releases** any system resources associated with it. When the closing operation is successful, `fclose()` returns **zero**. Failing to properly close a file can result in *data loss* or *memory leaks*.
 
@@ -75,7 +75,7 @@ fclose(ptr1);
 
 <br><br>
 
-### `fgetc()`
+## `fgetc()`
 
 **Reads** the next **single character** from the file it points to. In order for `fgetc()` ("file get char") to succeed, the **file pointer** passed in as a parameter *must* be opened in `"r"` mode or there will be an **error**.
 
@@ -119,7 +119,7 @@ while((ch = fgetc(ptr)) != EOF)
 
 <br><br>
 
-### `fputc()`
+## `fputc()`
 
 **Writes** or **appends** a *single character* to the file it points to. For `fputc()` ("file put char") to function properly, the **file pointer** provided as an argument **must** be opened in a mode that allows writing, such as `"w"` or `"a"`.
 
@@ -168,7 +168,7 @@ while ((ch = fgetc(ptr)) != EOF)
 
 <br><br>
 
-### `fread()`
+## `fread()`
 
 **Reads** *multiple* blocks of data of a **specified size** from the file it points to and stores it in a `buffer` (usually an **array**). It is a version of **fgetc()** that allows us to **read** data of any size at once. For `fread()` to succeed, the **file pointer** passed in as a parameter *must* be opened in read mode `"r"` otherwise an **error** will occur.
 
@@ -225,7 +225,7 @@ fread(&c, sizeof(char), 1, ptr);
 
 <br><br>
 
-### `fwrite()`
+## `fwrite()`
 
 **Writes** *multiple* blocks of data of a **specified size** to the file it points to from a `buffer` (usually an **array**). It is a version of **fputc()** that allows us to **write** data of any size at once. For `fwrite()` to succeed, the **file pointer** passed in as a parameter *must* be opened in **write** `"w"` or **append** `"a"` mode  or otherwise an **error** will occur.
 
@@ -283,6 +283,7 @@ fread(&c, sizeof(char), 1, ptr);
 <br><br>
 
 There are a lot of other useful **File I/O** functions in `<stdio.h>` we can work with. Here are some of the ones that could be useful:
+
 <br>
 
 |**Function**|**Description**|
