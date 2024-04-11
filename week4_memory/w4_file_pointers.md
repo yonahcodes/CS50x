@@ -99,7 +99,7 @@ Using `fgetc()` in a **loop** gives us the ability to read all the **single char
 
 Understanding how `fgetc()` works in **C** gives valuable insight into the workings of high level commands like the **Linux** command `cat` (concatenate) that works in a similar fashion, printing the contents of a file in our **Terminal** window.
 
-<br>
+<br><br>
 
 ```c
 char ch;
@@ -148,7 +148,7 @@ Now that we can **read** characters from files and **write** characters to them.
 
 Combining `fgetc()`  and `fputc()` in **C** can give insight into the workings of the **Linux** command `cp` (copy) that works in a similar fashion, printing the contents of a file in our **Terminal** window.
 
-<br>
+<br><br>
 
 ```c
 char ch;
