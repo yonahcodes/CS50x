@@ -146,7 +146,7 @@ fputc('!', ptr3);
 
 Now that we can **read** characters from files and **write** characters to them. Let's extend our previous example to **copy** ont file to another, instead of printing to the screen. 
 
-Combining `fgetc()`  and `fputc()` in **C** can give insight into the workings of the **Linux** command `cp` (copy) that works in a similar fashion, printing the contents of a file in our **Terminal** window.
+Combining `fgetc()`  and `fputc()` in **C** can give us insight into the workings of the **Linux** command `cp` (copy) that works in a similar fashion to **copy** files.
 
 <br><br>
 
@@ -170,3 +170,126 @@ while ((ch = fgetc(ptr)) != EOF)
 
 ### `fread()`
 
+**Reads** *multiple* blocks of data of a **specified size** from the file it points to and stores it in a `buffer` (usually an **array**). It is a version of **fgetc()** that allows us to **read** data of any size at once. For `fread()` to succeed, the **file pointer** passed in as a parameter *must* be opened in read mode `"r"` otherwise an **error** will occur.
+
+<br>
+
+```c
+fread(<buffer>, <size>, <qty>, <file pointer>);
+```
+<br>
+
+```c
+int arr[10];
+
+fread(arr, sizeof(int), 10, ptr);
+```
+- `int arr[10]` Statically declares on the **stack** an array of `10` **integers**.
+
+- `fread()` Reads `10` `int` size elements (40 bytes) from the file that `ptr` points to, and store them in `arr`.
+
+<br>
+
+> Note that `arr` is also a **pointer** to the beginning of the block of memory on the **stack** that stores the data.
+
+<br><br>
+
+```c
+double* arr2 = malloc(sizeof(double) * 80);
+
+fread(arr2, sizeof(double), 80, ptr);
+```
+- `double* arr2 = malloc(sizeof(double) * 80);` Declares a **pointer variable** called `arr2` that points to a **dynamically allocated** block of memory on the **heap** of `80` elements of **size** `double`.
+
+- `fread()` **Reads** `80` elements of size `double` (640 bytes) from the file that `ptr` points to, and stores them in `arr2`.
+
+<br>
+
+> Note that `arr2` is also a **pointer** to the beginning of the block of memory on the **heap** that stores the data.
+
+<br><br>
+
+```c
+char c;
+fread(&c, sizeof(char), 1, ptr);
+```
+- Instead of storing the data in an **array**, we could store it in a **variable**.
+
+- `char c;` Declares a variable of size char (1 byte) on the **stack**. 
+
+- `fread()` here **Reads** `1` element of size `char` (1 byte) from a file that `ptr` points to, and stores it in the **address** of `&c`.
+
+<br>
+
+> Notice that we did not pass the variable `c` directly but the **address** of `&c` because the first argument of `fread()` is a **pointer**.
+
+<br><br>
+
+### `fwrite()`
+
+**Writes** *multiple* blocks of data of a **specified size** to the file it points to from a `buffer` (usually an **array**). It is a version of **fputc()** that allows us to **write** data of any size at once. For `fwrite()` to succeed, the **file pointer** passed in as a parameter *must* be opened in **write** `"w"` or **append** `"a"` mode  or otherwise an **error** will occur.
+
+<br>
+
+```c
+fwrite(<buffer>, <size>, <qty>, <file pointer>);
+```
+<br>
+
+```c
+int arr[10];
+
+fwrite(arr, sizeof(int), 10, ptr);
+```
+- `int arr[10]` Statically declares on the **stack** an array of `10` **integers**.
+
+- `fwrite()` Writes `10` `int` size elements (40 bytes) to the file that `ptr` points to from `arr`.
+
+<br>
+
+> Note that `arr` is also a **pointer** to the beginning of the block of memory on the **stack** that stores the data.
+
+<br><br>
+
+```c
+double* arr2 = malloc(sizeof(double) * 80);
+
+fwrite(arr2, sizeof(double), 80, ptr);
+```
+- `double* arr2 = malloc(sizeof(double) * 80);` Declares a **pointer variable** called `arr2` that points to a **dynamically allocated** block of memory on the **heap** of `80` elements of **size** `double`.
+
+- `fwrite()` **Writes** `80` elements of size `double` (640 bytes) to the file that `ptr` points to, from `arr2`.
+
+<br>
+
+> Note that `arr2` is also a **pointer** to the beginning of the block of memory on the **heap** that stores the data.
+
+<br><br>
+
+```c
+char c;
+fread(&c, sizeof(char), 1, ptr);
+```
+- Instead of reading the data from an **array**, we could write it from a **variable**.
+
+- `char c = 'x';` Declares and initializes a variable of size char (1 byte) on the **stack**. 
+
+- `fread()` here **Writes** `1` element of size `char` (1 byte) to a file that `ptr` points to, from the address of `&c` (which contains `x`).
+
+<br>
+
+> Notice that we did not pass the variable `c` directly but the **address** of `&c` because the first argument of `fwrite()` is a **pointer**.
+
+<br><br>
+
+There are a lot of other useful **File I/O** functions in `<stdio.h>` we can work with. Here are some of the ones that could be useful:
+
+|**Function**|**Description**|
+|:-:|:-:|
+|fgets( )|Reads a full string from a file.|
+|fputs( )|Writes a full string to a file.|
+|fprintf( )|Writes a formatted string to a file.|
+|fseek( )|Allows you to rewind or fast-forward within a line.|
+|ftell( )|Tells you at what (byte) position you are within a file.|
+|feof( )|Tells you whether you've read to the end of a file.|
+|ferror( )|Indicates whether an error has occurred in working with a file.|

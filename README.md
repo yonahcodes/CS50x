@@ -87,3 +87,4 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Defining Custom Types](week4_memory/w4_defining_custom_types.md)
   - [Dynamic Memory Allocation](week4_memory/w4_dynamic_memory_allocation.md)
   - [Call Stacks](week4_memory/w4_call_stacks.md)
+  - [File Pointers](week4_memory/w4_file_pointers.md)
