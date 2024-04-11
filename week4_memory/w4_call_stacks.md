@@ -112,7 +112,7 @@ main()
 ```
 <br>
 
-We now go back up the stack with `fact(2)` asks `2 == 1` **NO**, and proceeds to calculate its return value `2 * fact(1)` returning `2`. Its frame is `popped` off of the stack and the frame *immediately below it* becomes the new **active function**
+We now go back up the stack with `fact(2)` asking `2 == 1` **NO**, and proceeds to calculate its return value `2 * fact(1)` returning `2`. Its frame is `popped` off of the stack and the frame *immediately below it* becomes the new **active function**
 ```txt
 fact(3) ----> Becomes the active frame
 fact(4)
