@@ -283,9 +283,10 @@ fread(&c, sizeof(char), 1, ptr);
 <br><br>
 
 There are a lot of other useful **File I/O** functions in `<stdio.h>` we can work with. Here are some of the ones that could be useful:
+<br>
 
 |**Function**|**Description**|
-|:-:|:-:|
+|:-:|:-|
 |fgets( )|Reads a full string from a file.|
 |fputs( )|Writes a full string to a file.|
 |fprintf( )|Writes a formatted string to a file.|
