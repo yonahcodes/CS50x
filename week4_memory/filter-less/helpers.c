@@ -39,8 +39,8 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             int sepiaBlue = round(.272 * image[i][j].rgbtRed + .534 * image[i][j].rgbtGreen +
                                   .131 * image[i][j].rgbtBlue);
 
-            // Cap every value at maximum 255 | Alternative new syntax -> image[i][j].rgbtRed =
-            // (sepiaRed > 255) ? 255 : sepiaRed;
+            // Cap every value at maximum 255
+            // Alternative new syntax -> image[i][j].rgbtRed = (sepiaRed > 255) ? 255 : sepiaRed;
             if (sepiaRed > 255)
             {
                 sepiaRed = 255;
@@ -103,18 +103,18 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            // initialize totals for every color and count variable (used to keep track of how many
-            // pixels surround target pixel)
+            // initialize totals for every color and count variable 
+            // (used to keep track of how many pixels surround target pixel)
             int totalRed = 0, totalGreen = 0, totalBlue = 0;
             int count = 0;
 
             // Loop through the pixels around including center pixel
-            // First loop range: index -1(row above target pixel), index 0 (row of target pixel)
-            // index 1 (row below target)
+            // First loop range: index -1(row above target pixel), 
+            // index 0 (row of target pixel), index 1 (row below target)
             for (int k = -1; k <= 1; k++)
             {
-                // Second loop range: index -1(column above target pixel), index 0 (column of target
-                // pixel) index 1 (column below target)
+                // Second loop range: index -1(column above target pixel), 
+                // index 0 (column of target pixel), index 1 (column below target)
                 for (int l = -1; l <= 1; l++)
                 {
                     // Make new index adding the shift of rows/columns to the original index
@@ -136,8 +136,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             }
 
             // Calculate the average color value and assign to original image
-            // `count` is the number of pixels that were actually considered in this sum (valid
-            // pixels)
+            // `count` is the pixels that were actually considered in this sum (valid pixels)
             image[i][j].rgbtRed = round((float) totalRed / count);
             image[i][j].rgbtGreen = round((float) totalGreen / count);
             image[i][j].rgbtBlue = round((float) totalBlue / count);
