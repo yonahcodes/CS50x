@@ -93,3 +93,8 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Volume](week4_memory/volume/volume.c)
   - [Filter](week4_memory/filter-less/helpers.c)
   - [Recover](week4_memory/recover/recover.c)
+  <br><br>
+
+## [5 - Data Structures](https://cs50.harvard.edu/x/2024/weeks/5/)
+
+- Lecture 5 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/5/)
