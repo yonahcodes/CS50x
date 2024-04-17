@@ -114,7 +114,7 @@ int main(void)
 ```
 <br><br>
 
-Let's explore how we would implement the same idea using dynamically allocated memory:
+Now let's see how we would implement the same idea using dynamically allocated memory:
 ```c
 // Implements  list of numbers with an array of dynamic size
 
