@@ -323,6 +323,9 @@ n->next = NULL;
 |        | ---------->  |   1   | number
                         |       | next
 ```
+> [!IMPORTANT]
+> It is crucial that each new node starts with its `next` pointer ser to `NULL` to avoid **dangling pointers**.
+
 <br><br>
 
 **5.** Assign the address of pointer `n` to `list`. Both `list` and `n` now point to the **same memory location**. This is used to set `list` as the **head** of the linked list.
@@ -350,7 +353,7 @@ node *n = malloc(sizeof(node));
 ```txt
    list 
 |        | ----------->  |   1   | number
-                          |       | next  
+                         |       | next  
 
 
     n 
