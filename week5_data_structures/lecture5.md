@@ -424,7 +424,7 @@ n->next = list;
                                                        |       | next
 ```
 > [!CAUTION]
-> Before linking `list` to the new **node** and risking to **lose connection** and access to **node 1**, we have to link **node 1** to **node 2**.
+> Before linking `list` to the new **node** and risking to **lose connection** to **node 1** (and potential memory leak), we have to link **node 1** to **node 2**.
 
 <br><br>
 
