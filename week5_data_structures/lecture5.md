@@ -623,23 +623,26 @@ int main(int argc, char *argv[])
 ```
 Notice that to **append** the list, we added the following lines of code:
 
-- If list is **empty** `list == NULL`, update `list` to point to new node `n`.
+- If list is **empty** `list == NULL`
+    - Set head of the list `list` to new node `n`.
 
 <br>
 
 - If list is **not empty** (it has at least one existing node), we use a `for loop` to iterate through **every node** in the list:
 
-    - `node *ptr = list;` Create a temporary pointer `ptr` to point to the beginning of the list.
+    1. `node *ptr = list` Initialize a temporary pointer `ptr` to point to the beginning of the list (and traverse the list).
 
-    - `ptr != NULL;` Continues as long as list had not ended.
+    2. `ptr != NULL` Loop continues as long as list has not ended.
 
-    - `ptr = ptr->next` After each iteration, update `ptr` to point to next node.
+    3. `ptr = ptr->next` After each iteration, *traversal* `ptr` updates to point to next node.
 
     - If `ptr->next == NULL` next node is empty (end of the list):
 
-        - Update `ptr->next` to point to this new node, effectively appending the node to the end of the list.
+        - `ptr->next = n` update `ptr-next` to point to this new node `n`, effectively **appending** the node to the end of the list.
 
-<br><Br>
+        - `break` the loop.
+
+<br><br>
 
 > [!NOTE]
 > To **append** or *insert* a new element at the **end** of a **linked list**, like implemented above, we will need to go through our entire list before we can add the final node. This means the code will have a running time of `O(n)` **linear time complexity**. 
@@ -736,17 +739,45 @@ int main(int argc, char *argv[])
     }
 }
 ```
-Notice that to sort the nodes as we append them, we have to modify a few lines of code:
-
-- If list is **empty** `list == NULL`, update `list` to point to new node `n`.
+Notice that to **sort** the nodes as we append them, we need to determine **where** to insert them:
 
 <br>
 
-- Else if `n->number < list->number` the new node number is **smaller** than current node number:
+- If the list is **Empty** `list == NULL`:
 
-    - `n->next = list;` Make its `next` member point to `list` (to connect).
-    - `list = n;` Makes `list` point to `n` effectively placing **new node** at the beginning fo the list.
+    - Set **head** of the list `list` to new node `n`.
 
-- Else
+<br><br>
 
-Lecture 1:12:00
+- If **new node** belongs at the beginning of the List `n->number < list->number` (*new node number* is **smaller** than *current node number*):
+
+    - `n->next = list` Make new node `next` member point to `list` (connect them to prevent memory leak).
+    - `list = n` Make `list` point to `n` effectively making **new node** **head** of the list.
+
+<br><br>
+
+- If new node belongs **later in the list**, use a `for loop` to iterate through **nodes** in the list:
+
+    1. `node *ptr = list` Initialize a temporary pointer `ptr` to point to the beginning of the list (and traverse the list).
+    2. `ptr != NULL` Loop continues as long as list has not ended.
+    3. `ptr = ptr->next` After each iteration, *traversal* `ptr` updates to point to next node.
+
+    *Option 1* - **Insert at the End** If `ptr->next == NULL` next node is empty (`ptr` points to the last node in the list):
+
+    - `ptr->next = n` Append new node `n` after `ptr`.
+    - `break` loop.
+
+    *Option 2* -  **Insert in the Middle** If `n->number < ptr->next->number` *new node number* is **less than** the *next node number* after `ptr`:
+
+    - `n->next = ptr->next` Set *next pointer* of **new node** to point to *next node* after `ptr` (`n` positioned to follow `ptr`).
+
+    - `ptr->next = n` Update *next pointer* of current node `ptr` to directly point to `n`. This inserts `n` between `ptr` and the what was before `ptr->next`.
+
+    - `break` loop.
+
+<br><br>
+
+> [!NOTE]
+> To **insert** a new element in a **specific order**, like implemented above, the running time will still be `O(n)` **linear time complexity**. In the worst case scenario, we will need to go through all current elements.
+
+Lecture 1:16:00
