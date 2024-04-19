@@ -180,4 +180,276 @@ For the same reasons, memory allocation overhead, manual element copying, potent
 
 ## Linked Lists
 
-Lecture 00:31:06
+A **linked list** is one of the most powerful data structures in **C**. Linked lists are more **flexible** in using memory compared to arrays. They allow us to include values that are located at **different memory locations** (not contiguous) and allow us to **dynamically** grow and shrink the list as desired.
+
+Remember these three primitives:
+- `struct` is a user-defined data type that allows us to combine data items of different kind.
+
+- `.` in *dot notation* allows us to access members of that structure variable.
+
+- `*` operator is used to **declare** a pointer or **dereference** a variable. 
+
+<br>
+
+In **linked lists** we will introduce the `->` operator (arrow). `->` is a shorthand for **dereferencing** a pointer to a **structure** and accessing a **member** of that structure. Combining the use of `*` and `.`
+
+<br>
+
+Imagine three values stored at three different locations in memory:
+```txt
+| 1 |   |   |   |   |
+|   |   | 2 |   |   |
+|   |   |   |   | 3 |
+|   |   |   |   |   |
+```
+
+```txt
+|   1   |    
+| 0x123 |    |   2   |   
+             | 0x456 |    |   3   |
+                          | 0x789 |
+```
+- Value `1` is stored at address `0x123`
+- Value `2` is stored at address `0x456`
+- Value `3` is stored at address `0x789`
+
+<br><br>
+
+Linked list elements, commonly called **nodes** contain their *own data*, and *meta data* in the form of a **pointer** to the next **node**:
+```txt
+| 0x123 |  ->   |   1   |    
+                | 0x123 |       |   2   |   
+                | 0x456 |  ->   | 0x456 |       |   3   |
+                                | 0x789 |  ->   | 0x789 |
+                                                |  NULL |
+```
+- The **first node** contains the address `0x123` of the value it stores `1` and a pointer `0x456` to the next **node** in the list.
+
+- The **second node** contains the address `0x456` of the value it stores `2` and a pointer `0x789` to the next **node** in the list.
+
+- The **last node** contains the address `0x789` of the value it stores `3` and a pointer to a `NULL` value (preventing pointing to a garbage value) to terminate the list.
+
+- By convention, we also use an extra **pointer** `0x123` to the **first node** on the list.
+
+<br><br>
+
+Structure of **linked list node**:
+```c
+typedef struct node
+{
+    int number;
+    struct node *next;
+}
+node;
+```
+- `typedef` creates an **alias** (`node`) to use instead of a more complicated type.
+
+- `struct` defines new **data structure**.
+
+- `node` declares the **name** of this structure type.
+
+- `int number;` declares an **integer member** called `number` inside the structure.
+
+- `struct node *next;` declares a **pointer** (`next`) to the next `struct node` in the list.
+
+- `node;` Allows to create nodes in the list by declaring them as **node** instead of **struct node**.
+
+<br><br>
+
+### Now that we have our node type defined, we can create a Linked List:
+
+<br>
+
+**1.** Declare a **pointer** `list` that will eventually link to first node, and **initialize** its value to `NULL` (so that it does not point to a *garbage value*):
+```c
+node *list = NULL;
+```
+```txt
+   list
+|        |  
+```
+<br><br>
+
+**2.** Dynamically allocate memory of size "**node**" and store its address in a pointer variable `n`:
+```c
+node *n = malloc(sizeof(node));
+```
+```txt
+   list
+|        |  
+
+                        
+    n 
+|        | ---------->  |  Grb  | number
+                        |  Grb  | next
+```
+> Notice that when the memory is allocated, it first hold **garbage values** (Grb).
+
+<br><br>
+
+**3.** **Dereference** pointer `n` to access member (`number`) of the node, and assign to it the value of `1`:
+```c
+(*n).number = 1;
+
+
+//Alternative syntax
+n->number = 1;
+```
+```txt
+   list
+|        |  
+
+                        
+    n 
+|        | ---------->  |   1   | number
+                        |  Grb  | next
+```
+<br><br>
+
+**4.** **Dereference** pointer `n` to access the member (`next`) of the node, and assign to it the value of `NULL` (so that it does not point to a garbage value):
+```c
+(*n).next = NULL;
+
+
+//Alternative syntax:
+n->next = NULL;
+```
+```txt
+   list
+|        |  
+
+                        
+    n 
+|        | ---------->  |   1   | number
+                        |       | next
+```
+<br><br>
+
+**5.** Assign the address of pointer `n` to `list`. Both `list` and `n` now point to the **same memory location**. This is used to set `list` as the **head** of the linked list.
+```c
+list = n;
+```
+```txt
+   list
+|        |
+    |
+    |
+    |        
+    v   
+
+    n               
+|        | ------------>  |   1   | number
+                          |       | next
+```
+<br><br>
+
+**6.** Dynamically allocate memory for a new **node** and store its address in pointer variable `n`:
+```c
+node *n = malloc(sizeof(node));
+```
+```txt
+   list 
+|        | ----------->  |   1   | number
+                          |       | next  
+
+
+    n 
+|        | ---------->   |  Grb  | number
+                         |  Grb  | next
+```
+> Notice that both members of new node contain garbage values for now.
+
+<br><br>
+
+**7.** **Dereference** pointer `n` to access member (`number`) of the node, and assign to it the value of `2`:
+```c
+(*n).number = 2;
+
+
+//Alternative syntax
+n->number = 2;
+```
+```txt
+    list 
+|        | ----------->  |   1   | number
+                         |       | next  
+
+
+     n 
+|        | ---------->   |   2   | number
+                         |  Grb  | next
+```
+<br><br>
+
+**8.** **Dereference** pointer `n` to access the member (`next`) of the node, and assign to it the value of `NULL` (so that it does not point to a garbage value):
+```c
+(*n).next = NULL;
+
+
+//Alternative syntax:
+n->next = NULL;
+```
+```txt
+    list 
+|        | ----------->  |   1   | number
+                         |       | next  
+
+
+     n 
+|        | ---------->   |   2   | number
+                         |       | next
+```
+<br><br>
+
+**9.** **Dereference** pointer `n` to access the member (`next`) of the node, and make it point to the same memory location as `list`.
+```c
+(*n).next = list;
+
+
+//Alternative syntax:
+n->next = list;
+```
+```txt
+                                                         list 
+                                                      |        |
+                                                           |
+                                                           |
+                                                           |
+     n                                                     v
+|        | ---------->   |   2   | number              
+                         |       | next    ----------> |   1   | number
+                                                       |       | next
+```
+> [! CAUTION]
+> Before linking `list` to the new **node** and risking to **lose connection** and access to **node 1**, we have to link **node 1** to **node 2**.
+
+<br><br>
+
+**10.** Now that both **nodes** are **linked**, we can update `list` to point at `n`.
+```c
+list = n;
+```
+```txt
+   list 
+|        |
+    |                                                       
+    |
+    |                                                      
+    v
+                                                        
+    n                                                    
+|        | ---------->   |   2   | number              
+                         |       | next    ----------> |   1   | number
+                                                       |       | next
+```
+```txt
+
+    list                                                    
+|        | ---------->   |   2   | number              
+                         |       | next    ----------> |   1   | number
+                                                       |       | next
+```
+
+<br><br>
+
+Lecture 00:55:00
