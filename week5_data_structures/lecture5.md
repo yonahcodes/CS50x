@@ -541,6 +541,8 @@ The `upside` of **prepending** or *inserting* a new element at the **head** of a
 
 **Searching** for a node in a **linked list** however, has a **linear time complexity** of `O(n)`. In the worst case, we may need to examine every element (`n`) in the list to find the target node.
 
+<br>
+
 The `downside` is that **more memory** is required to keep track of the list compared to arrays. This is because each **node** stores not only its **value** but also the **address of the next node**. Unlike arrays we cannot index into a linked list, and the list in the code above must be **linearly searched** for a target element and **binary search** would not be possible in this case. 
 
 <br>
