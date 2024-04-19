@@ -174,7 +174,7 @@ int main(void)
 ```
 <br>
 
-For the same reasons, memory allocation overhead, manual element copying, potential memory waste and scalability issues, this is another **inefficient design** for the expansion of an **array**. A more efficient approach would be to use a **data structure** designed to handle **dynamic sizing**.
+For the same reasons, (memory allocation overhead, manual element copying, potential memory waste and scalability issues) this is another **inefficient design** for the expansion of an **array**. A more efficient approach would be to use a **data structure** designed to handle **dynamic sizing**.
 
 <br><br>
 
@@ -423,7 +423,7 @@ n->next = list;
                          |       | next    ----------> |   1   | number
                                                        |       | next
 ```
-> [! CAUTION]
+> [!CAUTION]
 > Before linking `list` to the new **node** and risking to **lose connection** and access to **node 1**, we have to link **node 1** to **node 2**.
 
 <br><br>
