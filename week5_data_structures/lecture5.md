@@ -10,7 +10,7 @@
 
 <br>
 
-Queues in code:
+**Queues in code**:
 ```c
 const int CAPACITY = 50;
 
@@ -25,13 +25,13 @@ queue;
 
 <br><br>
 
-`Stacks` have fundamentally different properties. They follow a **LIFO** or "*last in first out*" principle.Stacks too have specific actions associated with them:
+`Stacks` have fundamentally different properties. They follow a **LIFO** or "*last in first out*" principle. Stacks too have specific actions associated with them:
 -  **push** places something on top of a stack
 - **Pop**  is removing something from the top of the stack.
 
 <br>
 
-Stacks in code:
+**Stacks in code**:
 ```c
 cont int CAPACITY = 50;
 
@@ -89,7 +89,7 @@ This design is **inefficient**, especially if we might have do add mode values i
 
 <br>
 
-Let's explore this limited design in code:
+**Let's explore this limited design in code**:
 ```c
 // Implements a list of numbers with an array of fixed size
 
@@ -114,7 +114,7 @@ int main(void)
 ```
 <br><br>
 
-Now let's see how we would implement the same idea using dynamically allocated memory:
+**Now let's see how we would implement the same idea using dynamically allocated memory**:
 ```c
 // Implements  list of numbers with an array of dynamic size
 
@@ -174,7 +174,7 @@ int main(void)
 ```
 <br>
 
-For the same reasons, (memory allocation overhead, manual element copying, potential memory waste and scalability issues) this is another **inefficient design** for the expansion of an **array**. A more efficient approach would be to use a **data structure** designed to handle **dynamic sizing**.
+For the same reasons, (memory allocation overhead, manual element copying, potential memory waste and scalability issues), this is another **inefficient design** for the expansion of an **array**. A more efficient approach would be to use a **data structure** designed to handle **dynamic sizing**.
 
 <br><br>
 
@@ -187,7 +187,7 @@ Remember these three primitives:
 
 - `.` in *dot notation* allows us to access members of that structure variable.
 
-- `*` operator is used to **declare** a pointer or **dereference** a variable. 
+- `*` operator is used to **declare** a pointer or **dereference** a pointer variable. 
 
 <br>
 
@@ -256,7 +256,7 @@ node;
 
 <br><br>
 
-### Now that we have our node type defined, we can create a Linked List:
+**Now that we have our node type defined, we can create a Linked List**:
 
 <br>
 
@@ -455,4 +455,298 @@ list = n;
 
 <br><br>
 
-Lecture 00:55:00
+**Let's implement these new ideas in code**:
+```c
+// Implements a list of numbers using a linked list
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define node structure
+typedef struct node
+{
+    int number;
+    struct node *next;
+}
+node;
+
+int main(int argc, char *argv[])
+{
+    // Declare pointer to be head of list
+    node *list = NULL;
+
+    // For each command line argument
+    for (int i = 1; i < argc; i++)
+    {
+        // Convert c-l-arguments to int
+        // with ASCI to integer function
+        int number = atoi(argv[i]);
+
+        // Allocate memory for first node
+        node *n = malloc(sizeof(node));
+        if (n == NULL)
+        {
+            return 1;
+        }
+        // Dereference node pointers
+        // Initialize number to number variable
+        // Initialize next to NULL (prevent dangling pointers)
+        n->number = number;
+        n->next = NULL;
+
+        // Prepend new node (add to beginning) to list
+        // Link nodes to prevent orphaned memory
+        n->next = list;
+        list = n;
+    }
+
+    // To print whole list
+    // Create a pointer that points to the list
+    node *ptr = list;
+
+    // So long that ptr points to something
+    while (ptr != NULL)
+    {
+        // Print its member `number`
+        printf("%i\n", ptr->number);
+        // Set ptr to point to member `next`
+        ptr = ptr->next;
+    }
+
+    // Free memory
+    // Start ptr pointer at head of list
+    ptr = list;
+    // While we are not at the end of list
+    while (ptr != NULL)
+    {
+        // Create pointer `next` to store next node
+        node *next = ptr->next;
+        // Release memory pointed at by `ptr`
+        free(ptr);
+        // update `ptr`to point to next node
+        ptr = next;
+    }
+}
+```
+- First a `node structure` is declared and a **pointer** to a node called `list`, that will be the head of the list, is **initialized**. 
+
+- The `for loop` is iterating through the user **inputs** at the command line (excluding filename), **converting** them to integers and **assigning** them to the member `number` of a node called `n`. Then the **node** is added to the `list`.
+
+- To print the list, a new pointer `ptr` to the list is created and the `while loop` prints what `ptr` is pointing to and updates it to point to the `next` node.
+
+- To avoid memory leaks, after the linked list completed its operation,  all the **memory** must **freed**. `ptr` is set to point to the beginning of the `list`, the `while loop` creates a pointer to store **next node**, releases current node, and updates `ptr` to next node. When `ptr` becomes `NULL`, all nodes have been **freed**.
+
+<br><br>
+
+The `upside` of **prepending** or *inserting* a new element at the **head** of a **linked list**, like implemented above, is the running time of `O(1)` **constant time complexity**. No matter how many nodes there are on the list, we are only **prepending** once.
+
+**Searching** for a node in a **linked list** however, has a **linear time complexity** of `O(n)`. In the worst case, we may need to examine every element (`n`) in the list to find the target node.
+
+The `downside` is that **more memory** is required to keep track of the list compared to arrays. This is because each **node** stores not only its **value** but also the **address of the next node**. Unlike arrays we cannot index into a linked list, and the list in the code above must be **linearly searched** for a target element and **binary search** would not be possible in this case. 
+
+<br>
+
+### An alternative to prepending nodes is appending or adding nodes at the end of the list.
+
+```c
+// Appends numbers to a linked list
+
+#include <cs50.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node
+{
+    int number;
+    struct node *next;
+}
+node;
+
+int main(int argc, char *argv[])
+{
+    // Memory for numbers
+    node *list = NULL;
+
+    // For each command-line argument
+    for (int i = 1; i < argc; i++)
+    {
+        // Convert argument to int
+        int number = atoi(argv[i]);
+
+        // Allocate node for number
+        node *n = malloc(sizeof(node));
+        if (n == NULL)
+        {
+            return 1;
+        }
+        n->number = number;
+        n->next = NULL;
+
+        // If list is empty
+        if (list == NULL)
+        {
+            // This node is the whole list
+            list = n;
+        }
+
+        // If list has numbers already
+        else
+        {
+            // Iterate over nodes in list
+            for (node *ptr = list; ptr != NULL; ptr = ptr->next)
+            {
+                // If at end of list
+                if (ptr->next == NULL)
+                {
+                    // Append node
+                    ptr->next = n;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Print numbers
+    for (node *ptr = list; ptr != NULL; ptr = ptr->next)
+    {
+        printf("%i\n", ptr->number);
+    }
+
+    // Free memory
+    node *ptr = list;
+    while (ptr != NULL)
+    {
+        node *next = ptr->next;
+        free(ptr);
+        ptr = next;
+    }
+}
+```
+Notice that to **append** the list, we added the following lines of code:
+
+- If list is **empty** `list == NULL`, update `list` to point to new node `n`.
+
+<br>
+
+- If list is **not empty** (it has at least one existing node), we use a `for loop` to iterate through **every node** in the list:
+
+    - `node *ptr = list;` Create a temporary pointer `ptr` to point to the beginning of the list.
+
+    - `ptr != NULL;` Continues as long as list had not ended.
+
+    - `ptr = ptr->next` After each iteration, update `ptr` to point to next node.
+
+    - If `ptr->next == NULL` next node is empty (end of the list):
+
+        - Update `ptr->next` to point to this new node, effectively appending the node to the end of the list.
+
+<br><Br>
+
+> [!NOTE]
+> To **append** or *insert* a new element at the **end** of a **linked list**, like implemented above, we will need to go through our entire list before we can add the final node. This means the code will have a running time of `O(n)` **linear time complexity**. 
+
+<br><br>
+
+### We could also change the logic of our program to sort the list as items are added:
+
+```c
+// Implements a sorted list of numbers using a linked list
+
+#include <cs50.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node
+{
+    int number;
+    struct node *next;
+}
+node;
+
+int main(int argc, char *argv[])
+{
+    // Memory for numbers
+    node *list = NULL;
+
+    // For each command-line argument
+    for (int i = 1; i < argc; i++)
+    {
+        // Convert argument to int
+        int number = atoi(argv[i]);
+
+        // Allocate node for number
+        node *n = malloc(sizeof(node));
+        if (n == NULL)
+        {
+            return 1;
+        }
+        n->number = number;
+        n->next = NULL;
+
+        // If list is empty
+        if (list == NULL)
+        {
+            list = n;
+        }
+
+        // If number belongs at beginning of list
+        else if (n->number < list->number)
+        {
+            n->next = list;
+            list = n; 
+        }
+
+        // If number belongs later in list
+        else
+        {
+            // Iterate over nodes in list
+            for (node *ptr = list; ptr != NULL; ptr = ptr->next)
+            {
+                // If at end of list
+                if (ptr->next == NULL)
+                {
+                    // Append node
+                    ptr->next = n;
+                    break;
+                }
+
+                // If in middle of list
+                if (n->number < ptr->next->number)
+                {
+                    n->next = ptr->next;
+                    ptr->next = n;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Print numbers
+    for (node *ptr = list; ptr != NULL; ptr = ptr->next)
+    {
+        printf("%i\n", ptr->number);
+    }
+
+    // Free memory
+    node *ptr = list;
+    while (ptr != NULL)
+    {
+        node *next = ptr->next;
+        free(ptr);
+        ptr = next;
+    }
+}
+```
+Notice that to sort the nodes as we append them, we have to modify a few lines of code:
+
+- If list is **empty** `list == NULL`, update `list` to point to new node `n`.
+
+<br>
+
+- Else if `n->number < list->number` the new node number is **smaller** than current node number:
+
+    - `n->next = list;` Make its `next` member point to `list` (to connect).
+    - `list = n;` Makes `list` point to `n` effectively placing **new node** at the beginning fo the list.
+
+- Else
+
+Lecture 1:12:00
