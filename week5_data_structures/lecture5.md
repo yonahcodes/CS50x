@@ -831,7 +831,7 @@ typedef struct node
     struct *right;
 }node;
 ```
-<br>
+<br><br>
 
 Let's implement a **function** that **searches** the tree and returns **True** if target number is found and **False** if not found:
 ```c
@@ -1022,7 +1022,7 @@ Working with **hash tables** we have to make the decision of using **more memory
 
 - At the last letter `D`, a special marker is used to denote the **end** of the string.
 
-<br>
+<br><br>
 
 > [!NOTE]
 > Notice that we need 26 x 4 = `104` **nodes** just to store **Toad**.
