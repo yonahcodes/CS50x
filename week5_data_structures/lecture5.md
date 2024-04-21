@@ -233,7 +233,7 @@ Linked list elements, commonly called **nodes** contain their *own data*, and *m
 
 <br><br>
 
-Structure of **linked list node**:
+**Structure of a linked list node in C**:
 ```c
 typedef struct node
 {
@@ -773,7 +773,7 @@ Notice that to **sort** the nodes as we append them, we need to determine **wher
 
     - `n->next = ptr->next` Set *next pointer* of **new node** to point to *next node* after `ptr` (`n` positioned to follow `ptr`).
 
-    - `ptr->next = n` Update *next pointer* of current node `ptr` to directly point to `n`. This inserts `n` between `ptr` and the what was before `ptr->next`.
+    - `ptr->next = n` Update *next pointer* of current node `ptr` to directly point to `n`. This inserts `n` between `ptr` and what was before `ptr->next`.
 
     - `break` loop.
 
@@ -782,4 +782,268 @@ Notice that to **sort** the nodes as we append them, we need to determine **wher
 > [!NOTE]
 > To **insert** a new element in a **specific order**, like implemented above, the running time will still be `O(n)` **linear time complexity**. In the worst case scenario, we will need to go through all current elements.
 
-Lecture 1:16:00
+<br><br>
+
+## Trees
+
+**Trees** are non-linear data structures consisting of one **root node**, and a set of nodes organized in a tree structure that can have zero or more **child** nodes. One of the most common types of trees is **binary search tree**.
+
+<br>
+
+### Binary search trees
+
+Let's imagine a sorted sequence of numbers:
+
+```txt
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+```
+
+<br>
+
+Now imagine the *center value* as the **top** of a tree, with the lesser values on the left and the higher values on the right:
+```txt
+            | 4 |
+
+    | 2 |           | 6 |
+
+| 1 |   | 3 |   | 5 |   | 7 |
+```
+- In order to connect these nodes we can use **two pointers**, one for each child.
+```txt
+        4
+      /   \
+     2     6
+    / \   / \
+   1   3 5   7
+  ```
+<br>
+
+This structure is a **recursive data structure**. Each node in a *binary search tree* could itself be viewed as the **root** of a smaller **subtree**, containing a left and right **child**, each of which are also **roots** of their respective **subtrees**.
+
+<br><br>
+
+**Structure of a binary search tree in C**:
+```c
+typedef struct node
+{
+    int number;
+    struct *left;
+    struct *right;
+}node;
+```
+<br>
+
+Let's implement a **function** that **searches** the tree and returns **True** if target number is found and **False** if not found:
+```c
+bool search(node *tree, int number)
+{
+    if (tree == NULL)
+    {
+        return false;
+    }
+    else if (number < tree->number)
+    {
+        return search(tree->left, number);
+    }
+    else if (number > tree->number)
+    {
+        return search(tree->right, number);
+    }
+    else if (number == tree->number)
+    {
+        return true;
+    }
+}
+```
+- `search()` takes two arguments: A **pointer** to the root of the tree `node *tree`, and the **target** number `int number`.
+
+- If the **tree node** is NULL `if (tree == NULL)`, the function returns `false` (number not found). This is the **base case** for the *recursion*.
+
+- If number is **smaller** than the *root* `number < tree->number`:
+    - Recursively search the **left** subtree `search(tree->left, number)`
+
+- If number is **larger** than the *root* `number > tree->number`:
+    - Recursively search the **right** subtree `search(tree->right, number)`
+
+- If number is **equal** to the **root** `number == tree->number`:
+    - `return true;` (found)    
+
+<br><br>
+
+> [!NOTE]
+> To search for a specific element in this **binary search tree**, we will traverse from the **root**, and each step of the search process **halves** the tree's size. Given the balanced nature of the tree, the running time for search operations is of `O(log n)` **logarithmic time complexity**.<br>
+However, in the case that the tree is not balanced, a **degenerate tree** (linked list), running time can degrade to `O(n)`.
+
+<br><br>
+
+## Dictionaries
+
+**Dictionaries** are *unordered* data structures composed by key-value pairs, where each unique **key** is associated with a specific **value**. Dictionaries allow for the ultimate access efficiency through **hashing** offering a **constant time complexity** `O(1)`.
+
+<br>
+
+![time complexity](../img/cs50Week5Slide151.png)
+
+<br><br>
+
+## Hashing and Hash Tables
+
+**Hashing** is the process of converting a **key** into a numerical index using a **hash function**, which determines the position in an array (**hash table**) where the associated **value** is stored.
+
+A **hash function** is an algorithm that takes in an **input key** and returns an **integer** representing the array **index** in which the item should be stored.
+
+**Hash tables** are combinations of **arrays** (for direct indexing) and **linked lists** to handle collisions when multiple keys hash to the same index. Hash tables can be thought of as **array of pointers to nodes**.
+
+<br>
+
+**Let's visualize a hash table**:
+```txt
+A | |
+B | | -> | Birdo    | |
+C | |
+D | | -> | Daisy    | |
+E | |
+F | |
+G | | -> | Goomba   | |
+H | |
+I | | -> | Isabelle | |
+J | |
+K | | -> | King Boo | |
+L | | -> | Luigi    |--> | Lakitu   |--> | Link     | |
+M | | -> | Mario    | |
+N | |
+O | |
+P | | -> | Peach    | |
+Q | |
+R | | -> | Rosalina | |
+S | | -> | Shy Guy  | |
+T | | -> | Toad     | |
+U | |
+V | |
+W | | -> | Wario    | |
+X | |
+Y | | -> | Yoshi    | |
+Z | | -> | Zelda    | |
+```
+- This is an **array** of *size 26* that is assigned each value of the **alphabet**.
+
+- At each location of the array, a pointer to a **liked list** is stored to track the values stored.
+
+- The **linked lists** resolve the **collisions** than could happen when adding a value to an index that is already storing something by **appending** the **new value** to the end of the list.
+
+<br>
+
+The running time of the **hash table** above is `O(n)` **linear time complexity** because in the *worst case scenario*, where the value we are looking for is stored in an **index** with **multiple values**, we have to go through the `n` elements of the list to find it.
+
+<br><br>
+
+**Structure of the hash table in C**:
+```c
+typedef struct node
+{
+    char *name;
+    char *number;
+    struct node *next;
+}node;
+```
+```c
+node *table[26];
+```
+
+<br><br>
+
+There is a way to reduce the **collisions** and optimize the running time by better programming the **hash table** and **hash algorithm**:
+```txt
+    | |
+    | | 
+    | |
+Laa | | 
+Lab | |
+Lac | |
+Lad | | 
+Lae | |
+Laf | | 
+Lag | |
+Lah | | 
+Lai | | 
+Laj | |
+Lak | | -> | Lakitu   | |
+... | |
+Lim | |
+Lin | | -> | Link     | |
+Lio | | 
+... | | 
+Luh | | 
+Lui | | -> | Luigi    | |
+Luj | |
+    | |
+    | |
+    | | 
+    | | 
+```
+> [!NOTE]
+> By expanding the **array**, we eliminated the potential for **collisions** and the need for **link lists**, allowing us to go back to a **constant time complexity** `O(1)`. However, the amount of **memory used** to achieve this performance is significantly **higher** (26^3).
+
+<br><br>
+
+**Hash algorithm example in C**:
+```txt
+Luigi -> | Hash function | -> 11
+```
+```c
+#include <ctype.h>
+
+unsigned int hash(const char *word)
+{
+    return toupper(word[0] - 'A');
+}
+```
+- `hash()` function takes a constant variable of type **string** `char *word` as argument and returns an unsigned (positive) **integer**.
+
+- `toupper(word[0] - 'A')` takes the **first letter** of the word `word[0]`, **capitalizes** it and **subtracts** the ASCI value `- 'A'`, effectively **mapping** the word to the right **index**.
+
+<br><br>
+
+Working with **hash tables** we have to make the decision of using **more memory** to have a large **hash table** and potentially *reducing search time* or using **less memory** and potentially *increasing search time*.
+
+<br><br>
+
+## Tries
+
+**Trie** data structures are a combination of **trees** and **arrays**. Tries are always searchable in **constant time** `O(1)`. However, they tend to take up **large amounts of memory**. In a **trie**, every **node** is an **array** and every **index** in that array, generally represents a **letter** of the alphabet.
+
+![tries](../img/cs50Week5Slide207.png)
+
+- The **root node** is an **array** of size 26 locations, all initially **null**.
+
+- To **insert** words into a **trie**, we hash again and again, creating one **array** for every **letter** in the word.
+
+- To store `Toad` we create a node in the index for `T`, node `T` points to location for `O`, where we create a second node and so forth until `D`.
+
+- At the last letter `D`, a special marker is used to denote the **end** of the string.
+
+<br>
+
+> [!NOTE]
+> Notice that we need 26 x 4 = `104` **nodes** just to store **Toad**.
+
+<br><br>
+
+**Structure of the trie in C**:
+```c
+typedef struct node
+{
+    struct node *children[26];
+    char *number;
+}node;
+```
+```c
+node *trie;
+```
+- Every **node** in this trie is redefined as an **array of size 26** `children[26]`. This structure allows for branching to further letters in a word.
+
+- In each **node** there is room for a **string** `char *number` holding a phone number.
+
+<br><br>
+
+Searching, inserting and deleting from a **trie** depends on the **length** of the **string** being processed. For each **character** in the string, we need to either access an existing node or create a new node. The operation involves a **constant** amount of work for each character. The **downside** of this structure is the huge amount of **resources** required to use it.
