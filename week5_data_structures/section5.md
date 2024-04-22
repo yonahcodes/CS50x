@@ -4,9 +4,9 @@
 
 <br>
 
-## Linked list
+## Linked lists
 
-**Linked lists** are a data structure consisting of a chain of **nodes** that are connected sequentially via **pointers**.
+**Linked lists** are data structures consisting of a chain of **nodes** that are connected sequentially via **pointers**.
 
 ```txt
 list  ------->  | "Hey!" |    
@@ -15,46 +15,7 @@ list  ------->  | "Hey!" |
 ```
 <br>
 
-## Hash Tables
-
-**Hash tables** are a data structure that stores **key-value pairs** and provides fast data retrieval by using a **hash function** to compute an **index** into an **array** of slots, where we can find the target value. Hash tables can be thought of as **arrays of linked lists**.
-
-```txt
-|...|
-| H | -> | "Hey!" | -> | "Hello!" |
-| I |
-| J | 
-| K |
-| L | -> | "Lo there!" |
-|...|
-```
-<br>
-
-## Tries
-
-**Tries**, also known as a **prefix trees**, are a **tree-like** data structure that efficiently stores and retrieves strings or sequences, where each **node** represents a common **prefix** shared by its **child nodes**.
-
-```txt
-        H
-        |
-        E
-      /   \
-     L     Y
-    / \   
-   L   P    
-   |
-   O
-```
-
-<br>
-
-## Trade-offs
-
-When deciding on the **data structure** to work with, we have to consider some **trade-offs**, particularly between **memory usage** and **access speed**. These considerations include how much memory the structure is using versus how fast operations like insertion, deletion, and search can be executed, impacting overall **system performance** and **efficiency**.
-
-<br>
-
-## Nodes
+### Nodes
 
 Nodes are fundamental **elements** in various data structures, such as linked lists and trees, containing their *own data*, and *meta data* in the form of a **pointer** to the next **node**, forming the structure's interconnected framework.
 
@@ -83,7 +44,7 @@ node;
 
 <br><br>
 
-## Creating a Linked List
+### Creating a Linked List
 
 **1.** Define our `list` as a **pointer** to a **node** and **initialize** its value to **NULL** (so it does not point to a random memory location).
 
@@ -168,7 +129,7 @@ list = n;
 ```
 <br>
 
-## Inserting Nodes
+### Inserting Nodes
 
 **6.** Create a new **node** by allocating **memory** for one node and store its **address** in pointer variable `n`. This will switch pointer `n` from pointing to *previous node* to this **new node**.
 
@@ -247,7 +208,7 @@ list = n;
 ```
 <br>
 
-## Deallocating memory used by Linked List
+### Deallocating memory used by Linked List
 
 After using **memory** allocated with `malloc()` for our **linked list**, we need to **release** it to ensure no **memory leakage** and maintaining stable system operation. 
 
@@ -354,5 +315,222 @@ list = ptr;
 ```txt
   list  ----------> 
 ```
+<br><br>
+
+### Linked lists in C 
+
+Let's implement code to add a **node** to the linked list and complete the function `unload()` to **free** memory used.
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct node
+{
+    string phrase;
+    struct node *next;
+}
+node;
+
+#define LIST_SIZE 2
+
+bool unload(node *list);
+void visualizer(node *list);
+
+int main(void)
+{
+    node *list = NULL;
+
+    // Add items to list
+    for (int i = 0; i < LIST_SIZE; i++)
+    {
+        string phrase = get_string("Enter a new phrase: ");
+
+        // TODO: add phrase to new node in list
+        node *n = malloc(sizeof(node));
+        if (n == NULL)
+        {
+            return 1;
+        }
+
+        n->phrase = phrase;
+        n->next = NULL;
+
+        n->next = list;
+        list = n;
+
+        // Visualize list after adding a node.
+        visualizer(list);
+    }
+
+    // Free all memory used
+    if (!unload(list))
+    {
+        printf("Error freeing the list.\n");
+        return 1;
+    }
+
+    printf("Freed the list.\n");
+    return 0;
+}
+
+bool unload(node *list)
+{
+    // TODO: Free all allocated nodes
+    node *ptr = list;
+
+    while (ptr != NULL)
+    {
+        ptr = list->next;
+        free(list);
+        list = ptr;
+    }
+
+    return true;
+}
+
+void visualizer(node *list)
+{
+    printf("\n+-- List Visualizer --+\n\n");
+    while (list != NULL)
+    {
+        printf("Location %p\nPhrase: \"%s\"\nNext: %p\n\n", list, list->phrase, list->next);
+        list = list->next;
+    }
+    printf("+---------------------+\n\n");
+}
+```
+<br><br>
+
+## Hash Tables
+
+**Hash tables** or **Dictionaries** are data structures that store **key-value pairs** and provides **fast** data retrieval by using a **hash function** to compute an **index** into an **array** of **buckets**, where we can **directly** find the target value. Hash tables can be thought of as **arrays of linked lists**.
+
+```txt
+|..||...|
+| 7|| H | -> | "Hey!" | -> | "Hello!" |
+| 8|| I |
+| 9|| J | 
+|10|| K |
+|11|| L | -> | "Lo there!" |
+|..||...|
+```
+```txt
+"Hey!" -> | Hash Function | -> 7
+```
 <br>
 
+### Hash tables in C
+
+Let's implement code to complete the `hash()` function to return a number, 0-25, depending on the first character in the word (representing where in the table it should be stored).
+
+```c
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct node
+{
+    string phrase;
+    struct node *next;
+}
+node;
+
+node *table[26];
+
+int hash(string phrase);
+bool unload(node *list);
+void visualizer(node *list);
+
+int main(void)
+{
+    // Add items
+    for (int i = 0; i < 3; i++)
+    {
+        string phrase = get_string("Enter a new phrase: ");
+
+        // Find phrase bucket
+        int bucket = hash(phrase);
+        printf("%s hashes to %i\n", phrase, bucket);
+    }
+}
+
+// TODO: return the correct bucket for a given phrase
+int hash(string phrase)
+{
+    int bucket = toupper(phrase[0])- 'A';
+    return bucket;
+}
+```
+<br>
+
+> [!NOTE]
+> A good **hash function**: <br>
+> Always gives you the same value for the same input.<br>
+> Produces an even distribution across buckets.<br>
+> Uses all buckets.
+
+<br><br>
+
+## Tries
+
+**Tries**, also known as a **prefix trees**, are a **tree-like** data structure that efficiently stores and retrieves strings or sequences, where each **node** represents a common **prefix** shared by its **child nodes**.
+
+```txt
+        H
+        |
+        E
+      /   \
+     L     Y
+    / \   
+   L   P    
+   |
+   O
+```
+
+<br><br>
+
+## Trade-offs
+
+When deciding on the **data structure** to work with, we have to consider some **trade-offs**, particularly between **memory usage** and **access speed**. These considerations include how much memory the structure is using versus how fast operations like insertion, deletion, and search can be executed, impacting overall **system performance** and **efficiency**.
+
+<br><br>
+
+## Inheritance Problem Set
+
+```txt
+        Root
+       person  ->   alleles
+                   [ 0 , 1 ]
+                   parents    --->  Gen 1
+                   [*p , *p]
+
+                    /     \
+                   /       \
+            alleles         alleles
+            [AO, BO]        [AB, BO]
+            parents         parents    --->  Gen 2
+            [*p, *p]        [*p, *p]
+
+            /     \        /     \
+           /       \      /       \
+       alleles alleles   alleles   alleles
+       [A, O]  [B , O]   [A , B]   [B , O] 
+       parents parents   parents   parents   --->  Gen 3
+       [*p,*p] [*p,*p]   [*p, *p]  [*p, *p]
+
+       /    \  /     \  /     \    /     \
+      /      \/       \/       \  /       \
+    NULL     NULL    NULL     NULL       NULL
+```
+<br>
+
+```c
+
+```
+
+Section 5 minute 00:46:00
