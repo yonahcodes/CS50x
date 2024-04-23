@@ -98,3 +98,4 @@ In this repository I will be documenting my progress in Harvard University's int
 ## [5 - Data Structures](https://cs50.harvard.edu/x/2024/weeks/5/)
 
 - Lecture 5 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/5/) - [Notes](week5_data_structures/lecture5.md)
+- Section 5 - [Notes](week5_data_structures/section5.md)
