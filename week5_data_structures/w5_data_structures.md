@@ -13,7 +13,7 @@ When selecting a **data structure** for a particular application, we have to wei
 <br>
 
 |ARRAYS|
-|:-:|
+|:-|
 |**Insertion** is **bad** - lots of shifting to fit an element in the *middle*|
 |**Deletion** is **bad** - lots of shifting after removing an element|
 |**Lookup** is **great** - random access, *constant time*|
@@ -24,7 +24,7 @@ When selecting a **data structure** for a particular application, we have to wei
 <br><br>
 
 |LINKED LISTS|
-|:-:|
+|:-|
 |**Insertion** is **easy** - just tack onto the front|
 |**Deletion** is **easy** - once you find the element|
 |**Lookup** is **bad** - have to rely on *liner search*|
@@ -34,7 +34,7 @@ When selecting a **data structure** for a particular application, we have to wei
 <br><br>
 
 |HASH TABLES|
-|:-:|
+|:-|
 |**Insertion** is **good** - two-step process (hash, then add)|
 |**Deletion** is **easy** - once you find the element|
 |**Lookup** is on average **better** than linked lists (smaller lists) - real world *constant factor*|
@@ -44,7 +44,7 @@ When selecting a **data structure** for a particular application, we have to wei
 <br><br>
 
 |TRIES|
-|:-:|
+|:-|
 |**Insertion** is **complex** - lots of dynamic memory allocation|
 |**Deletion** is **easy** - just free a node|
 |**Lookup** is **fast** - not quite as fast as an *array*|
