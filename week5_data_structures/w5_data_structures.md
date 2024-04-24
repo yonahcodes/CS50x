@@ -6,9 +6,9 @@ The four main types of data structures that we covered are **arrays**, **linked 
 
 <br>
 
-### Choosing the appropriate data structure
+## Choosing the appropriate data structure
 
-When selecting a **data structure** for a particular application, we have to weight the pros against the cons. Let's consider some of the important metrics for each.
+When selecting a **data structure** for a particular application, we have to weight the **pros** against the **cons**. Let's consider some of the important metrics for each.
 
 <br>
 
