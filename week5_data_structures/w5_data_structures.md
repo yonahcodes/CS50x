@@ -10,7 +10,7 @@ The four main types of data structures that we covered are **arrays**, **linked 
 
 When selecting a **data structure** for a particular application, we have to weight the **pros** against the **cons**. Let's consider some of the important metrics for each.
 
-<br>
+<br><br>
 
 |ARRAYS|
 |:-|
