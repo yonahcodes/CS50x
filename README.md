@@ -104,4 +104,5 @@ In this repository I will be documenting my progress in Harvard University's int
 - Shorts
   - [Data Structures](week5_data_structures/w5_data_structures.md)
   - [Structures](week5_data_structures/w5_structures.md)
+  - [Singly-Linked Lists](week5_data_structures/w5_singly-linked_lists.md)
   
