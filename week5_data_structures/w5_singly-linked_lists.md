@@ -34,7 +34,6 @@ In order to work with **linked lists** effectively, there are a number of **oper
 4. **Delete** an entire linked list.
 5. **Delete** a *single element* from a linked list.
 
-
 <br>
 
 ### 1. Create a Linked List
