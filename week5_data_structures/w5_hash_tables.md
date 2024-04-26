@@ -147,7 +147,7 @@ unsigned int hash(char* str)
 
 ## Resolving Collisions
 
-Let's imagine a scenario where we **hash** a new **string** `"Ringo"` and it returns the **same result** as a previous string `6`.
+Let's imagine a scenario where we **hash** a new **string** `"Ringo"` and it returns the **same hash code** as a previous string `6`.
 ```c
 // int x = hash("John")
 // int y = hash("Paul");
@@ -209,7 +209,7 @@ hash("Ringo"); returns 6
 | 8 |                   |
 | 9 |                   |
 ```
-<br>
+<br><br>
 
 ```c
 hash("Bart"); returns 7
@@ -226,7 +226,7 @@ hash("Bart"); returns 7
 | 8 |      "Bart"       | <--- Place in the next consecutive free slot
 | 9 |                   |
 ```
-<br>
+<br><br>
 
 ```c
 hash("Lisa"); returns 3
@@ -243,7 +243,7 @@ hash("Lisa"); returns 3
 | 8 |      "Bart"       | 
 | 9 |                   |
 ```
-<br>
+<br><br>
 
 ```c
 hash("Homer"); returns 6
@@ -260,7 +260,7 @@ hash("Homer"); returns 6
 | 8 |      "Bart"       | <--- Slot 8 Occupied
 | 9 |      "Homer"      | <--- Place in empty slot 9
 ```
-<br>
+<br><br>
 
 ```c
 hash("Marge"); returns 6
@@ -290,4 +290,105 @@ hash("Marge"); returns 6
 
 ### Chaining 
 
-Hash tables short 00:12:30
+**Chaining** is a method used to handle **collisions** and eliminate **clustering** by allowing each **slot** to hold **multiple elements**. Each element of the array is a **pointer** to the **head** of a **linked list**. This allows to store a *chain* of data with the same **hash code**. 
+
+Because we are using **linked lists**, **insertion** can be considered a **constant time** `O(1)` operation, assuming the hash function is efficient and the hash table well structured. **Lookup** however, is close to **linear time** `O(n)`, although the more **lists** or **buckets**, the better performance we are going to have (the `n`  number of elements is divided by the number of lists).
+
+<br>
+
+**Example:**
+
+```c
+node* hashtable[10];
+```
+```txt
+| 0 |                   
+| 1 |                   
+| 2 |                   
+| 3 |                   
+| 4 |                   
+| 5 |                   
+| 6 |                   
+| 7 |                   
+| 8 |                   
+| 9 |                   
+```
+- We define an **array** of `10` **nodes** (heads of linked lists).
+
+<br><br>
+
+```c
+hash ("Joey"); returns 6
+```
+```txt
+| 0 |                   
+| 1 |                   
+| 2 |                   
+| 3 |                   
+| 4 |                   
+| 5 |                   
+| 6 |--------------------> | "Joey" |              
+| 7 |                      |        |       
+| 8 |                   
+| 9 |                   
+```
+- The **pointer** at array location `6` points to the head of the **linked list** composed, for now, by the single node `"Joey"`.
+
+<br><br>
+
+```c
+hash ("Ross"); returns 2
+```
+```txt
+| 0 |                   
+| 1 |                   
+| 2 |--------------------> | "Ross" |               
+| 3 |                      |        |
+| 4 |                   
+| 5 |                   
+| 6 |--------------------> | "Joey" |              
+| 7 |                      |        |       
+| 8 |                   
+| 9 |                   
+```
+- The **pointer** at array location `2` points to the head of the **linked list** composed, for now, by the single node `"Ross"`.
+
+<br><br>
+
+```c
+hash ("Rachel"); returns 4
+```
+```txt
+| 0 |                   
+| 1 |                   
+| 2 |--------------------> |  "Ross"  |               
+| 3 |                      |          |
+| 4 |----------------------------------------> | "Rachel" |                   
+| 5 |                                          |          |
+| 6 |--------------------> |  "Joey"  |              
+| 7 |                      |          |       
+| 8 |                   
+| 9 |                   
+```
+- The **pointer** at array location `4` points to the head of the **linked list** composed, for now, by the single node `"Rachel"`.
+
+<br><br>
+
+#### Now let's imagine a scenario where we hash a new string `"Phoebe"` and it returns the same hash code as previous data:
+
+```c
+hash ("Phoebe"); returns 6
+```
+```txt
+| 0 |                   
+| 1 |                   
+| 2 |--------------------> |  "Ross"  |               
+| 3 |                      |          |
+| 4 |----------------------------------------> | "Rachel" |                   
+| 5 |                                          |          |
+| 6 |---------> | "Phoebe" |              
+| 7 |           |          |---------> |  "Joey"  |    
+| 8 |                                  |          |         
+| 9 |       
+```
+- Just like **adding a node** to the **head** of a linked list, we **malloc** space for `"Phoebe"`, point it's **next** field to the **old head** of the list `"Joey"` and then set `"Phoebe"` as the new **head** of the linked list. We now stored two elements in the array location `6`.
