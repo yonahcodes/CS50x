@@ -376,6 +376,8 @@ hash ("Rachel"); returns 4
 
 #### Now let's imagine a scenario where we hash a new string `"Phoebe"` and it returns the same hash code as previous data:
 
+<br>
+
 ```c
 hash ("Phoebe"); returns 6
 ```
