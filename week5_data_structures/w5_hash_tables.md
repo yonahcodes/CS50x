@@ -136,6 +136,11 @@ unsigned int hash(char* str)
 
 - `return sum % HASH_MAX;` The final line returns the computed **hash code**. Calculates the **remainder** of `sum` divided by `HASH_MAX` (a constant that represents the maximum number of buckets in the hash table).
 
+<br>
+
+> [!NOTE]
+> It is better practice to use a well-tested, established hash function rather than attempting to write your own. This approach leverages the collective expertise of the developer community and ensures the efficiency and reliability of the function while reducing complexity. (Remember to give credit the authors).
+
 <br><br>
 
 ## Resolving Collisions
@@ -178,7 +183,7 @@ hashtable[z] = "Ringo";
 
 Presumably we want to store **both** pieces of data `"Paul"` and `"Ringo"` in the hash table, so we should not replace `"Paul"` by `"Ringo"`. Instead, we need to find a way to get **both elements** into the hash table while trying to preserve **quick** insertion and lookup.
 
-<br>
+<br><br>
 
 ### Linear Probing
 
@@ -284,10 +289,3 @@ hash("Marge"); returns 6
 ### Chaining 
 
 Hash tables short 00:12:30
-
-
-
-
-
-
-
