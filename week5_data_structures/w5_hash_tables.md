@@ -4,6 +4,8 @@
 
 This method allows for almost **constant time complexity** `O(1)` for **lookup**, **insertion**, and **deletion** (assuming we define the hash tables well). We create a **hash function** that takes a **key** as *input* and produces an **index** as *output* that suggests where the key should be placed in the table. 
 
+<br>
+
 **Hash tables** are a combination of two things:
 - A **Hash Function**, which returns a nonnegative integer value called **hash code**.
 - An **Array** capable of storing data of the type we wish to place into the data structure.
@@ -139,7 +141,7 @@ unsigned int hash(char* str)
 <br>
 
 > [!NOTE]
-> It is better practice to use a well-tested, established hash function rather than attempting to write your own. This approach leverages the collective expertise of the developer community and ensures the efficiency and reliability of the function while reducing complexity. (Remember to give credit the authors).
+> It is good practice to use a **well-tested**, **established** **hash function** rather than attempting to write your own. This approach leverages the collective expertise of the developer community and ensures the **efficiency** and **reliability** of the function while **reducing complexity**. (Remember to **give credit** the authors).
 
 <br><br>
 
