@@ -107,4 +107,5 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Singly-Linked Lists](week5_data_structures/w5_singly-linked_lists.md)
   - [Doubly-Linked Lists](week5_data_structures/w5_doubly-linked_lists.md)
   - [Hash Tables](week5_data_structures/w5_hash_tables.md)
+  - [Tries](week5_data_structures/w5_tries.md)
   
