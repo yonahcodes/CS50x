@@ -87,8 +87,6 @@ void enqueue(queue *q, TYPE data)
 
 - The **modulus operation** `%` computes the remainder of division. If the sum of `front` and `size` exceeds `CAPACITY`, we apply **modulus** with `CAPACITY` (`(front + size) % CAPACITY`) to find how many times the divisor `CAPACITY` can fit into the dividend `front + size` and then take the **remainder**.
 
-<br>
-
 - **Modulus example** `front = 8`, `size = 3`, `CAPACITY = 10`.  ->  `(8 + 3) % 10`  ->  `11 \ 10` = `1` with a remainder of `1`  ->  `11 % 10 = 1`
 
 - If the sum is < `CAPACITY` we simply use the sum as the index  -> `index[front + size]` 
