@@ -108,4 +108,4 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Doubly-Linked Lists](week5_data_structures/w5_doubly-linked_lists.md)
   - [Hash Tables](week5_data_structures/w5_hash_tables.md)
   - [Tries](week5_data_structures/w5_tries.md)
-  
+  - [Queues](week5_data_structures/w5_queues.md)
