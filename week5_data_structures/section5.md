@@ -36,7 +36,7 @@ node;
 ```
 - `struct node` We are defining a **structure** called **node**.
 
-- `string phrase` The structure will contain data of type **string** called **phrase**.
+- `char *phrase` The structure will contain data of type **string** called **phrase**.
 
 - `node *next` The structure will also contain a **pointer** called **next** that can store the **address** of another **node**.
 
