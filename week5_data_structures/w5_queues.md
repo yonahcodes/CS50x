@@ -24,17 +24,15 @@ typedef struct _queue
 queue;
 ```
 - Define a new structure `typedef struct` called `_queue`
-- Composed by an **array** of some **capacity** and **type** `TYPE array[CAPACITY];`
+- Composed by an **array** of some defined **capacity** and **type** `TYPE array[CAPACITY];`
 - An **integer** called `front` to keep track of which element to **dequeue**.
 - An **integer** called `size` to keep track of the number of elements **size** currently in the queue.
 
 <br><br>
 
 ```c
-// Declare a queue
+// initialize an empty queue
 queue q;
-
-// Initialize variables
 q.front = 0;
 q.size = 0;
 ```
@@ -72,7 +70,7 @@ void enqueue(queue *q, TYPE data)
     }
 
     // Calculate the index at which to add the new data
-    int end = (q->font + q->size) % CAPACITY;
+    int end = (q->front + q->size) % CAPACITY;
 
     // Add the data to the calculated index
     q->array[end] = data;
@@ -180,7 +178,7 @@ TYPE dequeue(queue *q)
     if (q->size == 0)
     {
         printf("Queue is empty\n");
-        return 1;
+        return;
     }
 
     // Retrieve the value at the from of the queue
@@ -355,10 +353,9 @@ queue;
 <br><br>
 
 ```c
-// Declare the queue
+// Initialize an empty the queue
 queue q;
 
-// Initialize variables
 q.head = NULL;
 q.tail = NULL;
 q.size = 0;
@@ -371,7 +368,7 @@ NULL <--- tail
 <br>
 
 > [!IMPORTANT]
-> Make sure to always maintain pointers to the **head** and **tail** of the linked list. It's a good idea to declare them as **global variables**.
+> Make sure to always maintain pointers to the **head** and **tail** of the linked list.
 
 <br><br>
 
