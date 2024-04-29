@@ -106,7 +106,7 @@ enqueue(&q, 28);
 | 1 |--> size
  --
 ```
-- Notice that we passed tha **address** of the queue `&q` to the function.  
+- Notice that we passed the **address** of the queue `&q` to the function.  
 
 - Since initially the `q` is **empty**, `front` is `0` and `size` is `0`, we place the data `28` in `index[0]`.
 
@@ -117,6 +117,8 @@ enqueue(&q, 28);
 <br><br>
 
 ```c
+// enqueue(&q, 28);
+
 enqueue(&q, 33);
 ```
 ```txt
@@ -137,6 +139,9 @@ enqueue(&q, 33);
 <br><br>
 
 ```c
+// enqueue(&q, 28);
+// enqueue(&q, 33);
+
 enqueue(&q, 19);
 ```
 ```txt
@@ -208,6 +213,10 @@ TYPE dequeue(queue *q)
 
 **Example:**
 ```c
+// enqueue(&q, 28);
+// enqueue(&q, 33);
+// enqueue(&q, 19);
+
 int x = dequeue(&q);
 ```
 ```txt
@@ -240,6 +249,11 @@ int x = dequeue(&q);
 
 **Dequeuing another element**:
 ```c
+// enqueue(&q, 28);
+// enqueue(&q, 33);
+// enqueue(&q, 19);
+// int x = dequeue(&q);
+
 int x = dequeue(&q);
 ```
 ```txt
@@ -271,7 +285,13 @@ int x = dequeue(&q);
 <br><br>
 
 **Now let's enqueue a new element**:
-```c 
+```c
+// enqueue(&q, 28);
+// enqueue(&q, 33);
+// enqueue(&q, 19);
+// int x = dequeue(&q);
+// int x = dequeue(&q);
+
 enqueue(&q, 40);
 ```
 ```txt
@@ -315,8 +335,8 @@ node;
 // Define queue structure
 typedef struct _queue
 {
-    node *front;
-    node *rear;
+    node *head;
+    node *tail;
     int size;
 }
 queue;
@@ -328,8 +348,8 @@ queue;
 <br>
 
 - Define another structure `typedef struct` called `_queue`:
-    - A **pointer** to the **first node** `front`
-    - A **pointer** to the **last node** `rear`
+    - A **pointer** to the **first node** `head`
+    - A **pointer** to the **last node** `tail`
     - An **integer** `size` to keep track of the **number of elements** currently in the queue.
 
 <br><br>
@@ -467,23 +487,15 @@ void dequeue(queue *q)
         return;
     }
 
-    // Declare and initialize to null a pointer to second element
-    node *second = NULL;
-
-    // If second node exists, store a pointer to it in second
-    if(q->head->next != NULL)
-    {
-        second = q->head->next;
-    }
-    
-    // Store pointer to head 
-    node *old_head = q->head;
-
-    // Move the head pointer to the (former) second element
-    q->head = second;
+    // Traverse to the second element
+    node *trav = NULL;
+    trav = q->head->next;
 
     // Free the head of the list
-    free(old_head);
+    free(q->head);
+
+    // Move the head pointer to the (former) second element
+    q->head = trav;
 
     // Make node's prev pointer point to NULL
     if (q->head != NULL)
@@ -518,23 +530,11 @@ dequeue(head);
                                                                 |  NULL |   
 ```
 ```txt
- old_head
-    |             second
-    v               |
-|  NULL |           v
-|  12   | <---  |  prv  |                                         tail
-|  nxt  | --->  |  15   | <---  |  prv  |                           |             
-                |  nxt  | --->  |   9   | <---  |  prv  |           v
-                                |  nxt  | --->  |  13   | <---  |  prv  |
-                                                |  nxt  | --->  |  10   | 
-                                                                |  NULL |   
-```
-```txt
- old_head
-    |             head
+  head
+    |              trav
     v               |
 |       |           v
-|       |       |  NULL |                                         tail
+|       |       |  prv  |                                         tail
 |       |       |  15   | <---  |  prv  |                           |             
                 |  nxt  | --->  |   9   | <---  |  prv  |           v
                                 |  nxt  | --->  |  13   | <---  |  prv  |
