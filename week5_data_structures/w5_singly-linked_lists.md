@@ -108,10 +108,9 @@ bool find(sllnode* head, Type val)
         {
             return true;
         }
+        // If not set the traversal pointer to the next pointer in the list and repeat
+        current = current->next;
     }
-
-    // If not set the traversal pointer to the next pointer in the list and repeat
-    current = current->next;
 
     // If we reached the end of the list and no value was found, report failure
     return false;
