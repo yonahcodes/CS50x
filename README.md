@@ -113,4 +113,5 @@ In this repository I will be documenting my progress in Harvard University's int
 
 - Problem Set 5
   - [Inheritance](week5_data_structures/inheritance.c)
+  - [Speller](week5_data_structures/speller/dictionary.c)
   
