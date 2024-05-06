@@ -344,4 +344,291 @@ set     # An unordered collection of unique elements
 
 ## Calculator
 
-Lecture 00:34:00
+Let's implement two versions of a simple calculator. The first one in **C**, the second in **Python**.
+
+Addition with int in **C**:
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Prompt user for x and y
+    int x = get_int("x: ");
+    int y = get_int("y: ");
+
+    // Print addition
+    printf("%i\n", x + y);
+}
+```
+<br><br>
+
+Addition with int (using `get_int`) in **Python**:
+```py
+from cs50 import get_int
+
+# Prompt user for x and y
+x = get_int("x: ")
+y = get_int("y: ")
+
+# print addition
+print(x + y)
+```
+- Notice that the **data type**, **semicolons** and **main function** are gone.
+
+<br><br>
+
+Removing `get_int` training wheels:
+```py
+# Prompt user for x and y 
+x = input("x: ") # suppose 1
+y = input("y: ") # suppose 2
+
+# Print addition
+print(x + y)
+```
+```txt
+12
+```
+> [!CAUTION]
+> Notice how executing the code above returns `12` instead of `3`. The interpreter understood `x` and `y` to be strings and it is performing **concatenation** instead of **addition**.
+
+<br><br>
+
+`int()` function:
+```py
+x = int(input("x: "))
+y = int(input("x: "))
+
+print(x + y)
+```
+- Notice how the input `x` and `y` is passed to the `int()` function which **converts** it into an **integer**. Now, instead of **concatenating** the interpreter will know to **add** both integers.
+
+<br><br>
+
+`library.function()`
+```py
+import cs50
+
+x = cs50.get_int("x: ")
+y = cs50.get_int("x: ")
+
+print(x + y)
+```
+- Imagine we imported two **identically named functions** from different **libraries** in our program. In **Python** we can specify the library in the **function call** `cs50.get_int`
+
+<br><br>
+
+## Conditionals
+
+Let's compare different **conditional statements** in **C** and **Python**:
+
+```c
+// C
+
+if (x < y)
+{
+    printf("x is less than y\n");
+}
+```
+```py
+# Python
+
+if x < y:
+    print("x is less than y")
+```
+- The `()` around the conditional `(x < y)` are not needed in **Python** (Can be used if needed, but not mandatory).
+
+- No need for curly braces `{}`. In **Python**, a colon `:` and **indentation** are used to define blocks.
+
+- The **semicolon** `;` and the **new line** separator `\n` are also omitted.
+
+<br>
+
+```c
+// C
+
+if (x < y)
+{
+    printf("x is less than y\n");
+}
+else
+{
+    printf("x is not less than y\n");
+}
+```
+```py
+# Python
+
+if x < y:
+    print("x is less than y")
+else:
+    print("x is not less than y")
+```
+- Again, for the **else** statement in **Python**, curly braces `{}` and semicolons `;` are gone. Colons `:` and **indentation** are used to define blocks.
+
+<br>
+
+```c
+// C
+
+if (x < y)
+{
+    printf("x is less than y\n");
+}
+else if (x > y)
+{
+    printf("x is greater than y\n");
+}
+else
+{
+    printf("x is equal to y\n");
+}
+```
+```py
+# Python
+
+if x < y:
+    print("x is less than y")
+elif:
+    print("x is greater than y")
+else:
+    print("x is equal to y")
+```
+- In **Python** `else if` is shortened to `elif` to save extra typing.
+
+<br><br>
+
+Let's see how we can implement programs in **C** and **Python** that use these **conditionals**:
+```c
+// Conditionals in C
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Prompt user for integers
+    int x = get_int("What's x? ");
+    int y = get_int("What's y? ");
+
+    // Compare integers
+    if (x < y)
+    {
+        printf("x is less than y\n");
+    }
+    else if (x > y)
+    {
+        printf("x is greater than y\n");
+    }
+    else
+    {
+        printf("x is equal to y\n");
+    }
+}
+```
+```py
+# Conditionals in Python
+
+from cs50 import get_int
+
+x = get_int("What's x? ")
+y = get_int("What's y? ")
+
+if x < y:
+    print("x is less than y")
+elif x > y:
+    print("x is greater than y")
+else:
+    print("x is equal to y")
+```
+
+<br><br>
+
+Comparing **strings**:
+```py
+# Comparing strings in Python
+
+s = input("s: ")
+t = input("t: ")
+
+if s == t:
+    print("Same")
+else
+    print("Different")
+```
+- Remember that in **C**, **strings** `char *` are **pointers** to the memory address holding the **first character** of the string. 
+
+- Attempting to **compare two strings** in **C** with the **equality operator** `==` will always return **different**. This is because two different strings point to two different addresses.
+
+- In **Python** however, comparing **strings** using the **equality operator** `==` works like it would with **integers**.
+
+<br><br>
+
+Further looking at comparisons, let's consider the following **C** code:
+```c
+// Logical operators in C
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Prompt user to agree
+    char c = get_char("Do you agree? ");
+
+    // Check whether agreed
+    if (c == 'Y' || c == 'y')
+    {
+        printf("Agreed.\n");
+    }
+    else if (c == 'N' || c == 'n')
+    {
+        printf("Not agreed.\n");
+    }
+}
+```
+- The program above prompts the user to **agree** by typing `Y or y` or **disagree** by typing `N or n`.
+
+<br>
+
+```py
+# Logical operators in Python
+
+from cs50 import get_string
+
+# Prompt user to agree
+s = get_string("Do you agree? ")
+
+# Check whether agreed
+if s == "Y" or s == "y":
+    print("Agreed.")
+elif s == "N" or s == "n":
+    print("Not agreed.")
+```
+- Notice that the two vertical bars `||` in **C** are replaced with `or`.
+
+<br>
+
+Imagine the user typing `Yes` instead of `Y` or `y`. In **Python** we can use **lists** to express multiple keywords:
+```py
+s = input("Do you agree? ")
+
+if s in ["y", "yes"]:
+    print("Agreed")
+elif s in ["n", "no"]:
+    print("Not Agreed")
+```
+- If the string `s` is included `in` the **list** `["y", "yes"]`, the program prints **Agreed**.
+
+- If the string `s` is included `in` the **list** `["n", "no"]`, the program prints **Not Agreed**.
+
+<br>
+
+We introduced `lists` as a potential solution to include different **user inputs** into our **conditionals**, but this is still not the most efficient solution. To attempt to include every potential user input we will have to create **extensive lists** `["y", "Y", "yes", "YES", "Yes", "YeS", ...]`
+
+<br><br>
+
+## Object-Oriented Programming
+
+Lecture 00:56:00
