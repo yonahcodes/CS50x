@@ -374,11 +374,11 @@ y = get_int("y: ")
 # print addition
 print(x + y)
 ```
-- Notice that the **data type**, **semicolons** and **main function** are gone.
+- Notice that the **data type** `int`, **semicolons** `;` and **main function** `main()` are gone.
 
 <br><br>
 
-Removing `get_int` training wheels:
+Using `input()` instead of CS50's `get_int`:
 ```py
 # Prompt user for x and y 
 x = input("x: ") # suppose 1
@@ -415,7 +415,7 @@ y = cs50.get_int("x: ")
 
 print(x + y)
 ```
-- Imagine we imported two **identically named functions** from different **libraries** in our program. In **Python** we can specify the library in the **function call** `cs50.get_int`
+- Imagine we imported two **identically named functions** from different **libraries** in our program. In **Python** we can specify the library in the **function call** `cs50.get_int` to specify which function we want to use.
 
 <br><br>
 
@@ -443,7 +443,7 @@ if x < y:
 
 - The **semicolon** `;` and the **new line** separator `\n` are also omitted.
 
-<br>
+<br><br>
 
 ```c
 // C
@@ -467,7 +467,7 @@ else:
 ```
 - Again, for the **else** statement in **Python**, curly braces `{}` and semicolons `;` are gone. Colons `:` and **indentation** are used to define blocks.
 
-<br>
+<br><br>
 
 ```c
 // C
@@ -499,7 +499,7 @@ else:
 
 <br><br>
 
-Let's see how we can implement programs in **C** and **Python** that use these **conditionals**:
+Now, let's see how we can integrate these conditionals in **C** and **Python** programs:
 ```c
 // Conditionals in C
 
@@ -527,6 +527,8 @@ int main(void)
     }
 }
 ```
+<br>
+
 ```py
 # Conditionals in Python
 
@@ -545,7 +547,7 @@ else:
 
 <br><br>
 
-Comparing **strings**:
+Comparing **strings** `str`:
 ```py
 # Comparing strings in Python
 
@@ -590,7 +592,7 @@ int main(void)
 ```
 - The program above prompts the user to **agree** by typing `Y or y` or **disagree** by typing `N or n`.
 
-<br>
+<br><br>
 
 ```py
 # Logical operators in Python
@@ -608,9 +610,9 @@ elif s == "N" or s == "n":
 ```
 - Notice that the two vertical bars `||` in **C** are replaced with `or`.
 
-<br>
+<br><br>
 
-Imagine the user typing `Yes` instead of `Y` or `y`. In **Python** we can use **lists** to express multiple keywords:
+Imagine the user typing `Yes` instead of `Y` or `y`. In **Python** we can use a `list` to express multiple keywords:
 ```py
 s = input("Do you agree? ")
 
@@ -623,9 +625,9 @@ elif s in ["n", "no"]:
 
 - If the string `s` is included `in` the **list** `["n", "no"]`, the program prints **Not Agreed**.
 
-<br>
+<br><br>
 
-We introduced `lists` as a potential solution to include different **user inputs** into our **conditionals**, but this is still not the most efficient solution. To attempt to include every potential user input we will have to create **extensive lists** `["y", "Y", "yes", "YES", "Yes", "YeS", ...]`
+We introduced a `list` as a potential solution to include different **user inputs** into our **conditionals**, but this is still not the most **efficient** solution. To attempt to include every potential user input we will have to create **extensive lists** `["y", "Y", "yes", "YES", "Yes", "YeS", ...]`.
 
 <br><br>
 
