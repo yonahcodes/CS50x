@@ -633,4 +633,117 @@ We introduced a `list` as a potential solution to include different **user input
 
 ## Object-Oriented Programming
 
-Lecture 00:56:00
+**OOP** allows variables to not only have values with certain properties or attributes, but also have functions built into them. In **Python** they are known as **objects**.
+
+In **C** we had the ability to create a **struct** where we could associate multiple variables inside a single self-created data type. In **Python** we can include functions in a self-created data type called **methods**.
+
+<br>
+
+Strings `str` in Python have built-in **methods**:
+```py
+# Prompt user to agree
+s = input("Do you agree? ").lower()
+
+# Check whether agreed
+if s in ["y", "yes"]:
+    print("Agreed.")
+elif s in ["n", "no"]:
+    print("Not agreed.")
+```
+- The code takes the **user input** and immediately applies the `.lower()` method to convert it to **lowercase**.
+
+- This ensures that no matter what is the **capitalization** of the **user input**, it will be treated the same.
+
+<br><br>
+
+## Loops
+
+**Loops** in **Python** are very similar to **C**, but require less setup and manual control of **iteration variables** and **conditions**.
+
+<br>
+
+```c
+// While loop in C
+
+int i = 0;
+while (i < 3)
+{
+    printf("meow\n");
+    i++;
+}
+```
+<br>
+
+```py
+# While loop in Python
+
+i = 0
+while i < 3:
+    print("meow")
+    i += 1
+```
+- Notice that the **Python** *while loop* is more **concise**.
+
+<br><br>
+
+```c
+// For loop in C
+
+for (int i = 0; i < 3; i++)
+{
+    printf("meow\n");
+}
+```
+<br>
+
+```py
+# For loop in Python
+
+for i in [0, 1, 2]:
+    print("meow")
+```
+- The code above works but it's **not efficient**, particularly as the list increases.
+
+<br>
+
+```py
+# For loop in Python - Alternative syntax
+
+for i in range(3):
+    print("meow")
+```
+- This **for loop** is mode **efficient**. The `range()` function returns a **range** of values as they are needed. To change the number of values we can simply change the **argument** to `range()`.
+
+<br>
+
+> [!IMPORTANT]
+> Notice that `i` is never explicitly used. In **Python** we do not have to **manage** the **iteration variable** `i`, it is incremented **automatically**. It is common practice to use placeholder **underscore** `_` as an iteration variable, signaling that the focus is in the code's **operation**, enhancing clarity and maintainability.
+
+```py
+# For loop in Python - Alternative syntax
+
+for _ in range(3):
+    print("meow")
+```
+
+<br><br>
+
+```c
+// Forever loop in C
+
+while (true)
+{
+    printf("meow\n");
+}
+```
+<br>
+
+```py
+# Forever loop in Python
+
+while True
+    print("meow")
+```
+- In **Python** **True** and **False** are **capitalized**.
+
+Lecture 1:07:00
