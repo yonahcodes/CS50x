@@ -820,9 +820,7 @@ $
 
 <br><br>
 
-In **Python**, strings `str` come with **built-in** **methods**, one of them is `upper()`. 
-
-We do not need to **loop** through and call `upper()` on every character of the string. Instead we can call it on the **entire string** `before.upper()`:
+In **Python**, strings `str` come with **built-in** **methods**, one of them is `upper()`. We do not need to **loop** through and call `upper()` on every character of the string. Instead we can call it on the **entire string** `before.upper()`:
 
 <br>
 
