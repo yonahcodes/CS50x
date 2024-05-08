@@ -833,7 +833,7 @@ print(before.upper())
 ```
 <br><br>
 
-We can make the design and logic of the code even better by using a **formatted string** `f-string`:
+We can optimize the **design** and **logic** of the code by using a **formatted string** `f-string`:
 
 ```py
 # Alternative syntax
@@ -847,7 +847,7 @@ print(f"After: {after}")
 
 <br><br>
 
-We can achieve the same result and make the code even more **concise** by removing the need to create the `after` variable and instead **embedding** the expression `before.upper()` between the **curly braces**:
+We can achieve the same result and make the code even more **concise** by removing the need to create the `after` variable and instead **embedding** the expression `before.upper()` between the formatted string's **curly braces**:
 
 ```py
 # Alternative syntax
