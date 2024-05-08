@@ -231,7 +231,7 @@ print(f"hello, {answer}")
 
 <br><br>
 
-In **Python**, especially when dealing with **string concatenation** and **formatting**, there are several ways to achieve the same output. Each method has its use cases and choosing one can also depend on **convention** and **style**. **F-strings** are generally preferred for their clarity and efficiency.
+In **Python**, especially when dealing with **string concatenation** and **formatting**, there are several ways to achieve the same output. Each method has its use cases and choosing one can also depend on **convention** and **style**. `F-strings` are generally preferred for their clarity and efficiency.
 
 ```py
 # print("hello, " + answer)
@@ -256,7 +256,7 @@ In **Python**, there is a built-in function called `input()`:
 answer = input("What's your name? ")
 print(f"hello, {answer}")
 ```
-- Notice that we did not need to include any libraries.
+- Notice that we did not need to include any **libraries**.
 
 <br><br>
 
@@ -662,6 +662,8 @@ elif s in ["n", "no"]:
 
 <br>
 
+### While Loops
+
 ```c
 // While loop in C
 
@@ -685,6 +687,8 @@ while i < 3:
 - Notice that the **Python** *while loop* is more **concise**.
 
 <br><br>
+
+### For Loops
 
 ```c
 // For loop in C
@@ -728,6 +732,8 @@ for _ in range(3):
 
 <br><br>
 
+### Forever Loops
+
 ```c
 // Forever loop in C
 
@@ -746,4 +752,117 @@ while True
 ```
 - In **Python** **True** and **False** are **capitalized**.
 
-Lecture 1:07:00
+<br><br>
+
+### `uppercase.py`
+
+To further our understanding of **loops** and **iteration** in **Python**, let's implement a program to uppercase characters:
+```py
+# Uppercase string one character at a time
+
+before = input("Before: ")
+print("After: ")
+for c in before:
+    print(c.upper())
+```
+When we run the code above with the input `cat`:
+```txt
+Before: cat
+After:
+C
+A
+T
+```    
+- Notice that the **capitalization** is achieved, but there are a couple of problems. The `After:` string prints in a **separate line** followed by the capitalized characters are printed **one per line**. 
+
+- Unlike **C**, **Python** handles creating a **new line** automatically, there is no need to add the `\n`. However, sometimes, like our example, it could not be desirable.
+
+<br><br>
+
+To fix the this code we have to introduce **named parameters**:
+
+```py
+# Uppercase string one character at a time
+
+before = input("Before: ")
+print("After: ", end="")
+for c in before:
+    print(c.upper(), end="")
+```
+```txt
+Before: cat
+After: CAT$
+```    
+- **Python** uses an **abstracted** process to automatically move to the **next line** at the end of every line using the default character `"\n"` (`end="\n"`).
+
+- To override that and prevent the program from jumping to the next line, we can **modify** the **named character** `end=`, and set it equal to **nothing** `end=""`. 
+
+- Also notice that the **cursor** `$` was **not** moved to the next line. 
+
+<br><br>
+
+We can move the **cursor** to the next line by adding an extra **empty** `print()` line:
+```py
+# Uppercase string one character at a time
+
+before = input("Before: ")
+print("After: ", end="")
+for c in before:
+    print(c.upper(), end="")
+print()
+```
+```txt
+Before: cat
+After: CAT
+$
+```
+
+<br>
+
+With the version above, we achieved the desired outcome of the program, but some of the steps we implemented are **not necessary**. 
+
+
+<br><br>
+
+In **Python**, strings `str` come with **built-in** **methods**, one of them is `upper()`. 
+
+We do not need to **loop** through and call `upper()` on every character of the string. Instead we can call it on the **entire string** `before.upper()`:
+
+<br>
+
+```py
+# Uppercase string all at once
+
+before = input("Before: ")
+print("After: ", end="")
+print(before.upper())
+```
+<br><br>
+
+We can make the design and logic of the code even better by using a formatted string `f-string`:
+
+```py
+# Alternative syntax
+before = input("Before: ")
+after = before.upper()
+print(f"After: {after}")
+```
+- We created a variable called `after`, which is the **uppercase** version of the `before` variable.
+
+- In the `print` statement, we created a **f-string** composed of a string and an **embedded** variable `{after}`.
+
+<br><br>
+
+We can achieve the same result and make the code even more **concise** by removing the need to create the `after` variable and instead **embedding** the expression `before.upper()` between the **curly braces**:
+
+```py
+# Alternative syntax
+before = input("Before: ")
+print(f"After: {before.upper()}")
+```
+
+<br><br>
+
+## Abstraction
+
+Lecture 1:14:00
