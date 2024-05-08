@@ -765,7 +765,6 @@ print("After: ")
 for c in before:
     print(c.upper())
 ```
-When we run the code above with the input `cat`:
 ```txt
 Before: cat
 After:
@@ -816,10 +815,7 @@ Before: cat
 After: CAT
 $
 ```
-
-<br>
-
-With the version above, we achieved the desired outcome of the program, but some of the steps we implemented are **not necessary**. 
+- With the version above, we achieved the desired outcome of the program, but some of the steps we implemented are **not necessary**. 
 
 
 <br><br>
