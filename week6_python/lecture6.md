@@ -839,7 +839,7 @@ print(before.upper())
 ```
 <br><br>
 
-We can make the design and logic of the code even better by using a formatted string `f-string`:
+We can make the design and logic of the code even better by using a **formatted string** `f-string`:
 
 ```py
 # Alternative syntax
