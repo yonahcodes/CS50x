@@ -859,4 +859,186 @@ print(f"After: {before.upper()}")
 
 ## Abstraction
 
-Lecture 1:14:00
+Like in **C** we can **define** our own functions using the `def` keyword. This wil allow us to **abstract** away the code when calling the functions.
+```py
+# Abstraction
+
+def main():
+    for i in range(3):
+        print("meow")
+
+# Meow once
+def meow():
+    print("meow")
+
+
+main()
+```
+- At the top of the file `main()` function is defined. It calls the `meow()` function `3` times (It is not mandatory to create a `main()` function in **Python**, but by convention it's expected).
+
+- Then we defined the `meow()` function to print the string `"meow"`.
+
+<br>
+
+> [!IMPORTANT]
+> Notice at the last line, we are calling `main()`. In **Python** we have to call the `main()` function for it to run. If we ony **define** the functions, they will not execute.
+
+<br><br>
+
+We can **optimize** further our code for readability and efficiency by **passing variables** between our functions:
+
+```py
+# Abstraction with parameterization 
+
+def main():
+    meow(3)
+
+# Meow n times
+def meow(n):
+    for i in range(n):
+    print("meow")
+
+
+main()
+```
+- Notice how we modified `meow()` to accept a parameter `n`.
+
+- In the `main()` function, `meow()` is called with the argument `3`. 
+
+- When `meow()` is called it uses the value passed to it (`3`) to control the number of iteration in the **for loop**.
+
+<br>
+
+We successfully abstracted away the complexities of the functions by **defining** them. Now, if we needed to call `meow()` elsewhere in our program, we can simply use one line of code `meow(n)`, to execute it a specified number of times.
+
+<br><br>
+
+## Truncation and Floating Point Imprecision
+
+**Truncation** is a process where excess digits or data beyond certain point are cut off. Dividing one ***integer** by another could result in an **imprecise result**.
+
+In **C** we had to deal with **truncation** when working with **integers** and **floats**.
+```c
+// Division with integers in C
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int x = get_int("x: ");
+    int y = get_int("y: ");
+
+    printf("%i\n", x / y);
+}
+```
+```txt
+x: 1
+y: 3
+0
+```
+- In **C** When two **integers** are divided, the fractional part of the result is **truncated**, leaving only the integer portion. `1 / 3` results in `0` instead of `0.3333333`.
+
+<br><br>
+
+Now, let's see how **Python** handles such division:
+```py
+# Division with integers in Python - Lack of truncation 
+
+x = int(input("x: "))
+y = int(input("y: "))
+
+z = x / y
+print(z)
+```
+```txt
+x: 1
+y: 3
+0.3333333
+```
+Notice that **truncation** did not happen. Executing an **integer** to **integer** division in **Python** that ends up giving a fractional component will result in a **floating-point number**.
+
+<br><br>
+
+### Floating Point Imprecision
+
+**Floating point imprecision** arises due to the inherent limitation in representing **real numbers** in **binary**. Not all **decimal numbers** can be precisely represented in binary.
+
+We can reveal this imprecision using a special syntax in **Python** that allows us to show a set number of digits.
+```py
+# Floating point imprecision
+
+x = int(input("x: "))
+y = int(input("y: "))
+
+z = x / y
+print(f"{z:.50f}")
+```
+```txt
+x: 1
+y: 3
+0.33333333333333331482961625624739099293947219848633
+```
+- `f"{z:.50f}"` We print out a **format string**`f""` and configure it to print out a specific number of digits of the value `z`.
+
+- `z:.50f` Means print out `z` with `50` digits after the decimal point specifying it's a **float** `f`.
+
+<br>
+
+Printing `50` digits after the decimal point in this division should result in: `0.33333333333333333333333333333333333333333333333333`, which **cannot be represented precisely** in a binary floating-point system. 
+
+Since the computer can only use a **finite number of bits** to store a number, the system will **truncate** this repeating decimal at some point and print out the closest possible **approximation** possible within the limits of the number of bits used.
+
+<br><br>
+
+### Integer Overflow
+
+**Integer overflow** happens when an operation attempts to create a numeric value that is **outside the range** that can be represented with a **given number of bits**.
+
+```c
+// Integer overflow in C
+
+#include <stdio.h>
+
+int main()
+{
+    // Maximum value for an unsigned char
+    unsigned char a = 255;
+
+    // Incrementing a by 1
+    a = a + 1;
+
+    printf("%d\n", a);
+
+    return 0;
+}
+```
+```txt
+0
+```
+- In this code, we declare an unsigned char `a` and assign to it the value of `255` (In C, unsigned chars can hold values from `0 to 255`).
+
+- Adding `1` when it is already at the maximum value of `255` causes it to overflow, and instead of printing `256`, it **wraps around** back to `0`.
+
+<br><br>
+
+In **Python** integer overflow does not exist. **Python** **integers** `int` have **arbitrary precision**, meaning they can **grow** beyond bounds and allocate more and more memory to fit the integer.
+```py
+# Simulating maximum value of an unsigned char
+a = 255
+
+# Incrementing a by 1
+a = a + 1
+
+print(a)
+```
+```txt
+256
+```
+- Notice that **Python** correctly calculates the result as `256`. It handles this by **automatically resizing the integer** to fit the new value.
+
+<br><br>
+
+## Exceptions
+
+Lecture 1:25:00
