@@ -1056,15 +1056,15 @@ def main():
 
 main()
 ```
-- The code above works fine if the user cooperates and enters an **integer** as a value. If any other data type is entered, we will get a **Traceback** error.
+- The code above works fine if the user cooperates and inputs an **integer** as a value. If any other data type is entered, we will get a **Traceback** error.
 
 <br><br>
 
 ### Error Handling in C
 
-Remember that to handle **errors** in **C** we had to write the functions to return a special value if something went wrong (e.g., `return 1;` or `return: NULL;`).
+Remember that to handle **errors** in **C** we had to write the functions to return a **special value** if something went wrong (e.g., `return 1;` or `return: NULL;`).
 
-This approach can lead to complications when a valid return value might naturally coincide with an **error indicator**. We wouldn't be able to write our function to return one of those values as part of its normal functionality. The **value** used for **error handling** is now **reserved**, meaning it cannot be returned by our function for any other purpose.
+This approach can lead to complications when a **valid return value** might naturally *coincide* with an **error indicator**. We wouldn't be able to write our function to return one of those values as part of its normal functionality. The **value** used for **error handling** is now **reserved**, meaning it cannot be returned by our function for any other purpose.
 
 <br><br>
 
