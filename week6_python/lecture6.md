@@ -1041,4 +1041,65 @@ print(a)
 
 ## Exceptions
 
-Lecture 1:25:00
+Let's define our own version of `get_int()`:
+```py
+# Implements get_int
+
+def get_int(prompt):
+    return int(input(prompt))
+
+def main():
+    x = get_int("x: ")
+    y = get_int("y: ")
+    print(X + Y)
+
+
+main()
+```
+- The code above works fine if the user cooperates and enters an **integer** as a value. If any other data type is entered, we will get a **Traceback** error.
+
+<br><br>
+
+### Error Handling in C
+
+Remember that to handle **errors** in **C** we had to write the functions to return a special value if something went wrong (e.g., `return 1;` or `return: NULL;`).
+
+This approach can lead to complications when a valid return value might naturally coincide with an **error indicator**. We wouldn't be able to write our function to return one of those values as part of its normal functionality. The **value** used for **error handling** is now **reserved**, meaning it cannot be returned by our function for any other purpose.
+
+<br><br>
+
+### Error Handling in Python
+
+**Python** has a built-in mechanism for raising and handling errors. When an error occurs, **Python** raises an **exception** that interrupts the normal flow of execution unless it is handled.
+
+```py
+# Implements get_int + Error handling
+
+def get_int(prompt):
+    while True:
+        try:
+            return int(input(prompt))
+        except ValueError:
+            print("Not an integer")
+
+def main():
+    x = get_int("x: ")
+    y = get_int("y: ")
+    print(x + y)
+
+
+main()
+```
+- In the code above we used a **Try and Except** block to handle the possibility of the user entering an **unexpected value**.
+
+- We create a forever loop `while True` that will **re-prompt** the user if the input is **not** in the expected format.
+
+- Inside the **loop** we will `try` to run the function `expect` if we get a `ValueError`. In that case we will print the **error message** "`Not an integer`" and prompt the user again.
+
+- We could also replace the line `print("Not an integer")` **error message** with `pass`. This will silently re-prompt the user. 
+
+<br><br>
+
+## Mario
+
+Lecture 1:33:20
