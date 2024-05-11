@@ -1182,7 +1182,7 @@ print()
 - Remember we used the **named parameter** `end=""` to override its default `\n` value and print in the **same line**.
 - Notice the last `print()` line that enables us the place the **cursor** on the **next line**.
 
-<br>
+<br><br>
 
 We can simplify this code further with an alternative syntax:
 ```py
@@ -1217,7 +1217,7 @@ for i in range(3):
 
 - The `print()` statement is used to **add a new line** at the end of each **row**.
 
-<br>
+<br><br>
 
 ```py
 # Alternative Syntax
@@ -1274,7 +1274,7 @@ print(f"Average: {average}")
 
 - `scores.append(score)` We prompt the user for a `score` and we use the `append()` **method** to add it to the end of the `scores` list.
 
-<br>
+<br><br>
 
 ```py
 # Alternative syntax
