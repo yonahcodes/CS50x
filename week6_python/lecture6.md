@@ -1102,4 +1102,200 @@ main()
 
 ## Mario
 
-Lecture 1:33:20
+Let's rewrite a few lines of the Mario code in **Python** to represent a **column** of **3** bricks:
+```py
+# Print a column of 3 bricks with a loop
+
+for i in range(3)
+print("#")
+```
+```txt
+#
+#
+#
+```
+- Notice the simplicity of the **Python** code.
+
+<br><br>
+
+```c
+// Mario in C
+// Prints a column of height n
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Get height of column
+    int n;
+    do
+    {
+        n = get_int("Height: ");
+    }
+    while (n < 1);
+
+    // Print column of bricks
+    for (int i = 0; i < n; i++)
+    {
+        printf("#\n");
+    }
+}
+```
+- In **C** we had the advantage of a `do-while` loop. 
+
+<br><br>
+
+```py
+# Mario in Python
+# Prints a column of n bricks with a loop
+
+from cs50 import get_int
+
+while True:
+    n = get_int("Height: ")
+    if n > 0:
+        break
+
+for i in range(n):
+    print("#")
+```
+- **Python** does not have a `do-while` loop and the convention is to use a `while` loop.
+
+- The idea of implementing an **infinite loop** `while True` to get the desired  outcome and **breaking** out of it `break` once it is done, is very common in **Python**.
+
+- The code ignores **non-integer** types because of the error checking in the `get_int` function. Also because we are only **breaking** from the while loop if user enters a **positive integer** `if n > 0` **negative** numbers and **0** are ignored.
+
+<br><br>
+
+Now, let's implement a **row** of **4** question marks:
+```py
+# Prints a row of 4 question marks with a loop
+
+for i in range(4):
+    print("?", end="")
+print()
+```
+```txt
+????
+```
+- Remember we used the **named parameter** `end=""` to override its default `\n` value and print in the **same line**.
+- Notice the last `print()` line that enables us the place the **cursor** on the **next line**.
+
+<br>
+
+We can simplify this code further with an alternative syntax:
+```py
+# Prints a row of 4 question marks without a loop
+
+print("?" * 4)
+```
+```txt
+????
+```
+- We can use the `*` to multiply the print statement to repeat `4` times.
+
+<br><br>
+
+Now, let's implement a large **block** of bricks:
+```py
+# Prints a 3-by-3 grid of bricks with a nested loop
+
+for i in range(3):
+    for j in range(3):
+        print("#", end="")
+    print()
+```
+```txt
+###
+###
+###
+```
+- Notice that we used a first **for loop** to represent the **columns**, and a **nested for loop** to represent the **rows**.
+
+- The **named parameter** `end=""` ensures the bricks are printed **in line** in each row.
+
+- The `print()` statement is used to **add a new line** at the end of each **row**.
+
+<br>
+
+```py
+# Alternative Syntax
+
+for i in range(3):
+    print("#" * 3)
+```
+```txt
+###
+###
+###
+```
+- We can also use the `*` to multiply the print statement to repeat `3` times in **each row**. Removing the need for a **nested loop**.
+
+<br><br>
+
+## Lists
+
+In **Python**, **lists** are a data structure and have **built-in** **methods** or **functions** within them. The **memory** is also automatically managed.
+
+```py
+# Averages three numbers using a list
+
+scores = [72, 73, 33]
+
+average = sum(scores) / len(scores)
+print(f"Average: {average}")
+```
+- First we created a list `scores` and assigned to it 3 values.
+
+- To calculate the **average** we used **built-in methods** `sum()` to add the values, and divided the sum by the length of the list using `len()`.
+
+- In the `print()` statement we used a **format string**.
+
+<br><br>
+
+We can also utilize the following syntax to get values from the **user**:
+```py
+# Averages three numbers using a list and a loop
+
+from cs50 import get_int
+
+# Get scores
+scores = []
+for i in range(3):
+    score = get_int("Score: ")
+    scores.append(score)
+
+# Print average
+average = sum(scores) / len(scores)
+print(f"Average: {average}")
+```
+- In **Python** we can create an **empty list** `scores = []` and add values later.
+
+- `scores.append(score)` We prompt the user for a `score` and we use the `append()` **method** to add it to the end of the `scores` list.
+
+<br>
+
+```py
+# Alternative syntax
+
+from cs50 import get_int
+
+scores = []
+
+for i in range(3):
+    get_int("Score: ")
+    scores = scores + [score]
+
+average = sum(scores) / len(scores)
+print(f"Average: {average}")
+```
+- We can also **concatenate** `scores` list with a modified version of itself.
+
+- `scores = scores + [score]` We take the list `scores` and modify its value `scores` by **adding** `+` to it the **new score** `score`.
+
+<br><br>
+
+## Searching and Dictionaries
+
+Lecture 1:45:00
