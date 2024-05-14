@@ -1379,6 +1379,8 @@ else:
 
 - If input `name` matches a key in a dictionary, The **associated number** is printed.
 
+<br>
+
 > Notice in the print statement **f-string**, we are using **single quotes** `''` around number `person['number']`, to differentiate from the surrounding **double quotes** `""`.
 
 <br><br>
@@ -1405,13 +1407,15 @@ else:
 ```
 - Notice that `people` is now **one dictionary** instead of a list of dictionaries. In this version we can only have **one key** associated with **one value**.
 
-|Key|Value|
-|:-:|:-:|
-|Carter|+1-617-495-1000|
-
 - The statement `if name in people` searches for a **match** in the keys of the dictionary.
 
 - In the **print statement**, indexing into the key `people[name]` will print associated value `number`.
+
+<br>
+
+|Key|Value|
+|:-:|:-:|
+|Carter|+1-617-495-1000|
 
 <br><br>
 
