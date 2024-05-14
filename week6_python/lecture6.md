@@ -1234,7 +1234,7 @@ for i in range(3):
 
 <br><br>
 
-## Lists
+## Lists - `list`
 
 In **Python**, **lists** are a data structure and have **built-in** **methods** or **functions** within them. The **memory** is also automatically managed.
 
@@ -1296,6 +1296,167 @@ print(f"Average: {average}")
 
 <br><br>
 
-## Searching and Dictionaries
+### Searching a List
 
-Lecture 1:45:00
+Let's implement linear search to find an element in a List:
+```py
+# Implements linear search for names using loop
+
+names = ["Carter", "David", "John"]
+
+name = input("Name: ")
+
+for n in names:
+    if name == n:
+        print("Found")
+        break
+else:
+    print("Not found")
+```
+- Notice how the code implements **linear search** looping through every element in `names` to see if it matches the user input `name`.
+
+- If it's a match, it **breaks** out of the loop, if it's not, it prints **not found**.
+
+<br><br>
+
+The code above works, but in **Python** we can execute linear search with a better and simpler design:
+```py
+# Implements linear search for names using `in`
+
+names = ["Carter", "David", "John"]
+
+name = input("Name: ")
+
+if name in names:
+    print("Found")
+else:
+    print("Not found")
+
+```
+- The loop was replaced by the use of a **conditional** and the **membership operator** `in`, used to check if the value is present in a sequence. **Python** automatically performs the **linear search**.
+
+<br><br>
+
+## Dictionaries - `dict`
+
+A **dictionary** `dict` is an **unordered** collection of **key-value** pairs. In contrast to **C**, where creating a **hash table** from scratch was necessary to be able to have values associated to keys (e.g., mapping names to numbers in a phonebook), **Python** simplifies this process with its built-in `dict`.
+
+<br>
+
+|Key|Value|
+|:-:|:-:|
+|name|Carter|
+|number|+1-617-495-1000|
+
+<br>
+
+```py
+# Implements a phone book as a list of dictionaries
+
+from cs50 import get_string
+
+people = [
+    {"name": "Carter", "number": "+1-617-495-1000"},
+    {"name": "David", "number": "+1-617-495-1000"},
+    {"name": "John", "number": "+1-949-468-2750"},
+]
+
+# Search for a name
+name = get_string("Name: ")
+for person in people:
+    if person["name"] == name:
+        print(f"Found {person['number']}")
+        break
+else:
+    print("Not found")
+
+```
+- We created a **list of dictionaries** `people`, where each dictionary holds two **keys** (`name` & `number`) with two associated **values** (e.g., `Carter` & `+1-617-495-1000`).
+
+- Notice that in the **search**, we did not have to define a **structure** called `person` before using it.
+
+- The **for loop** iterates through the dictionaries **indexing** into the **name key** `person["name"]` and compare it to the user input `name`.
+
+- If input `name` matches a key in a dictionary, The **associated number** is printed.
+
+> Notice in the print statement **f-string**, we are using **single quotes** `''` around number `person['number']`, to differentiate from the surrounding **double quotes** `""`.
+
+<br><br>
+
+```py
+# Alternative simplified syntax
+
+# Implements a phone book using a dictionary
+
+from cs50 import get_string
+
+people = {
+    "Carter": "+1-617-495-1000",
+    "David": "+1-617-495-1000",
+    "John": "+1-949-468-2750",
+}
+
+# Search for name
+name = input("Name: ")
+if name in people:
+    print(f"Number: {people[name]}")
+else:
+    print("Not found")
+```
+- Notice that `people` is now **one dictionary** instead of a list of dictionaries. In this version we can only have **one key** associated with **one value**.
+
+|Key|Value|
+|:-:|:-:|
+|Carter|+1-617-495-1000|
+
+- The statement `if name in people` searches for a **match** in the keys of the dictionary.
+
+- In the **print statement**, indexing into the key `people[name]` will print associated value `number`.
+
+<br><br>
+
+## Command-Line Arguments
+
+In **Python**, the `sys` **module** allows access to variable and functions used by the **interpreter**, as well as **system-specific** parameters and functions, including **command-line arguments**.
+
+<br>
+
+```py
+from sys import argv
+
+if len(argv) == 2:
+    print(f"hello, {argv[1]}")
+else:
+    print("hello, world")
+```
+- First we import `argv` from the `sys` module.
+
+- If **two arguments** are entered in the command line `len(argv) == 2`, we print `hello` followed by the second argument `argv[1]`.
+
+- If no argument is provided, we simply print `hello, world`
+
+<br>
+
+>[!Important]
+> The command `python` used to run the interpreter is ignored. Entering `python greet.py Lazer` will count as **two** command-line arguments: `argv[0]` is `greet.py` and `argv[1]` is `Lazer`.
+
+<br><br>
+
+## Exit Status
+
+The `sys` library also has **built-in methods**. We can use `sys.exit(i)` to exit the program with a specific exit code like it is typically done in **C**:
+```py
+import sys
+
+if len(sys.argv) != 2:
+    print("Missing command-line argument")
+    sys.exit(1)
+
+print(f"hello, {sys.argv[1]}")
+sys.exit(0)
+```
+- Notice that since we imported the whole `sys` library, we have to specify `sys.argv` when using the parameter.
+
+- If the number of **command-line arguments** `argv` is not `2`, we use built-in function `sys.exit(1)` to exit the program with a specific **exit code** of `1`.
+
+- If `sys.argv` is equal to `2`, we print the second argument `argv[1]` and exit the program with **exit code** `0`.
