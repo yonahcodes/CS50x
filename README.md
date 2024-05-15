@@ -118,4 +118,6 @@ In this repository I will be documenting my progress in Harvard University's int
 
 ## [6 - Python](https://cs50.harvard.edu/x/2024/weeks/6/)
 
-- Lecture 6 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/6/) - 
+- Lecture 6 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/6/) - [Notes](week6_python/lecture6.md)
+
+- Section 6 - 
