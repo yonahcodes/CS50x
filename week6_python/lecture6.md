@@ -1319,7 +1319,7 @@ else:
 
 <br><br>
 
-The code above works, but in **Python** we can execute linear search with a better and simpler design:
+The code above is functional, but in **Python** we can execute linear search with a better and simpler design:
 ```py
 # Implements linear search for names using `in`
 
