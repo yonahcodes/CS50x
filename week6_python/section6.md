@@ -137,4 +137,144 @@ text.capitalize()
 
 <br><br>
 
-Section 00:13:00
+### `str`
+
+Unlike in **C**, **Python** strings are **objects** that not only represent the **value** they hold (sequence of characters), but also have associated behaviors through functions or **methods**. The **Python** documentation lists all the built-in **string methods**.
+
+<br>
+
+## Loops
+
+```py
+text = "In the great green room"
+
+for c in text:
+    print(c)
+```
+- This loop iterates through every **character** of the string `In the great green room` and **prints** it one character per line.
+
+<br><br>
+
+```py
+text = "In the great green room"
+
+words = text.split()
+```
+```txt
+['In', 'the', 'great', 'green', 'room']
+```
+- The method `split()` will split the **string** into elements separated by the **whitespace**. 
+
+<br><br>
+
+```py
+text = "In the great green room"
+
+words = text.split()
+for word in words:
+    print(word)
+```
+```txt
+In 
+the
+great
+green
+room
+```
+- The method `split()` is used to split the **string** into elements separated by **whitespace**. 
+
+- The loop will iterate through the resulting list of `words` printing each of them `word` in a new line.
+
+<br><br>
+
+> Notice that we did not have to define the new elements `word` or the list `words`. **Python**'s `for/in` syntax helps you iterate through components of an **iterable** (string, list, etc.) while referring to them by a convenient **name**.
+
+<br><br>
+
+Let's combine different **loops** and **strings** syntax and see what the output would be:
+```py
+text = "In the great green room"
+
+for word in text.split():
+    print(word)
+```
+```txt
+In
+the
+great
+green
+room
+```
+- Notice that in **Python** the default behavior of a **print statement** is to automatically append a **new line**.
+
+- We can override this with the `end=" "` **named parameter** `print(word, end=" ")`.
+
+<br><br>
+
+```py
+text = "In the great green room"
+
+for word in text.split():
+    for c in word:
+        print(c)
+```
+```txt
+I
+n
+t
+h
+r
+g
+r
+e
+...
+```
+- Notice that there are no more **spaces**, `text.split()` removed the spaces
+
+- First **loop** iterates through the `words`, while the **indented loop** iterates through each **character** `c` and prints it.
+
+<br><br>
+
+```py
+text = "In the great green room"
+
+for word in text.split():
+    if "g" in word:
+        print(word)
+```
+```txt
+great
+green
+```
+- The **loop** iterates through every element `word` the **list**, and prints it if in contains **character** `g` (implements **linear search**).
+
+<br><br>
+
+```py
+text = "In the great green room"
+
+for word in text.split()[2:]:
+    print(word)
+```
+```txt
+great
+green
+room
+```
+- This code uses **bracket notation** `[]` to **index** into a specific element of the **list**. Remember how we used `word[0]` to access the `1st` element, `word[1]` to access the `2nd` element, etc.
+
+- This new syntax `[2:]` means to **index** into the second element of the list `2` and the **colon** `:` means to **include** the **following elements** of the list after that point.
+
+- The **loop** basically **starts** iterating through the **list** at element`[2]`.
+
+<br>
+
+>[!NOTE] 
+> This special syntax allows us to decide which elements of the list we want to **include**. `list[inclusive : exclusive]`. Let's imagine this scenario `list[1:4]`.<br>
+This means to **start** including elements at index `1` and **exclude** element `4` and beyond, resulting in a list of elements `1, 2 and 3`.
+
+<br><br>
+
+## Dictionaries
+
+Section 00:36:00
