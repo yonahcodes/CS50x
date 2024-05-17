@@ -277,4 +277,145 @@ This means to **start** including elements at index `1` and **exclude** element 
 
 ## Dictionaries
 
-Section 00:36:00
+**Dictionaries** are unordered, mutable data structures that allow you to store **key-value** pairs, where each key is unique and used to access its corresponding value.
+
+<br>
+
+Let's see an example of a **dictionary** called `authors` where the **key** is the *title* of a book, and the **value** the *author*:
+
+|Key|Value|
+|:-:|:-:|
+|Goodnight Moon|Margaret Wise Brown|
+|Corduroy|Don Freeman|
+|Curious George|H.A. Ray|
+
+<br>
+
+We could also create one dictionary per `book`, holding information in several **key-value** combinations:
+
+|Key|Value|
+|:-:|:-:|
+|Title|Goodnight Moon|
+|Author|Margaret Wise Brown|
+
+<br><br>
+
+```py
+# In Python 
+
+book = dict()
+
+book["title"] = "Corduroy"
+book["author"] = "Don Freeman"
+```
+- Declares a **dictionary** called `book`.
+
+- `book["title"]` Declares the **key**.
+
+- `= "Corduroy"` Assigns the **value** to the key.
+
+<br><br>
+
+```py
+book = dict()
+
+book["title"] = "Corduroy"
+book["author"] = "Don Freeman"
+
+print(book["title"])
+```
+```txt
+Corduroy
+```
+- `book["title"]` Placing the **key** inside the print statement will print the associated **value** of the book.
+
+<br><br>
+
+```py
+book = dict()
+
+book["title"] = "Corduroy"
+book["author"] = "Don Freeman"
+
+print(book["Corduroy"])
+```
+```txt
+KeyError: 'Corduroy'
+```
+- Notice in the print statement, we put the **value** `Corduroy` inside the brackets `[]` instead of the **key** `title`. Attempting to print a **value** this way will result in an error `KeyError`.
+
+<br><br>
+
+Let's explore other syntax for creating **dictionaries**:
+```py
+# Alternative syntax
+
+book = {
+    "title": "Goodnight Moon",
+    "author": "Margaret Wise Brown"
+}
+```
+- This syntax allows us to create the **dictionary** and enter all the **data** upfront.
+
+<br><br>
+
+### List of Dictionaries
+
+We could also create a **list** of **dictionaries**:
+```py
+books = [{"title": "Goodnight Moon",...},
+{"title": "Corduroy",...},
+{"title": "Curious George",...}]
+```
+- Inside the brackets `[]` is a **list** of **dictionaries**.
+
+- Individual **dictionaries** are inside the curly braces `{}` and separated by comas `,`. Different dictionaries can have the same **key**.
+
+<br><br>
+
+```py
+# Create an empty list of books
+books = []
+
+# Add three books to shelf
+for i in range(3):
+    book = dict()
+    book["author"] = input("Enter an author: ")
+    book["title"] = input("Enter a title: ")
+    books.append(book)
+
+# Print list of books
+for book in books:
+    print(book)
+```
+```txt
+{'author': 'Margaret Wise Brown', 'title': 'Goodnight Moon'}
+{'author': 'Don Freeman', 'title': 'Corduroy'}
+{'author': 'H.A. Ray', 'title': 'Curious George'}
+```
+- The **loop** creates `3` dictionaries called `book` by prompting the user for the **key** `author` and the **value** `title` and **appends** the book to the **list** called `books`.
+
+- Notice the syntax `books.append(book)`. The method `append()` will add elements to the end of the list. `list.append(element)`.
+
+- the second **loop** will print each dictionary `book` in a different line with its **keys** and **values** between `{}`.
+
+<br><br>
+
+Alternative **print statement**:
+```py
+# Print list of books
+for book in books:
+    print(f"{book['author']} wrote {book['title']}.")
+```
+```txt
+Margaret Wise Brown wrote Goodnight Moon
+Don Freeman wrote Corduroy
+H.A. Ray wrote Curious George
+```
+- Notice the `f` **f-string** syntax in the print statement, allowing us to **embed** the **keys** inside **string literals** `{book['author']}` to access the **values**.
+
+<br><br>
+
+## Libraries and Modules
+
+Section 00:55:00
