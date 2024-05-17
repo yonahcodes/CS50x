@@ -361,6 +361,8 @@ book = {
 
 ### List of Dictionaries
 
+<br>
+
 We could also create a **list** of **dictionaries**:
 ```py
 books = [{"title": "Goodnight Moon",...},
@@ -370,6 +372,14 @@ books = [{"title": "Goodnight Moon",...},
 - Inside the brackets `[]` is a **list** of **dictionaries**.
 
 - Individual **dictionaries** are inside the curly braces `{}` and separated by comas `,`. Different dictionaries can have the same **key**.
+
+<br><br>
+
+|Title (key)|Author (Value)|
+|:-:|:-:|
+|Goodnight Moon|Margaret Wise Brown|
+|Corduroy|Don Freeman|
+|Curious George|H.A. Ray|
 
 <br><br>
 
@@ -418,4 +428,95 @@ H.A. Ray wrote Curious George
 
 ## Libraries and Modules
 
-Section 00:55:00
+In the previous example we saw how to prompt the user to enter **data** **manually**, but this method can be strenuous when using a **large data set**. To make this processes more efficient we can also **read data** from a **spreadsheet**.
+
+<br><br>
+
+1. **Spreadsheet**: 
+
+    <br>
+
+    |Title (key)|Author (Value)|
+    |:-:|:-:|
+    |Goodnight Moon|Margaret Wise Brown|
+    |Corduroy|Don Freeman|
+    |Curious George|H.A. Ray|
+    |Winnie-the-pooh|A.A. Milne|
+    |Fantastic Mr. Fox|Roald Dahl|
+    |Charlotte's Web|E.B. White|
+    |...|...|
+
+<br><br>
+
+2. **Export** the data from the **spreadsheet** into a **CSV** (Comma-Separated Values) file, a common file format used for it's simplicity and portability.
+
+    <br>
+
+    **books.csv**:
+    ```txt
+    title,author
+    Goodnight Moon,Margaret Wise Brown
+    Corduroy,Don Freeman
+    Curious George,H.A. Ray
+    Winnie-the-pooh,A.A. Milne
+    Fantastic Mr. Fox,Roald Dahl
+    Charlotte's Web,E.B. White
+    ...,...
+    ```
+<br><br>
+
+3. **Read/Write** from the **CSV** file. **Python** has a built-in **CSV module** that provides **methods** for reading and writing.
+
+    <br>
+
+    ```py
+    import csv
+    ```
+    - Placing this line at the top of our **Python** file will import the **entire** `CSV` **module**, including all of its **methods** (**DictReader()**, **DictWriter()**, **reader()**, **writer()**, etc.).
+
+    <br>
+
+    ```py
+    csv.DictReader(...)
+    csv.reader(...)
+    ```
+    - To access a specific **method** in the `CSV` **module** we have to use the **dot notation** `module prefix.method()`
+
+    <br><br>
+
+    We can also choose to **only** import a **specific method** in the `CSV` **module**:
+    ```py
+    from csv import DictReader
+    ```
+    - Placing this line at the top of our **Python** file will only import the `DictReader()` **method** from the `CSV` **module**.
+
+    <br>
+
+    ```py
+    from csv import DictReader
+
+    DictReader(...)
+    ```
+    - Notice that we did not have to include the **module prefix** `csv.` when calling `DictReader()`. This is because we imported the method **directly**.
+
+    <br><br>
+
+## File I/O
+
+**Python** provides powerful and efficient **functions** for **file handling**. These functions allow us to **open**, **read**, **write** and **close** a file.
+
+1. **Opening** a file:
+
+    ```py
+    with open(FILENAME) as file:
+    ```
+<br>
+
+2. **Reading** from a file:
+
+    ```py
+    with open(FILENAME) as file:
+        text = file.read()
+    ```
+
+Section 01:00:00
