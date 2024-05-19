@@ -120,4 +120,4 @@ In this repository I will be documenting my progress in Harvard University's int
 
 - Lecture 6 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/6/) - [Notes](week6_python/lecture6.md)
 
-- Section 6 - 
+- Section 6 - [Notes](week6_python/section6.md)
