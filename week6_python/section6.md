@@ -158,7 +158,7 @@ text = "In the great green room"
 
 words = text.split()
 ```
-```txt
+```
 ['In', 'the', 'great', 'green', 'room']
 ```
 - The method `split()` will split the **string** into elements separated by the **whitespace**. 
@@ -344,7 +344,7 @@ KeyError: 'Corduroy'
 
 <br><br>
 
-Let's explore other syntax for creating **dictionaries**:
+Let's explore different **syntax** for creating **dictionaries**:
 ```py
 # Alternative syntax
 
@@ -428,7 +428,7 @@ H.A. Ray wrote Curious George
 
 In the previous example we saw how to prompt the user to enter **data** **manually**, but this method can be strenuous when using a **large data set**. To make this processes more efficient we can also **read data** from a **spreadsheet**.
 
-<br><br>
+<br>
 
 1. **Spreadsheet**: 
 
@@ -482,7 +482,7 @@ In the previous example we saw how to prompt the user to enter **data** **manual
 
     <br><br>
 
-    We can also choose to **only** import a **specific method** in the `CSV` **module**:
+    We could also choose to **only** import a **specific method** in the `CSV` **module**:
     ```py
     from csv import DictReader
     ```
