@@ -54,9 +54,7 @@ text[i]
 
 <br><br>
 
-### Dot Notation
-
-### `strip()`
+### Dot Notation - `strip()`
 
 Imagine prompting the user for a **string**:
 ```py
@@ -67,7 +65,7 @@ text = input("...")
 ```
 - Notice that the user's string is **not clean**, it has **extra spaces**, that could cause problems when working with the data.
 
-<br>
+<br><br>
 
 ```py
 text = input("...")
@@ -92,7 +90,7 @@ text = input("...")
 ```
 - Notice that the user's string is **not clean**, it is not **capitalized** properly.
 
-<br>
+<br><br>
 
 ```py
 text = input("...")
@@ -117,7 +115,7 @@ text = input("...")
 ```
 - Notice that the user's string is **not clean**, it is not **capitalized** properly.
 
-<br>
+<br><br>
 
 ```py
 text = input("...")
@@ -130,7 +128,7 @@ text.capitalize()
 
 - Notice the **dot notation** syntax `text.capitalize()`.
 
-<br>
+<br><br>
 
 > [!CAUTION]
 > When using `text.capitalize()`, to apply the **Capitalization** to the string, it is necessary to **reassign** the result back to the variable like so `text = text.capitalize()`.
@@ -141,7 +139,7 @@ text.capitalize()
 
 Unlike in **C**, **Python** strings are **objects** that not only represent the **value** they hold (sequence of characters), but also have associated behaviors through functions or **methods**. The **Python** documentation lists all the built-in **string methods**.
 
-<br>
+<br><br>
 
 ## Loops
 
@@ -503,20 +501,127 @@ In the previous example we saw how to prompt the user to enter **data** **manual
 
 ## File I/O
 
-**Python** provides powerful and efficient **functions** for **file handling**. These functions allow us to **open**, **read**, **write** and **close** a file.
+**Python** provides powerful and efficient **functions** for **file handling**. These functions allow us to **open**, **read** from, **write** to and **close** files.
+
+<br>
 
 1. **Opening** a file:
 
     ```py
     with open(FILENAME) as file:
     ```
-<br>
+    - `with` starts the **context manager** that will manage the file resource.
+
+    - `open()` opens the file `FILENAME` in **read** mode by default.
+
+    - `as file` Assigns the **opened file object** to the **variable** `file` (to be used to perform operation on the file).
+
+<br><br>
 
 2. **Reading** from a file:
 
     ```py
+    # Reading from a text file
+
     with open(FILENAME) as file:
         text = file.read()
     ```
+    - The code **inside** the `with` **block** will be executed with the **file open** and assigned to the `file` variable. (`with` will also automatically **close** the file as soon as we are no longer **indented** in the block).
 
-Section 01:00:00
+    - `text = file.read()` **Reads** the **entire data** in the file into the variable `text`.
+
+    - This works really well for plain text **.txt** files.
+
+    <br><br>
+
+    For **CSV** files, it is better suited to use Python's `CSV` **module**:
+    ```py
+    # Reading from a csv file
+
+    with open(FILENAME) as file:
+        file_reader = csv.DictReader(file)
+        for row in file_reader:
+            ...
+    ```
+    - `file_reader = csv.DictReader(file)` Creates a `DictReader` object named `file_reader`, that reads each **row** of the **CSV** file as a **dictionary**.
+
+    - The **keys** of the dictionary are derived from the **first row** (**header**) of the `csv` file.
+
+    - `for row in file_reader` This line starts a **loop** that will iterate over each **row** (dictionary) in the `file_reader`.
+
+<br><br>
+
+### `reads.py`
+
+```py
+import csv
+
+with open("books.csv") as file:
+    text = file.read(file)
+    print(text)
+```
+```txt
+title,author
+Goodnight Moon,Margaret Wise Brown
+Corduroy,Don Freeman
+Curious George,H.A. Ray
+Winnie-the-Pooh,A.A. Milne
+Fantastic Mr. Fox,Roald Dahl
+Charlotte's Web,E.B. White
+...
+```
+- Notice that **reading** from a **CSV** file with `read()` will read **all** the content of the file **row by row**.
+
+<br><br>
+
+Now, let's use **CSV** module specific **methods**:
+```py
+import csv
+
+with open("books.csv") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        print(row)
+```
+```txt
+{'title': 'Goodnight Moon', 'author': 'Margaret Wise Brown'}
+{'title': 'Corduroy','author': 'Don Freeman'}
+{'title': 'Curious George', 'author': 'H.A. Ray'}
+{'title': 'Winnie-the-Pooh', 'author': 'A.A. Milne'}
+{'title': 'Fantastic Mr. Fox', 'author': 'Roald Dahl'}
+{'title': 'Charlotte's Web', 'author': 'E.B. White'}
+```
+- Notice now that **reading** from the same **CSV** file using `csv.DictReader` will create **dictionaries** for each **row** using the first row `title, author` to make the **keys**.
+
+<br><br>
+
+Let's complete the program above:
+```py
+import csv
+
+books = []
+
+# Add books to the shelf by reading from books.csv
+with open("books.csv") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        books.append(row)
+
+# Print books
+for book in books:
+    print(book)
+```
+1. Import the `csv` module.
+
+2. Create an empty **list** named `books`.
+
+3. **Open** `books.csv` content and store it in `file`.
+
+4. **Read** from `file` using `DictReader()`, which will create a **iterable object** of **dictionaries**, one for each **row** of `file`. Store this **iterable** in **object** `reader`.
+
+5.  **Loop** through each **row** of `reader` (each **dictionary**) and use `append()` to **add** it to the **list** named `books`.
+
+6. **Print** each element (`book`) of the `books` list.
+
+<br><br>
+
