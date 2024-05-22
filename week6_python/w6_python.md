@@ -406,4 +406,82 @@ A whole cheese pizza costs $9
 
 ## Printing and Variable Interpolation
 
-00:24:00
+```py
+print("A whole {} pizza costs ${}".format(pie, price))
+```
+
+- `format()` allows us to **interpolate** variables into our print statements in a way that is similar to **C**'s **printf**. 
+
+<br><br>
+
+We can also achieve the same result using other syntax:
+```py
+print("A whole " + pie + " pizza costs $" + str(price))
+```
+- Here we used the `+` sign to **concatenate** the **strings** with the **variables**. Notice that we had to convert the format of the `price` variable, which had **integer** values to **string** using the `string()` function.
+
+<br><br>
+
+```py
+print("A whole %s pizza costs $%2d" % (pie, price))
+```
+- Although this syntax is very similar to **C**, it is better to **avoid**. It is now deprecated in **Python 3**.
+
+<br><br>
+
+## Functions
+
+**Python functions** are introduced using the `def` keyword, and like variables, they do not require specifying the **return type** or the **data types** of the **parameters**. Additionally, it is not required to define a `main()` function, as the **interpreter** reads the code from top to bottom. 
+
+In **Python**, it is still possible to **define** a `main()` function if the structure of our program requires it, but if `main()` is not the **first function** in the program, we must tell the **interpreter** to **prioritize** it by including this line at the end of our code:
+```py
+if __name__ == "__main__":
+    main()
+```
+
+<br><br>
+
+### Defining Functions
+
+```py
+def square(x):
+    return x * x
+```
+- `def` Defines the `square()` function, which takes one **parameter** `x` and **returns** the result of the operation in the **indented block**.
+
+<br><br>
+
+```py
+def square(x):
+    return x ** 2
+```
+- This code achieves the same result as before using the **built-in** **exponentiation operator** `**` to raise `x` to the `2`nd power.
+
+<br><br>
+
+```py
+def square(x):
+    result = 0
+    for i in range (0, x):
+        result += x
+    return result
+
+print(square(5))
+```
+- We could also use a **for loop** to achieve this.
+
+- The variable `result` is **initialized** at `0`. It will be used to **accumulate the result** of the operation.
+
+- `range(0, x)`The loop will **iterate** through `0` to `x-1`.
+
+- `result += x` During each iteration `x` is **added** to the result.
+
+- `return result` After the loop completes, the function returns the updated `result`.
+
+- The print statement **calls** the `square()` function with parameter `5` (which replaces `x`).
+
+<br><br>
+
+## Objects
+
+Short 00:27:00
