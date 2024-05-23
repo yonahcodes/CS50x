@@ -4,6 +4,8 @@
 
 **Python** is also heavily inspired by **C** (its primary interpreter, **Cpython**, is actually written in **C**) and so the syntax should be a shallow learning curve.
 
+<br>
+
 ## Variables
 **Python** variables have two big differences from **C**:
 - No **type** specifier
@@ -200,21 +202,21 @@ nums = []
 ```
 - Creates an empty **list**.
 
-<br>
+<br><br>
 
 ```py
 nums = [1, 2, 3, 4]
 ```
 - Creates a **list** of **integers** with `4` elements.
 
-<br>
+<br><br>
 
 ```py
 nums = [x for x in range(500)]
 ```
 - Notice the **for loop** inside the list declaration, this is known as a **list comprehension**. It creates a list of **integers** from 0 to 499.
 
-<br>
+<br><br>
 
 ```py
 nums = list()
@@ -230,7 +232,7 @@ nums.append(5)
 ```
 - The `append()` function, adds element `5` to the **end** of the **list**
 
-<br>
+<br><br>
 
 ```py
 nums = [1, 2, 3, 4]
@@ -238,7 +240,7 @@ nums.insert(4, 5)
 ```
 - The `insert()` function, adds element `5` to the `4th` **index** of the **list**. Remember the **first** element of the list `1` is in **index** `0`. 
 
-<br>
+<br><br>
 
 ```py
 nums = [1, 2, 3, 4]
@@ -309,7 +311,7 @@ pizzas = {
 
 - `"key" : value` The **key** is between **quotes** `""`, followed by a **colon** `:` separator, followed by the **value**.
 
-<br>
+<br><br>
 
 ### Changing the value associated to a key
 
@@ -434,6 +436,7 @@ print("A whole %s pizza costs $%2d" % (pie, price))
 **Python functions** are introduced using the `def` keyword, and like variables, they do not require specifying the **return type** or the **data types** of the **parameters**. Additionally, it is not required to define a `main()` function, as the **interpreter** reads the code from top to bottom. 
 
 In **Python**, it is still possible to **define** a `main()` function if the structure of our program requires it, but if `main()` is not the **first function** in the program, we must tell the **interpreter** to **prioritize** it by including this line at the end of our code:
+
 ```py
 if __name__ == "__main__":
     main()
@@ -512,11 +515,13 @@ struct car herbie;
 year = 1963;
 model = "Beetle";
 ```
-- This would **not** be valid in **C**, properties **cannot exist** without the struct.
+- This would **NOT** be valid in **C**, properties **cannot exist** without the struct.
 
 <br><br>
 
 **Objects** not only have **properties**, but also **methods** or **functions** that are inherent to the object and have no meaning outside of it. These **methods** are defined within the object as well.
+
+<br>
 
 Instead of passing an object into a **function** `function(object)`, we call **methods** on objects:
 ```c
@@ -528,7 +533,7 @@ Similar to **C structs**, we can define a new type of **object** using the `clas
 
 In addition to defining properties, we also define **methods** that operate on the object. Every **method** must include at least **one parameter**, typically `self`, which refers to the instance of the object on which the method is called.
 
-<br><br>
+<br>
 
 ```py
 class Student():
@@ -591,7 +596,7 @@ Just like in **C**, **Python** programs can consist of multiple files to form a 
 
 import CS50
 ```
-<br>
+<br><br>
 
 To call a function from the `CS50` **module** the **dot syntax** syntax is used.
 ```py
@@ -601,7 +606,7 @@ cs50.get_float()
 
 cs50.get_string()
 ```
-<br>
+<br><br>
 
 We can also import a specific **method** instead of the whole **module**.
 ```py
@@ -610,6 +615,3 @@ from cs50 import get_int
 <br>
 
 **Python** programs can be prewritten in `.py` files. If the program is not too complex, it can also be written directly in the **Python interpreter** at the **command lime**. To run a **Python** file through the interpreter, we enter in the command line `python <file>`.
-
-
-
