@@ -484,4 +484,132 @@ print(square(5))
 
 ## Objects
 
-Short 00:27:00
+**Python** is an **object-oriented** programming language. An **object** is analogous to a **C** **structure**. **C** **structures** contain a number of **fields** or **properties**, but the properties cannot exist independently.
+
+<br>
+
+```c
+// Struct definition in C
+
+struct car
+{
+    int year;
+    char *model;
+}
+
+// Creating an instance and setting properties 
+
+struct car herbie;
+herbie.year = 1963;
+herbie.model = "Beetle";
+```
+- Notice we included the **struct** `herbie` when defining its properties.
+
+<br>
+
+```c
+struct car herbie;
+year = 1963;
+model = "Beetle";
+```
+- This would **not** be valid in **C**, properties **cannot exist** without the struct.
+
+<br><br>
+
+**Objects** not only have **properties**, but also **methods** or **functions** that are inherent to the object and have no meaning outside of it. These **methods** are defined within the object as well.
+
+Instead of passing an object into a **function** `function(object)`, we call **methods** on objects:
+```c
+object.method()
+```
+<br><br>
+
+Similar to **C structs**, we can define a new type of **object** using the `class` keyword in **Python**. **Classes** require an **initialization function**, also more-generally known as a **constructor**, which sets the **initial values** of the object's **properties**. 
+
+In addition to defining properties, we also define **methods** that operate on the object. Every **method** must include at least **one parameter**, typically `self`, which refers to the instance of the object on which the method is called.
+
+<br><br>
+
+```py
+class Student():
+
+    def __init__(self, name, id):
+        self.name = name
+        self.id = id
+    
+    def changeID(self, id):
+        self.id = id
+    
+    def print(self):
+        print("{} - {}".format(self.name, self.id))
+```
+1. A new **class** names `Student` is defined (a class is a blueprint for creating **objects**).
+
+2. The **constructor** method `__init__` is defined and **3** parameters are passed to it; `self` which refers to the instance being created, `name` and `id`.
+
+3. **Values** of the **parameters** are assigned to the attributes of the object: `self.name = name` & `self.id = id`.
+
+4. A **method** called `changeID` is defined. It allows the `id` **attribute** to be updated.
+
+5. Another **method** called `print()` is defined. It prints out the `name` and `id ` attributes of the object in a **formatted** string.
+
+<br><br>
+
+```py
+# Create a new Student object
+jane = Student("Jane", 10)
+
+# Print the details of jane
+jane.print()
+
+# Change the ID of jane
+jane.changeID(11)
+
+# Print the updated details of jane
+jane.print()
+```
+
+<br><br>
+
+> [!NOTE] 
+> Good style is **crucial** in **Python**. Proper use of tabs and **indentation** is part of the syntax in this language, and neglecting style can lead to errors.
+
+<br><br>
+
+## Including Files
+
+Just like in **C**, **Python** programs can consist of multiple files to form a single program.
+```c
+// Linking to a header file or library in C 
+
+#include <cs50.h>
+```
+<br>
+
+```py
+# Linking to a module in Python
+
+import CS50
+```
+<br>
+
+To call a function from the `CS50` **module** the **dot syntax** syntax is used.
+```py
+cs50.get_int()
+
+cs50.get_float()
+
+cs50.get_string()
+```
+<br>
+
+We can also import a specific **method** instead of the whole **module**.
+```py
+from cs50 import get_int
+```
+<br>
+
+**Python** programs can be prewritten in `.py` files. If the program is not too complex, it can also be written directly in the **Python interpreter** at the **command lime**. To run a **Python** file through the interpreter, we enter in the command line `python <file>`.
+
+
+
