@@ -121,3 +121,11 @@ In this repository I will be documenting my progress in Harvard University's int
 - Lecture 6 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/6/) - [Notes](week6_python/lecture6.md)
 
 - Section 6 - [Notes](week6_python/section6.md)
+
+- Shorts
+  - [Python](week6_python/w6_python.md)
+
+- Problem Set 6
+  - [Hello](week6_python/hello.py)
+  - [Mario](week6_python/mario.py)
+  - [Cash](week6_python/cash.py)
