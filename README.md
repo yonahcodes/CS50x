@@ -129,3 +129,4 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Hello](week6_python/hello.py)
   - [Mario](week6_python/mario.py)
   - [Cash](week6_python/cash.py)
+  - [Readability](week6_python/readability.py)
