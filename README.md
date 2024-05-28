@@ -130,3 +130,7 @@ In this repository I will be documenting my progress in Harvard University's int
   - [Mario](week6_python/mario.py)
   - [Cash](week6_python/cash.py)
   - [Readability](week6_python/readability.py)
+  - [DNA](week6_python/dna.py)
+  <br><br>
+
+## [6.5 - Artificial Intelligence](https://cs50.harvard.edu/x/2024/weeks/ai/)
