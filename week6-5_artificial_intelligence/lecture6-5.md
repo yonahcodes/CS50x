@@ -2,9 +2,13 @@
 
 **AI** is a branch of computer science focused on creating systems capable of performing tasks that typically require human intelligence. These tasks include learning, reasoning, problem-solving, and understanding natural language. AI technologies power applications like virtual assistant, autonomous vehicles and personalized recommendations.
 
+<br><br>
+
 ## Prompt Generation
 
 **Prompt generation** is a way by which an individual can communicate with an **AI** platform. We use a **system prompt** to teach the **AI** how to interact with users. **User prompts** are those provided by the user interacting with the **AI**.
+
+<br>
 
 ### System Prompt
 ```txt
@@ -14,6 +18,8 @@ about CS50 and the field of computer science; do not answer
 questions about unrelated topics… Do not provide full answers
 to problem sets, as this would violate academic honesty…
 ```
+<br>
+
 ### User Prompt
 ```txt
 User's questions
@@ -24,7 +30,7 @@ In **CS50.dev**, CS50's cloud version of **Visual Studio Code** we can use AI to
 - **Highlight** the code and click **Explain Highlighted Code** to have line by line explanation.
 - Use **Style50** to get recommendations on the **writing style** of the code and explain the changes.
 
-<br>
+<br><br>
 
 ## Decision Trees
 
@@ -53,10 +59,11 @@ Else if ball is right of paddle:
 Else:
     Don't move the paddle
 ```
+<br>
 
 > Most games attempt to minimize the number of calculations required to compete with the player.
 
-<br>
+<br><br>
 
 ## Minimax
 
@@ -119,7 +126,7 @@ Due to their processing power, computers can analyze a vast number of **potentia
 
 - **Go** - First `4` moves -> 266 quintillion Possibilities
 
-<br>
+<br><br>
 
 ## Machine Learning
 
@@ -180,6 +187,8 @@ Else:
 
 **Neural networks** are **computational models** inspired by the human brain's structure and function. They consist of **interconnected nodes** organized into **layers** that process information. Through training on data, neural networks can **learn complex patterns** and **make predictions** or **decisions**.
 
+<br>
+
 ![Deep Learning](../img/cs50AiLectureSlide208.png)
 
 In this example, the **neural network** attempts to **predict** where a **blue** or **red dot** will appear on the graph based on its `x` and `y` coordinates. It might start by assuming that all **blue** dots will appear **left** of the line and all **red** dots will appear to its right, but the **more data** it is introduced to, the **more accurate** the **prediction**.
@@ -198,19 +207,19 @@ We can represent this process mathematically:
 ```txt
 ax + by + c > 0
 ```
-If the combined value `ax` + `by` is **greater than** `0`, the output is **blue**; otherwise, it's **red**.
+- If the combined value `ax` + `by` is **greater than** `0`, the output is **blue**; otherwise, it's **red**.
 
 <br>
 
 > This can be applied to real world scenarios, where `x` could represent **humidity**, `y` could represent **pressure**, and `c` **rainfall**.
 
-<br>
+<br><br>
 
 As the problems to be sold become more complex, **neural networks** build multiple layers of **nodes** to capture the patterns in the **data**. Each layer learns to represent features at different levels of abstraction, enabling the network to understand increasingly **complex relationships**.
 
 ![Neural Network](../img/cs50AiLectureSlide210.png)
 
-<br>
+<br><br>
 
 ## Generative Artificial Intelligence
 
@@ -233,7 +242,8 @@ Using the attention values, the model **generates** the next new word in the out
 <br>
 
 ```txt
-"Massachusetts is a state in the New England region of the Northeastern United States. It borders on the Atlantic Ocean to the east. the state's capital is..."
+"Massachusetts is a state in the New England region of the Northeastern United States. 
+It borders on the Atlantic Ocean to the east. the state's capital is..."
 ```
 1. The **language model** separates the user input into **words** and takes in account the **order** of those words.
 
