@@ -135,7 +135,7 @@ In this repository I will be documenting my progress in Harvard University's int
 
 ## [6.5 - Artificial Intelligence](https://cs50.harvard.edu/x/2024/weeks/ai/)
 
-- Lecture 6.5 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/ai/) - [Notes](week6-5_artificial_intelligence/lecture6-5.md)
+- Lecture 6.5 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/ai/) - [Notes](week6.5_artificial_intelligence/lecture6.5.md)
 <br><br>
 
 ## [7 - SQL](https://cs50.harvard.edu/x/2024/weeks/7/)
