@@ -152,3 +152,89 @@ Similar to `301`, a code of `404` means that a specified `URL` has **not been fo
 
 ## HTML
 
+`HTML` or `Hypertext Markup Language` is the standard **markup language** for documents designed to be displayed in a **web browser**. It defines the **content** and **structure** of web content. `HTML` is made up of **tags**, each of which may have some **attributes** that describe it.
+
+<br>
+
+
+In the terminal, type `code hello.html` and write code as follows:
+```html
+<!DOCTYPE html>
+
+<!-- Demonstrates HTML -->
+
+<html lang="en">
+    <head>
+        <title>hello, title</title>
+    </head>
+    <body>
+        hello, body
+    </body>
+</html>
+```
+- The `<html>` **tag** both **opens** and **closes** this file. - 
+
+- The `lang` **attribute** modifies the behavior of the html tag.
+
+- Notice that there are both `<head>` tags and `<body>` tags. Indentation is **not required** but does suggest a hierarchy.
+
+<br>
+
+You can serve your code by typing `http-server`. This serve is now available on a very long `URL`. If you click it, you can **visit the website** with your own code.
+
+When you visit this `URL`, notice that the file name `hello.html` appears at the end of this URL. Further, notice, based upon the `URL`, that the **server** is serving via `port 8080`.
+
+<br>
+
+The hierarchy of tags can be represented as follows:
+```
+document
+    |
+    v
+    html
+    |    \
+    v     v
+    head  body
+    |        |
+    v        v   
+    title    hello,body
+    |
+    v
+    hello, title
+```
+- The browser will **read** the HTML file `top` to `bottom` and `left` to `right`.
+
+<br>
+
+Because **whitespace** and **indentation** is effectively ignored in HTML, you will need to use `<p>` **paragraph tags** to `open` and `close` a paragraph. Consider the following:
+```html
+<!DOCTYPE html>
+
+<!-- Demonstrates paragraphs -->
+
+<html lang="en">
+    <head>
+        <title>paragraphs</title>
+    </head>
+    <body>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus convallis scelerisque quam, vel hendrerit lectus viverra eu.
+        </p>
+        <p>
+            Mauris ut dui in eros semper hendrerit. Morbi vel elit mi. Sed sit amet ex non quam dignissim dignissim et vel arcu. Pellentesque eget elementum orci.
+        </p>
+        <p>
+            Aenean venenatis convallis ante a rhoncus. Nullam in metus vel diam vehicula tincidunt.
+        </p>
+        <p>
+            Integer at justo lacinia libero blandit aliquam ut ut dui. Quisque tincidunt facilisis venenatis. Nullam dictum odio quis lorem luctus, vel malesuada dolor luctus.
+        </p>
+        <p>
+            Suspendisse rutrum vestibulum odio, sed venenatis purus condimentum sed. Morbi ornare tincidunt augue eu auctor. Vivamus sagittis ac lectus at aliquet.
+        </p>
+    </body>
+</html>
+```
+- Notice that paragraphs start with a `<p>` tag and end with a `</p>` tag.
+
+<br>
