@@ -8,7 +8,7 @@ The **internet** is the global system of interconnected computer networks that u
 
 ## Routers
 
-To route data from point A to point B, we need to make **routing decisions** and program how data is transferred. Data could take multiple paths from point A and point B, such that when a router is congested, data can flow through another path. 
+To **route** data from point `A` to point `B`, we need to make **routing decisions** and program how data is transferred. `Data` could take multiple **paths** from point A and point B, such that when a router is **congested**, data can flow through another path. 
 
 `Packets` of data are transferred from one router to another, from one computer to another. Packets are structured as follows:
 ```
@@ -30,11 +30,11 @@ To route data from point A to point B, we need to make **routing decisions** and
 
                 Example Internet Datagram Header
 ```
-- Packets are **standardized**. The source and destination are held within each packet.
+- `Packets` are **standardized**. The source and destination are held within each packet.
 
 <br>
 
-`TCP/IP` is a pair of **protocols** that allow computers to transfer data between them over the internet.
+`TCP/IP` is a pair of **protocols** that allow computers to **transfer** data between points over the internet.
 
 <br>
 
@@ -44,7 +44,7 @@ When information is sent from one location to another, a `source IP address`, a 
 
 These protocols are also used to **fragment** large files into multiple parts or `packets`. For example, a large photo of a cat can be sent in multiple packets. When a packet is **lost**, `TCP/IP` can **request missing packets** again from the **origin server**.
 
-`TCP` will **acknowledge** when all the data has been **transmitted** and **received**.
+`TCP` will also **acknowledge** when all the data has been **transmitted** and **received**.
 
 <br>
 
@@ -54,23 +54,23 @@ These protocols are also used to **fragment** large files into multiple parts or
 ```
 - Numbers range from `0` to `255`.
 
-- **IP addresses** are `4 bytes` or `32-bits`, meaning that these addresses could accommodate over 4 billion addresses. 
+- `IP addresses` are `4 bytes` or `32-bits`, meaning that these addresses could accommodate over 4 billion addresses. 
 
-- Newer versions of **IP addresses**, implementing `128-bits`, can accommodate far more computers!
+- Newer versions of **IP addresses**, implementing `128-bits`, can accommodate far more devices.
 
 <br>
 
 ## DNS
 
-`DNS` or `Domain Name System` is a hierarchical and distributed **name service** that provides a naming system for computers, services, and other resources on the Internet or other Internet Protocol (IP) networks. 
+`DNS` or `Domain Name System` is a collection of **servers** that provide a **naming system** for computers, services, and other resources on the Internet or other Internet Protocol (IP) networks. 
 
-`DNS` simply hold a table or database that **links** specific, fully qualified domain names such as **harvard.edu** to specific **IP addresses** so that we don't have to remember an IP address to visit a website.
+`DNS` simply hold a table or database that **links** specific, fully qualified **domain names** such as **harvard.edu** to specific **IP addresses** so that we don't have to remember an IP address to visit a website.
 
 <br>
 
 ## HTTP
 
-`HTTP` or `hypertext transfer protocol` is an application-level **protocol** that developers use to transfer data, such as HTML documents, images, videos, and other types of content, between clients (usually web browsers) and servers.
+`HTTP` or `hypertext transfer protocol` is an application-level **protocol** that developers use to **transfer data**, such as HTML documents, images, videos, and other types of content, between clients (usually web browsers) and servers.
 
 <br>
 
@@ -86,17 +86,18 @@ When you see an address such as `https://www.example.com` you are actually impli
 
 HTTP utilizes `GET` or `POST` **requests** to ask for information from a **server**. For example, you can launch Google Chrome, right-click, and click `inspect`. When you open the developer tools and visit `Network`, selecting `Preserve log`, you will see `Request Headers`. You’ll see mentions of `GET`.
 
+<br>
 
 For example, when issuing a `GET request`, your computer may send the following to a server:
 ```
 GET / HTTP/2
 Host: www.harvard.edu
 ```
-- Notice that this requests via HTTP the content served on www.harvard.edu
+- Notice that this **requests** via `HTTP` the content served on www.harvard.edu
 
 <br>
 
-Generally, after making a request a server, you will receive the following in Response Headers:
+Generally, after making a request a server, you will receive the following in `Response Headers`:
 ```
 HTTP/2 200
 Content-Type: text/html
@@ -111,7 +112,7 @@ curl -I https://www.harvard.edu/
 
 <br>
 
-Via `developer tools` in your **web browser**, you can see all the `HTTP requests` when browsing to the above website.
+> Via `developer tools` in your **web browser**, you can see all the `HTTP requests` when browsing to the above website.
 
 <br>
 
