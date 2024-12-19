@@ -25,7 +25,7 @@ Timestamp,language,problem
 
 - Notice in the `"Hello, world"` problem, double quotes `""` where added automatically in order not to confuse the coma separated words with two different **fields**.
 
-<br><br>
+<br>
 
 **Python** comes with **built-in** support for **csv** files
 ```py
@@ -63,7 +63,7 @@ Python
 
 - The **for loop** iterates through each row in the `csv` file and prints the **second element** `row[1]` of each row (the second column).
 
-<br><br>
+<br>
 
 ```py
 import csv
@@ -89,7 +89,7 @@ with open("favorites.csv", "r") as file:
 > [!NOTE]
 > One of the **disadvantages** of this approach is that we are trusting that `row[1]` is always the favorite and no changes have been made to the file like swapping columns.
 
-<br><br>
+<br>
 
 We can resolve this issue by modifying our code as follows
 ```py
@@ -149,7 +149,7 @@ Python: 280
 
 - In the `print` statements, we used `f` **formatted** and `{}` to include the variables values.
 
-<br><br>
+<br>
 
 We can further improve our code using **Python**'s ability to **sort counts**
 ```py
@@ -196,7 +196,7 @@ Python: 280
 ```
 - `key = counts.get` The `key` argument is used to modify the **sorting method**. In this case `counts.get` is used to sort **by the values**, smallest to largest value (40, 78, 280).
 
-<br><br>
+<br>
 
 We can also **reverse the order** to **largest to smallest** by adding `reverse=True`
 
@@ -209,7 +209,7 @@ Python: 280
 C: 78
 Scratch: 40
 ```
-<br><br>
+<br>
 
 We can also use the library `collections` and its `Counter` class, which will allow us to access the **counts** of each language without all the **if statements**
 ```py
@@ -242,7 +242,7 @@ Scratch: 40
 
 - The second **loop** uses the built-in method `counts.most_common()` to return a **pair** of **key-value**.
 
-<br><br>
+<br>
 
 To change the **column** we are examining, focusing on favorite **problem** instead of language, we simply replace `row["language"]` by `row["problem"]`
 ```py
@@ -264,7 +264,7 @@ with open("favorites.csv", "r") as file:
 for favorite, count in counts.most_common():
     print(f"{favorite}: {count}")
 ```
-<br><br>
+<br>
 
 We could also make the program more interactive and get the count of the popularity of a **specific problem** by **prompting the user** for favorite problem and printing the **count**.
 ```py
@@ -292,7 +292,7 @@ Favorite: Hello, World
 ```txt
 Hello, World: 65
 ```
-<br><br>
+<br>
 
 ## Relational Databases
 
