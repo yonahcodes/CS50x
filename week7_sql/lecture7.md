@@ -179,7 +179,6 @@ for favorite in sorted(counts):
 
 <br>
 
-> [!NOTE]
 > Notice we used the `sorted()` function to sort the languages alphabetically (**by key**). If the function was not used the order would be in which language **appeared first**.
 
 <br><br>
