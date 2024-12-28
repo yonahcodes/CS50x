@@ -2,7 +2,7 @@
 
 ![This is CS50](img/this_is_cs50.webp)
 
-## Welcome to Lazer's CS50 Repository
+## Welcome to Yonah's CS50 Repository
 
 ### [Academic Honesty](https://cs50.harvard.edu/x/2024/honesty/)
 
