@@ -1,4 +1,4 @@
-# Harvard University’s CS50x - 2024
+# Harvard University’s CS50x - 2025
 
 ![This is CS50](img/this_is_cs50.webp)
 
