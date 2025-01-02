@@ -6,19 +6,19 @@
 
 ### [Academic Honesty](https://cs50.harvard.edu/x/2025/honesty/)
 
-In this repository I will be documenting my progress in Harvard University's introduction to the intellectual enterprises of computer science and the art of programming [CS50](https://cs50.harvard.edu/x/2024/) course. Here, you will find a compilation of my projects and notes. Hope it proves useful to someone. Happy coding!
+In this repository I will be documenting my progress in Harvard University's introduction to the intellectual enterprises of computer science and the art of programming [CS50](https://cs50.harvard.edu/x/2025/) course. Here, you will find a compilation of my projects and notes. Hope it proves useful to someone. Happy coding!
 <br><br>
 
 ## [0 - Scratch](https://cs50.harvard.edu/x/2025/weeks/0/)
 
-- Lecture 0 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/0/)
+- Lecture 0 - [Official Notes](https://cs50.harvard.edu/x/2025/notes/0/)
 
 - Problem Set 0 - [Scratch](https://scratch.mit.edu/projects/973718749)
 <br><br>
 
 ## [1 - C](https://cs50.harvard.edu/x/2025/weeks/1/)
 
-- Lecture 1 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/1/)
+- Lecture 1 - [Official Notes](https://cs50.harvard.edu/x/2025/notes/1/)
 
 - Section 1 - [Notes](week1_c/section1.md)
 
@@ -38,7 +38,7 @@ In this repository I will be documenting my progress in Harvard University's int
 
 ## [2 - Arrays](https://cs50.harvard.edu/x/2025/weeks/2/)
 
-- Lecture 2 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/2/) - [Notes](week2_arrays/lecture2.md)
+- Lecture 2 - [Official Notes](https://cs50.harvard.edu/x/2025/notes/2/) - [Notes](week2_arrays/lecture2.md)
 
 - Section 2 - [Notes](week2_arrays/section2.md)
 
@@ -57,7 +57,7 @@ In this repository I will be documenting my progress in Harvard University's int
 
 ## [3 - Algorithms](https://cs50.harvard.edu/x/2025/weeks/3/)
 
-- Lecture 3 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/3/) - [Notes](week3_algorithms/lecture3.md)
+- Lecture 3 - [Official Notes](https://cs50.harvard.edu/x/2025/notes/3/) - [Notes](week3_algorithms/lecture3.md)
 
 - Section 3 - [Notes](week3_algorithms/section3.md)
 
@@ -77,7 +77,7 @@ In this repository I will be documenting my progress in Harvard University's int
 
 ## [4 - Memory](https://cs50.harvard.edu/x/2025/weeks/4/)
 
-- Lecture 4 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/4/) - [Notes](week4_memory/lecture4.md)
+- Lecture 4 - [Official Notes](https://cs50.harvard.edu/x/2025/notes/4/) - [Notes](week4_memory/lecture4.md)
 
 - Section 4 - [Notes](week4_memory/section4.md)
 
@@ -97,7 +97,7 @@ In this repository I will be documenting my progress in Harvard University's int
 
 ## [5 - Data Structures](https://cs50.harvard.edu/x/2025/weeks/5/)
 
-- Lecture 5 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/5/) - [Notes](week5_data_structures/lecture5.md)
+- Lecture 5 - [Official Notes](https://cs50.harvard.edu/x/2025/notes/5/) - [Notes](week5_data_structures/lecture5.md)
 
 - Section 5 - [Notes](week5_data_structures/section5.md)
 
@@ -118,7 +118,7 @@ In this repository I will be documenting my progress in Harvard University's int
 
 ## [6 - Python](https://cs50.harvard.edu/x/2025/weeks/6/)
 
-- Lecture 6 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/6/) - [Notes](week6_python/lecture6.md)
+- Lecture 6 - [Official Notes](https://cs50.harvard.edu/x/2025/notes/6/) - [Notes](week6_python/lecture6.md)
 
 - Section 6 - [Notes](week6_python/section6.md)
 
@@ -135,7 +135,7 @@ In this repository I will be documenting my progress in Harvard University's int
 
 ## [6.5 - Artificial Intelligence](https://cs50.harvard.edu/x/2025/weeks/ai/)
 
-- Lecture 6.5 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/ai/) - [Notes](week6.5_artificial_intelligence/lecture6.5.md)
+- Lecture 6.5 - [Official Notes](https://cs50.harvard.edu/x/2025/notes/ai/) - [Notes](week6.5_artificial_intelligence/lecture6.5.md)
 <br><br>
 
 ## [7 - SQL](https://cs50.harvard.edu/x/2025/weeks/7/)
