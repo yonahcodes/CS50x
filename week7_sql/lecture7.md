@@ -311,3 +311,24 @@ CREATE TABLE table (column type, ...);
 ````
 <br>
 
+### sqlite3
+
+`sqlite3` is a type of **SQL database** that has the core features required for an introduction to **SQL**.
+
+To create a SQL database at the terminal: `sqlite3 filename`
+```zsh
+sqlite3 favorites.db
+```
+We are now using `sqlite3` program.
+````zsh
+sqlite>
+````
+
+We can put sqlite into csv mode by typing:
+```zsh
+.mode csv.
+```
+Then, we can import our data from our `csv` file:
+```zsh
+.import favorites.csv favorites
+```
