@@ -310,3 +310,4 @@ To create a database with the SQL syntax :
 CREATE TABLE table (column type, ...);
 ````
 <br>
+
