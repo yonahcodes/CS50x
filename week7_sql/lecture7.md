@@ -350,7 +350,7 @@ CREATE TABLE IF NOT EXISTS "favorites"(
 ```
 <br>
 
-To read items from a table:
+Syntax to read items from a table:
 ```sql
 SELECT columns FROM table
 ```
@@ -371,4 +371,35 @@ Output
 "10/15/2024 10:28:55",Python,Tideman
 "10/15/2024 10:28:55",Python,"Hello, World"
 ...
+```
+<br>
+
+To see the output in table format:
+```zsh
+.mode table
+```
+```sql
+SELECT * FROM favorites;
+```
+```zsh
++---------------------+----------+-----------------------+
+|      Timestamp      | language |        problem        |
++---------------------+----------+-----------------------+
+| 10/15/2024 3:40:19  | Python   | Scratch               |
+| 10/15/2024 4:41:52  | Python   | Hello, World          |
+| 10/15/2024 8:16:53  | C        | Tideman               |
+| 10/15/2024 10:28:48 | Python   | Tideman               |
+| 10/15/2024 10:28:51 | Python   | Mario                 |
+| 10/15/2024 10:28:51 | Python   | Credit                |
+| 10/15/2024 10:28:52 | Python   | Filter                |
+| 10/15/2024 10:28:54 | Python   | Filter                |
+| 10/15/2024 10:28:55 | Python   | Tideman               |
+| 10/15/2024 10:28:55 | Python   | Hello, World          |
+...
+```
+<br>
+
+To read a specific column from favorites database:
+```sql
+SELECT language FROM favorites;
 ```
