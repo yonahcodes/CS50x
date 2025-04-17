@@ -305,3 +305,8 @@ UPDATE
 DELETE, DROP
 ````
 
+To create a database with the SQL syntax :
+````sql
+CREATE TABLE table (column type, ...);
+````
+<br>
