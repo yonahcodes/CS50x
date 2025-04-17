@@ -299,9 +299,9 @@ A Relational Database Management System is a type of database management system 
 
 SQL allows for four types of commands (**CRUD**):
 ````
-CREATE
+CREATE, INSERT
 READ
 UPDATE
-DELETE
+DELETE, DROP
 ````
 
