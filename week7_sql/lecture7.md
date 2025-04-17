@@ -295,4 +295,13 @@ Hello, World: 65
 
 ## Relational Databases
 
-Lecture: 00:33:00
+A Relational Database Management System is a type of database management system that stores data in a structured format using **tables** with rows and columns. Many relational database systems are equipped with the option of using `SQL` (Structured Query Language) for querying and updating the database.
+
+SQL allows for four types of commands (**CRUD**):
+````
+CREATE
+READ
+UPDATE
+DELETE
+````
+
