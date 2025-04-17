@@ -331,8 +331,6 @@ To come back to the database:
 ```zsh
 sqlite3 favorites.db
 ```
-<br>
-
 To put sqlite into csv mode by typing:
 ```zsh
 .mode csv.
@@ -341,8 +339,6 @@ Then, we can import our data from our `csv` file into the database:
 ```zsh
 .import favorites.csv favorites
 ```
-<br>
-
 We can type `.schema` to see the structure of the database:
 ```zsh
 CREATE TABLE IF NOT EXISTS "favorites"(
@@ -350,7 +346,7 @@ CREATE TABLE IF NOT EXISTS "favorites"(
 ```
 <br>
 
-Syntax to read items from a table:
+**SQL** syntax to read items from a table:
 ```sql
 SELECT columns FROM table
 ```
@@ -403,3 +399,88 @@ To read a specific column from favorites database:
 ```sql
 SELECT language FROM favorites;
 ```
+```zsh
++----------+
+| language |
++----------+
+| Python   |
+| Python   |
+| C        |
+| Python   |
+| Python   |
+| Python   |
+| Python   |
+| Python   |
+...
+```
+<br>
+
+SQL supports many commands to access data, including:
+```sql
+  AVG
+  COUNT
+  DISTINCT
+  LOWER
+  MAX
+  MIN
+  UPPER
+```
+<br>
+
+To output the count rows in the table:
+```sql
+SELECT COUNT(*) FROM favorites;
+```
+```zsh
++----------+
+| COUNT(*) |
++----------+
+| 627      |
++----------+
+```
+<br>
+
+To output all the different values in the languages table:
+```sql
+SELECT DISTINCT language FROM favorites;
+```
+```zsh
++----------+
+| language |
++----------+
+| Python   |
+| C        |
+| Scratch  |
+| language |
++----------+
+```
+<br>
+
+To output the count of the different languages in the database:
+```sql
+SELECT COUNT(DISTINCT language) FROM favorites;
+```
+```zsh
++--------------------------+
+| COUNT(DISTINCT language) |
++--------------------------+
+| 4                        |
++--------------------------+
+```
+<br>
+
+SQL offers additional commands we can use in our queries:
+```sql
+  WHERE       -- adding a Boolean expression to filter our data
+  LIKE        -- filtering responses more loosely
+  ORDER BY    -- ordering responses
+  LIMIT       -- limiting the number of responses
+  GROUP BY    -- grouping responses together
+```
+> Notice that we use -- to write a comment in SQL.
+
+<br>
+
+## SELECT
+
+00:52:00
