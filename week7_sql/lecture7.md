@@ -319,16 +319,56 @@ To create a SQL database at the terminal: `sqlite3 filename`
 ```zsh
 sqlite3 favorites.db
 ```
-We are now using `sqlite3` program.
+We are now using `sqlite3` program. It looks like this:
 ````zsh
 sqlite>
 ````
+To exit sqlite:
+```zsh
+.quit
+```
+To come back to the database:
+```zsh
+sqlite3 favorites.db
+```
+<br>
 
-We can put sqlite into csv mode by typing:
+To put sqlite into csv mode by typing:
 ```zsh
 .mode csv.
 ```
-Then, we can import our data from our `csv` file:
+Then, we can import our data from our `csv` file into the database:
 ```zsh
 .import favorites.csv favorites
+```
+<br>
+
+We can type `.schema` to see the structure of the database:
+```zsh
+CREATE TABLE IF NOT EXISTS "favorites"(
+"Timestamp" TEXT, "language" TEXT, "problem" TEXT);
+```
+<br>
+
+To read items from a table:
+```sql
+SELECT columns FROM table
+```
+To read all data from our database use `*`
+```sql
+SELECT * FROM favorites;
+```
+Output
+```zsh
+"10/15/2024 3:40:19",Python,Scratch
+"10/15/2024 4:41:52",Python,"Hello, World"
+"10/15/2024 8:16:53",C,Tideman
+"10/15/2024 10:28:48",Python,Tideman
+"10/15/2024 10:28:51",Python,Mario
+"10/15/2024 10:28:51",Python,Credit
+"10/15/2024 10:28:52",Python,Filter
+"10/15/2024 10:28:54",Python,Filter
+"10/15/2024 10:28:55",Python,Tideman
+"10/15/2024 10:28:55",Python,"Hello, World"
+...
 ```
