@@ -483,4 +483,68 @@ SQL offers additional commands we can use in our queries:
 
 ## SELECT
 
-00:52:00
+Count the rows where "C" appears in the language column:
+```sql
+SELECT COUNT(*) FROM favorites WHERE language = 'C';
+```
+```zsh
++----------+
+| COUNT(*) |
++----------+
+| 118      |
++----------+
+```
+<br>
+
+Count the rows where language "C" and problem "Hello, World" appear together:
+```sql
+SELECT COUNT(*) FROM favorites WHERE language = 'C' AND problem = 'Hello, World';
+```
+```zsh
++----------+
+| COUNT(*) |
++----------+
+| 16       |
++----------+
+```
+<br>
+
+
+COMMENT QUERIES BELOW
+
+
+
+
+
+```sql
+SELECT language, COUNT(*) FROM favorites GROUP BY language;
+```
+```zsh
++----------+----------+
+| language | COUNT(*) |
++----------+----------+
+| C        | 118      |
+| Python   | 486      |
+| Scratch  | 22       |
+| language | 1        |
++----------+----------+
+```
+<br>
+
+
+```sql
+SELECT language, COUNT(*) FROM favorites GROUP BY language ORDER BY COUNT(*);
+```
+```zsh
++----------+----------+
+| language | COUNT(*) |
++----------+----------+
+| language | 1        |
+| Scratch  | 22       |
+| C        | 118      |
+| Python   | 486      |
++----------+----------+
+```
+<br>
+
+00:58:00
