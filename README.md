@@ -1,6 +1,6 @@
 # Harvard University's CS50x - 2024
 
-![This is CS50](img/this_is_cs50.png)
+![This is CS50](this_is_cs50.png)
 
 ## Welcome to my CS50 Repository
 
@@ -8,7 +8,7 @@
 
 In this repository, I will be documenting my progress in Harvard University’s introduction to the intellectual enterprises of computer science and the art of programming [CS50](https://cs50.harvard.edu/x/2025/) course. Here, you will find a compilation of my projects and notes.
 
-I chose to include specifically the **C** programming portion and the foundational concepts in computer science, including *data structures* and *algorithms*, as those were the areas I was most interested in exploring.
+I chose to include specifically the **C** programming portion and the foundational concepts in computer science, including _data structures_ and _algorithms_, as those were the areas I was most interested in exploring.
 
 Hope it proves useful to someone. Happy coding!
 
@@ -25,6 +25,7 @@ Hope it proves useful to someone. Happy coding!
 - Section 1 - [Notes](week1_c/section1.md)
 
 - Shorts
+
   - [Data Types](week1_c/w1_data_types.md)
   - [Operators](week1_c/w1_operators.md)
   - [Conditional Statements](week1_c/w1_conditional_statements.md)
@@ -44,6 +45,7 @@ Hope it proves useful to someone. Happy coding!
 - Section 2 - [Notes](week2_arrays/section2.md)
 
 - Shorts
+
   - [Functions](week2_arrays/w2_functions.md)
   - [Variables and Scope](week2_arrays/w2_variables_and_scope.md)
   - [Debugging](week2_arrays/w2_debugging.md)
@@ -62,6 +64,7 @@ Hope it proves useful to someone. Happy coding!
 - Section 3 - [Notes](week3_algorithms/section3.md)
 
 - Shorts
+
   - [Linear Search](week3_algorithms/w3_linear_search.md)
   - [Binary Search](week3_algorithms/w3_binary_search.md)
   - [Bubble Sort](week3_algorithms/w3_bubble_sort.md)
@@ -81,6 +84,7 @@ Hope it proves useful to someone. Happy coding!
 - Section 4 - [Notes](week4_memory/section4.md)
 
 - Shorts
+
   - [Hexadecimal](week4_memory/w4_hexadecimal.md)
   - [Pointers](week4_memory/w4_pointers.md)
   - [Defining Custom Types](week4_memory/w4_defining_custom_types.md)
@@ -100,6 +104,7 @@ Hope it proves useful to someone. Happy coding!
 - Section 5 - [Notes](week5_data_structures/section5.md)
 
 - Shorts
+
   - [Data Structures](week5_data_structures/w5_data_structures.md)
   - [Structures](week5_data_structures/w5_structures.md)
   - [Singly-Linked Lists](week5_data_structures/w5_singly-linked_lists.md)
