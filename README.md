@@ -22,98 +22,98 @@ Hope it proves useful to someone. Happy coding!
 
 - Lecture 1 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/1/)
 
-- Section 1 - [Notes](week1_c/section1.md)
+- Section 1 - [Notes](01_c/section1.md)
 
 - Shorts
 
-  - [Data Types](week1_c/w1_data_types.md)
-  - [Operators](week1_c/w1_operators.md)
-  - [Conditional Statements](week1_c/w1_conditional_statements.md)
-  - [Loops](week1_c/w1_loops.md)
-  - [Command Line](week1_c/w1_command_line.md)
-  - [Magic Numbers](week1_c/w1_magic_numbers.md)
+  - [Data Types](01_c/w1_data_types.md)
+  - [Operators](01_c/w1_operators.md)
+  - [Conditional Statements](01_c/w1_conditional_statements.md)
+  - [Loops](01_c/w1_loops.md)
+  - [Command Line](01_c/w1_command_line.md)
+  - [Magic Numbers](01_c/w1_magic_numbers.md)
 
 - Problem Set 1
-  - [Hello, It's Me](week1_c/hello.c)
-  - [Mario](week1_c/mario.c)
-  - [Cash](week1_c/cash.c)
+  - [Hello, It's Me](01_c/hello.c)
+  - [Mario](01_c/mario.c)
+  - [Cash](01_c/cash.c)
 
 ## [2 - Arrays](https://cs50.harvard.edu/x/2024/weeks/2/)
 
-- Lecture 2 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/2/) - [Notes](week2_arrays/lecture2.md)
+- Lecture 2 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/2/) - [Notes](02_arrays/lecture2.md)
 
-- Section 2 - [Notes](week2_arrays/section2.md)
+- Section 2 - [Notes](02_arrays/section2.md)
 
 - Shorts
 
-  - [Functions](week2_arrays/w2_functions.md)
-  - [Variables and Scope](week2_arrays/w2_variables_and_scope.md)
-  - [Debugging](week2_arrays/w2_debugging.md)
-  - [Arrays](week2_arrays/w2_arrays.md)
-  - [Command Line Arguments](week2_arrays/w2_command_line_arguments.md)
+  - [Functions](02_arrays/w2_functions.md)
+  - [Variables and Scope](02_arrays/w2_variables_and_scope.md)
+  - [Debugging](02_arrays/w2_debugging.md)
+  - [Arrays](02_arrays/w2_arrays.md)
+  - [Command Line Arguments](02_arrays/w2_command_line_arguments.md)
 
 - Problem Set 2
-  - [Scrabble](week2_arrays/scrabble.c)
-  - [Readability](week2_arrays/readability.c)
-  - [Caesar](week2_arrays/caesar.c)
+  - [Scrabble](02_arrays/scrabble.c)
+  - [Readability](02_arrays/readability.c)
+  - [Caesar](02_arrays/caesar.c)
 
 ## [3 - Algorithms](https://cs50.harvard.edu/x/2024/weeks/3/)
 
-- Lecture 3 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/3/) - [Notes](week3_algorithms/lecture3.md)
+- Lecture 3 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/3/) - [Notes](03_algorithms/lecture3.md)
 
-- Section 3 - [Notes](week3_algorithms/section3.md)
+- Section 3 - [Notes](03_algorithms/section3.md)
 
 - Shorts
 
-  - [Linear Search](week3_algorithms/w3_linear_search.md)
-  - [Binary Search](week3_algorithms/w3_binary_search.md)
-  - [Bubble Sort](week3_algorithms/w3_bubble_sort.md)
-  - [Selection Sort](week3_algorithms/w3_selection_sort.md)
-  - [Recursion](week3_algorithms/w3_recursion.md)
-  - [Merge Sort](week3_algorithms/w3_merge_sort.md)
+  - [Linear Search](03_algorithms/w3_linear_search.md)
+  - [Binary Search](03_algorithms/w3_binary_search.md)
+  - [Bubble Sort](03_algorithms/w3_bubble_sort.md)
+  - [Selection Sort](03_algorithms/w3_selection_sort.md)
+  - [Recursion](03_algorithms/w3_recursion.md)
+  - [Merge Sort](03_algorithms/w3_merge_sort.md)
 
 - Problem Set 3
-  - [Sort](week3_algorithms/sort/answers.txt)
-  - [Plurality](week3_algorithms/plurality.c)
-  - [Runoff](week3_algorithms/runoff.c)
+  - [Sort](03_algorithms/sort/answers.txt)
+  - [Plurality](03_algorithms/plurality.c)
+  - [Runoff](03_algorithms/runoff.c)
 
 ## [4 - Memory](https://cs50.harvard.edu/x/2024/weeks/4/)
 
-- Lecture 4 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/4/) - [Notes](week4_memory/lecture4.md)
+- Lecture 4 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/4/) - [Notes](04_memory/lecture4.md)
 
-- Section 4 - [Notes](week4_memory/section4.md)
+- Section 4 - [Notes](04_memory/section4.md)
 
 - Shorts
 
-  - [Hexadecimal](week4_memory/w4_hexadecimal.md)
-  - [Pointers](week4_memory/w4_pointers.md)
-  - [Defining Custom Types](week4_memory/w4_defining_custom_types.md)
-  - [Dynamic Memory Allocation](week4_memory/w4_dynamic_memory_allocation.md)
-  - [Call Stacks](week4_memory/w4_call_stacks.md)
-  - [File Pointers](week4_memory/w4_file_pointers.md)
+  - [Hexadecimal](04_memory/w4_hexadecimal.md)
+  - [Pointers](04_memory/w4_pointers.md)
+  - [Defining Custom Types](04_memory/w4_defining_custom_types.md)
+  - [Dynamic Memory Allocation](04_memory/w4_dynamic_memory_allocation.md)
+  - [Call Stacks](04_memory/w4_call_stacks.md)
+  - [File Pointers](04_memory/w4_file_pointers.md)
 
 - Problem Set 4
-  - [Volume](week4_memory/volume/volume.c)
-  - [Filter](week4_memory/filter-less/helpers.c)
-  - [Recover](week4_memory/recover/recover.c)
+  - [Volume](04_memory/volume/volume.c)
+  - [Filter](04_memory/filter-less/helpers.c)
+  - [Recover](04_memory/recover/recover.c)
 
 ## [5 - Data Structures](https://cs50.harvard.edu/x/2024/weeks/5/)
 
-- Lecture 5 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/5/) - [Notes](week5_data_structures/lecture5.md)
+- Lecture 5 - [Official Notes](https://cs50.harvard.edu/x/2024/notes/5/) - [Notes](05_data_structures/lecture5.md)
 
-- Section 5 - [Notes](week5_data_structures/section5.md)
+- Section 5 - [Notes](05_data_structures/section5.md)
 
 - Shorts
 
-  - [Data Structures](week5_data_structures/w5_data_structures.md)
-  - [Structures](week5_data_structures/w5_structures.md)
-  - [Singly-Linked Lists](week5_data_structures/w5_singly-linked_lists.md)
-  - [Doubly-Linked Lists](week5_data_structures/w5_doubly-linked_lists.md)
-  - [Hash Tables](week5_data_structures/w5_hash_tables.md)
-  - [Tries](week5_data_structures/w5_tries.md)
-  - [Queues](week5_data_structures/w5_queues.md)
-  - [Stacks](week5_data_structures/w5_stacks.md)
+  - [Data Structures](05_data_structures/w5_data_structures.md)
+  - [Structures](05_data_structures/w5_structures.md)
+  - [Singly-Linked Lists](05_data_structures/w5_singly-linked_lists.md)
+  - [Doubly-Linked Lists](05_data_structures/w5_doubly-linked_lists.md)
+  - [Hash Tables](05_data_structures/w5_hash_tables.md)
+  - [Tries](05_data_structures/w5_tries.md)
+  - [Queues](05_data_structures/w5_queues.md)
+  - [Stacks](05_data_structures/w5_stacks.md)
 
 - Problem Set 5
-  - [Inheritance](week5_data_structures/inheritance.c)
-  - [Speller](week5_data_structures/speller/dictionary.c)
+  - [Inheritance](05_data_structures/inheritance.c)
+  - [Speller](05_data_structures/speller/dictionary.c)
